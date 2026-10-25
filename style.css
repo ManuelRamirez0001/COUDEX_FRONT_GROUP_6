@@ -235,8 +235,8 @@
 
 .felx-seccion6-4{
     display: flex;
-    min-width: 100vw;
-    padding: 3%;
+    min-width: 90vw;
+    padding: 3% 0 3% 4.5%;
     gap: 8%;
     justify-content: space-around;
 
