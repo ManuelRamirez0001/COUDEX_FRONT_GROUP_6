@@ -21,6 +21,9 @@ h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: 'Libre Baskerville', serif;
 
 /* Cinta del logo que cuelga del navbar */
 .cinta { position: absolute; left: -10px; top: -16px; height: 90px; }
+@media (min-width: 768px) {
+    .raton-logo { transform: translate(-6px, 0px); }
+}
 
 /* Cajas con borde café y círculos */
 .borde-cafe { border: 2px solid var(--cafe); border-radius: .5rem; }
