@@ -34,7 +34,20 @@ h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: 'Libre Baskerville', serif;
 .accordion-button:not(.collapsed) { background: var(--cafe); color: var(--crema); box-shadow: none; }
 .accordion-button:hover { background: var(--cafe-claro); }
 .accordion-button:focus { box-shadow: none; }
-.accordion-button::after, .accordion-button:not(.collapsed)::after { filter: invert(1) brightness(2); }
+/* Icono del acordeón: círculo con + (cerrado) y − (abierto), como en el diseño */
+.accordion-button::after,
+.accordion-button:not(.collapsed)::after {
+    background-image: none;
+    transform: none;
+    width: 1.6rem; height: 1.6rem;
+    border-radius: 50%;
+    background-color: var(--crema);
+    color: var(--cafe);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; font-weight: 700; line-height: 1;
+}
+.accordion-button::after { content: "+"; }
+.accordion-button:not(.collapsed)::after { content: "\2212"; }
 .accordion-body { background: var(--crema); border: 1px solid var(--cafe); border-top: 0; font-size: .9rem; }
 
 /* ---------- Página Contáctanos ---------- */
