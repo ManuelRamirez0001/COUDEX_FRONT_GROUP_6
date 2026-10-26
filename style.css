@@ -6,7 +6,7 @@
     --beige: #f2e9db;
 }
 
-body { background: var(--crema); color: var(--cafe); font-family: 'Merriweather', serif; }
+body { background: var(--crema); color: var(--cafe); font-family: 'Libre Baskerville', serif; }
 h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: 'Libre Baskerville', serif; font-weight: 700; }
 
 .bg-cafe { background: var(--cafe); }
@@ -38,3 +38,6 @@ h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: 'Libre Baskerville', serif;
 .accordion-button:focus { box-shadow: none; }
 .accordion-button::after, .accordion-button:not(.collapsed)::after { filter: invert(1) brightness(2); }
 .accordion-body { background: var(--crema); border: 1px solid var(--cafe); border-top: 0; font-size: .9rem; }
+
+/* Iconos Bootstrap de la navegación */
+.nav-icon { font-size: 1rem; line-height: 1; }
