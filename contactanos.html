@@ -19,6 +19,9 @@
             <img src="img/Logo.svg" alt="Logo" height="40" class="position-relative raton-logo">
             <span class="small lh-sm">Ratón de<br>Biblioteca</span>
         </a>
+        <a href="#" class="cart-header d-md-none" aria-label="Carrito">
+            <i class="bi bi-cart3 fs-5"></i>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -62,20 +65,20 @@
                         ¡Gracias! Recibimos tu mensaje y te responderemos pronto.
                     </div>
 
-                    <form id="form-contacto" novalidate>
+                    <form id="form-contacto" action="https://formspree.io/f/xjyyypgb" method="POST">
                         <div class="mb-3">
                             <label for="nombre" class="form-label etiqueta">Nombre completo <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="nombre" placeholder="Ej. Gabriel García Márquez" required>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej. Gabriel García Márquez" required>
                             <div class="invalid-feedback">Escribe tu nombre.</div>
                         </div>
                         <div class="mb-3">
                             <label for="correo" class="form-label etiqueta">Correo electrónico <span class="text-danger">*</span></label>
-                            <input type="email" class="form-control" id="correo" placeholder="tucorreo@correo.com" required>
+                            <input type="email" class="form-control" id="correo" name="email" placeholder="tucorreo@correo.com" required>
                             <div class="invalid-feedback">Escribe un correo válido.</div>
                         </div>
                         <div class="mb-3">
                             <label for="asunto" class="form-label etiqueta">Asunto <span class="text-danger">*</span></label>
-                            <select class="form-select" id="asunto" required>
+                            <select class="form-select" id="asunto" name="asunto" required>
                                 <option value="" selected disabled>Selecciona una opción...</option>
                                 <option>Pedido o envío</option>
                                 <option>Sugerencia</option>
@@ -86,7 +89,7 @@
                         </div>
                         <div class="mb-4">
                             <label for="mensaje" class="form-label etiqueta">Mensaje <span class="text-danger">*</span></label>
-                            <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribe aquí tu comentario detalladamente..." required></textarea>
+                            <textarea class="form-control" id="mensaje" name="message" rows="4" placeholder="Escribe aquí tu comentario detalladamente..." required></textarea>
                             <div class="invalid-feedback">Escribe tu mensaje.</div>
                         </div>
                         <button type="submit" class="btn btn-cafe px-4 text-uppercase small">
