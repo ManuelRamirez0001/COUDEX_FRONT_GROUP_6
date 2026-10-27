@@ -18,11 +18,80 @@ h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: 'Libre Baskerville', serif;
 .btn-cafe:hover { background: var(--cafe); color: #fff; }
 .btn-crema { background: var(--crema); color: var(--cafe-claro); border: 0; }
 .btn-crema:hover { background: #fff; color: var(--cafe); }
+.text-crema .btn-crema { color: var(--cafe-claro); }
+.text-crema .btn-crema:hover { color: var(--cafe); }
 
 /* Cinta del logo que cuelga del navbar */
 .cinta { position: absolute; left: -10px; top: -16px; height: 90px; }
 @media (min-width: 768px) {
     .raton-logo { transform: translate(-6px, 0px); }
+}
+
+@media (max-width: 767.98px) {
+    header {
+        z-index: 1030;
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+    .cart-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 46px;
+        height: 40px;
+        margin-left: auto;
+        margin-right: .5rem;
+        border: 1px solid rgba(245, 239, 230, .2);
+        border-radius: .35rem;
+        color: var(--crema);
+        text-decoration: none;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: .8rem .9rem 1rem;
+        background: #000;
+        z-index: 1030;
+    }
+
+    .navbar-nav {
+        gap: .55rem;
+    }
+
+    .navbar-nav .nav-link,
+    .navbar-nav .btn {
+        display: block;
+        width: 100%;
+        padding: .7rem 1rem;
+        border-radius: 2rem;
+        text-align: center;
+    }
+
+    .navbar-nav .nav-link {
+        background: #050505;
+        color: var(--crema);
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        background: #171717;
+        color: #fff;
+    }
+
+    .navbar-nav .nav-item:has(.bi-cart3) {
+        display: none;
+    }
+
+    .navbar-nav .btn-cafe,
+    .navbar-nav .btn-crema {
+        margin-top: .1rem;
+    }
 }
 
 /* Cajas con borde café y círculos */
