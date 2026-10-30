@@ -6,25 +6,79 @@
     --beige: #f2e9db;
 }
 
-body { background: var(--crema); color: var(--cafe); font-family: 'Merriweather', serif; }
-h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: 'Libre Baskerville', serif; font-weight: 700; }
+body {
+    background: var(--crema);
+    color: var(--cafe);
+    font-family: 'Merriweather', serif;
+}
 
-.bg-cafe { background: var(--cafe); }
-.bg-beige { background: var(--beige); }
-.text-crema, .text-crema a { color: var(--crema); }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+}
+
+.bg-cafe {
+    background: var(--cafe);
+}
+
+.bg-beige {
+    background: var(--beige);
+}
+
+.text-crema,
+.text-crema a {
+    color: var(--crema);
+}
 
 /* Botones */
-.btn-cafe { background: var(--cafe-claro); color: #fff; border: 0; }
-.btn-cafe:hover { background: var(--cafe); color: #fff; }
-.btn-crema { background: var(--crema); color: var(--cafe-claro); border: 0; }
-.btn-crema:hover { background: #fff; color: var(--cafe); }
-.text-crema .btn-crema { color: var(--cafe-claro); }
-.text-crema .btn-crema:hover { color: var(--cafe); }
+.btn-cafe {
+    background: var(--cafe-claro);
+    color: #fff;
+    border: 0;
+}
+
+.btn-cafe:hover {
+    background: var(--cafe);
+    color: #fff;
+}
+
+.btn-crema {
+    background: var(--crema);
+    color: var(--cafe-claro);
+    border: 0;
+}
+
+.btn-crema:hover {
+    background: #fff;
+    color: var(--cafe);
+}
+
+.text-crema .btn-crema {
+    color: var(--cafe-claro);
+}
+
+.text-crema .btn-crema:hover {
+    color: var(--cafe);
+}
 
 /* Cinta del logo que cuelga del navbar */
-.cinta { position: absolute; left: -10px; top: -16px; height: 90px; }
+.cinta {
+    position: absolute;
+    left: -10px;
+    top: -16px;
+    height: 90px;
+}
+
 @media (min-width: 768px) {
-    .raton-logo { transform: translate(-6px, 0px); }
+    .raton-logo {
+        transform: translate(-6px, 0px);
+    }
 }
 
 @media (max-width: 767.98px) {
@@ -95,46 +149,171 @@ h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: 'Libre Baskerville', serif;
 }
 
 /* Cajas con borde café y círculos */
-.borde-cafe { border: 2px solid var(--cafe); border-radius: .5rem; }
-.circulo { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
-.circulo-beige { background: var(--beige); }
-.circulo-cafe { background: var(--cafe); color: var(--crema); }
+.borde-cafe {
+    border: 2px solid var(--cafe);
+    border-radius: .5rem;
+}
+
+.circulo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.circulo-beige {
+    background: var(--beige);
+}
+
+.circulo-cafe {
+    background: var(--cafe);
+    color: var(--crema);
+}
 
 /* Acordeón de Bootstrap con los colores del diseño */
-.accordion-item { border: 0; margin-bottom: .75rem; border-radius: .25rem !important; overflow: hidden; }
-.accordion-button { background: var(--cafe); color: var(--crema); font-family: 'Libre Baskerville', serif; }
-.accordion-button:not(.collapsed) { background: var(--cafe); color: var(--crema); box-shadow: none; }
-.accordion-button:hover { background: var(--cafe-claro); }
-.accordion-button:focus { box-shadow: none; }
+.accordion-item {
+    border: 0;
+    margin-bottom: .75rem;
+    border-radius: .25rem !important;
+    overflow: hidden;
+}
+
+.accordion-button {
+    background: var(--cafe);
+    color: var(--crema);
+    font-family: 'Libre Baskerville', serif;
+}
+
+.accordion-button:not(.collapsed) {
+    background: var(--cafe);
+    color: var(--crema);
+    box-shadow: none;
+}
+
+.accordion-button:hover {
+    background: var(--cafe-claro);
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
 /* Icono del acordeón: círculo con + (cerrado) y − (abierto), como en el diseño */
 .accordion-button::after,
 .accordion-button:not(.collapsed)::after {
     background-image: none;
     transform: none;
-    width: 1.6rem; height: 1.6rem;
+    width: 1.6rem;
+    height: 1.6rem;
     border-radius: 50%;
     background-color: var(--crema);
     color: var(--cafe);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.3rem; font-weight: 700; line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1;
 }
-.accordion-button::after { content: "+"; }
-.accordion-button:not(.collapsed)::after { content: "\2212"; }
-.accordion-body { background: var(--crema); border: 1px solid var(--cafe); border-top: 0; font-size: .9rem; }
+
+.accordion-button::after {
+    content: "+";
+}
+
+.accordion-button:not(.collapsed)::after {
+    content: "\2212";
+}
+
+.accordion-body {
+    background: var(--crema);
+    border: 1px solid var(--cafe);
+    border-top: 0;
+    font-size: .9rem;
+}
 
 /* ---------- Página Contáctanos ---------- */
-.bg-crema { background: var(--crema); }
-.icono-sm { width: 44px; height: 44px; font-size: 1.1rem; flex-shrink: 0; }
-.etiqueta { font-size: .7rem; font-weight: 700; text-transform: uppercase; }
+.bg-crema {
+    background: var(--crema);
+}
 
-.form-control, .form-select { border: 2px solid var(--cafe); border-radius: .6rem; background-color: #fff; font-size: .85rem; }
-.form-control:focus, .form-select:focus { border-color: var(--cafe-claro); box-shadow: 0 0 0 .2rem rgba(139,109,71,.25); }
+.icono-sm {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
 
-.canal { display: flex; align-items: center; gap: .75rem; border: 2px solid var(--cafe); border-radius: .6rem; padding: .5rem .75rem; margin-bottom: .6rem; background: #fff; }
-.canal > i { font-size: 1.2rem; }
+.etiqueta {
+    font-size: .7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
 
-.red { display: flex; align-items: center; gap: .5rem; border: 2px solid var(--cafe); border-radius: .6rem; padding: .5rem .75rem; color: var(--cafe); text-decoration: none; font-size: .85rem; background: #fff; }
-.red:hover { background: var(--beige); }
+.form-control,
+.form-select {
+    border: 2px solid var(--cafe);
+    border-radius: .6rem;
+    background-color: #fff;
+    font-size: .85rem;
+}
 
-.insignia { background: #f2b64d; color: var(--cafe); font-size: .65rem; }
-.text-crema a { text-decoration: none; }
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--cafe-claro);
+    box-shadow: 0 0 0 .2rem rgba(139, 109, 71, .25);
+}
+
+.canal {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    border: 2px solid var(--cafe);
+    border-radius: .6rem;
+    padding: .5rem .75rem;
+    margin-bottom: .6rem;
+    background: #fff;
+}
+
+.canal>i {
+    font-size: 1.2rem;
+}
+
+.red {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    border: 2px solid var(--cafe);
+    border-radius: .6rem;
+    padding: .5rem .75rem;
+    color: var(--cafe);
+    text-decoration: none;
+    font-size: .85rem;
+    background: #fff;
+}
+
+.red:hover {
+    background: var(--beige);
+}
+
+.insignia {
+    background: #f2b64d;
+    color: var(--cafe);
+    font-size: .65rem;
+}
+
+.text-crema a {
+    text-decoration: none;
+}
+
+/* ---------- Fotos del equipo (Nosotros) ---------- */
+.foto-equipo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border: 2px solid var(--cafe);
+    border-radius: .6rem;
+    background: #fff;
+}
