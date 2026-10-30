@@ -53,3 +53,6 @@ h1, h2, h3, h4, h5, h6, .navbar-brand { font-family: 'Libre Baskerville', serif;
 
 .insignia { background: #f2b64d; color: var(--cafe); font-size: .65rem; }
 .text-crema a { text-decoration: none; }
+
+/* ---------- Fotos del equipo (Nosotros) ---------- */
+.foto-equipo { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border: 2px solid var(--cafe); border-radius: .6rem; background: #fff; }
