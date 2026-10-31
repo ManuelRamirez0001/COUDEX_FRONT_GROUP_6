@@ -1,0 +1,170 @@
+/**
+ * responsive.css
+ * Adaptaciones responsivas (Media Queries) para móvil, tablet y escritorio.
+ */
+
+/* ==========================================================================
+   1. PANTALLAS GRANDES Y ESCRITORIO
+   ========================================================================== */
+
+/* Ajuste del logo en escritorio */
+@media (min-width: 768px) {
+    .raton-logo {
+        transform: translate(-6px, 0px);
+    }
+}
+
+/* Banner de inicio: cubre la altura visible sin franjas cortadas */
+@media (min-width: 992px) {
+    .banner-biblioteca {
+        height: calc(100vh - 65px);
+        min-height: 520px;
+        object-fit: cover;
+        object-position: center top;
+    }
+}
+
+
+/* ==========================================================================
+   2. LAPTOPS Y PANTALLAS INTERMEDIAS (≤ 1199px)
+   ========================================================================== */
+
+@media (max-width: 1199.98px) {
+    .libro-izq {
+        width: 310px;
+        margin-right: -90px;
+        transform: rotate(-12deg) translateY(16px);
+    }
+    .libro-centro {
+        width: 330px;
+        transform: translateY(-8px);
+    }
+    .libro-der {
+        width: 310px;
+        margin-left: -90px;
+        transform: rotate(11deg) translateY(16px);
+    }
+}
+
+
+/* ==========================================================================
+   3. TABLETS Y PANTALLAS MEDIANAS (≤ 991px)
+   ========================================================================== */
+
+@media (max-width: 991.98px) {
+    .abanico-libros {
+        padding: 1.5rem 0 2.5rem;
+    }
+    .libro-izq {
+        width: clamp(160px, 24vw, 220px);
+        margin-right: -14vw;
+        transform: rotate(-12deg) translateY(12px);
+    }
+    .libro-centro {
+        width: clamp(175px, 26vw, 235px);
+        transform: translateY(-6px);
+    }
+    .libro-der {
+        width: clamp(160px, 24vw, 220px);
+        margin-left: -14vw;
+        transform: rotate(11deg) translateY(12px);
+    }
+}
+
+
+/* ==========================================================================
+   4. MENÚ MÓVIL Y NAVEGACIÓN COLAPSABLE (≤ 767px)
+   ========================================================================== */
+
+@media (max-width: 767.98px) {
+    header {
+        z-index: 1030;
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+    .cart-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 46px;
+        height: 40px;
+        margin-left: auto;
+        margin-right: .5rem;
+        border: 1px solid rgba(245, 239, 230, .2);
+        border-radius: .35rem;
+        color: var(--crema);
+        text-decoration: none;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: .8rem .9rem 1rem;
+        background: #000;
+        z-index: 1030;
+    }
+
+    .navbar-nav {
+        gap: .55rem;
+    }
+
+    .navbar-nav .nav-link,
+    .navbar-nav .btn {
+        display: block;
+        width: 100%;
+        padding: .7rem 1rem;
+        border-radius: 2rem;
+        text-align: center;
+    }
+
+    .navbar-nav .nav-link {
+        background: #050505;
+        color: var(--crema);
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        background: #171717;
+        color: #fff;
+    }
+
+    .navbar-nav .nav-item:has(.bi-cart3) {
+        display: none;
+    }
+
+    .navbar-nav .btn-cafe,
+    .navbar-nav .btn-crema {
+        margin-top: .1rem;
+    }
+}
+
+
+/* ==========================================================================
+   5. TELÉFONOS MÓVILES (≤ 576px)
+   ========================================================================== */
+
+@media (max-width: 576px) {
+    .abanico-libros {
+        padding: 1rem 0 2rem;
+    }
+    .libro-izq {
+        width: clamp(105px, 30vw, 135px);
+        margin-right: -13vw;
+        transform: rotate(-10deg) translateY(8px);
+    }
+    .libro-centro {
+        width: clamp(115px, 33vw, 145px);
+        transform: translateY(-3px);
+    }
+    .libro-der {
+        width: clamp(105px, 30vw, 135px);
+        margin-left: -13vw;
+        transform: rotate(10deg) translateY(8px);
+    }
+}
+
