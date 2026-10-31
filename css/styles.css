@@ -4,6 +4,7 @@
     --cafe-claro: #8B6D47;
     --crema: #f5efe6;
     --beige: #f2e9db;
+    --amarillo: #FBB853;
 }
 
 html, body {
@@ -336,4 +337,51 @@ h6,
     margin-left: -115px;
     transform: rotate(11deg) translateY(20px);
     z-index: 1;
+}
+
+/* ---------- Footer ---------- */
+.sitio-footer {
+    padding-top: 4.5rem;
+    padding-bottom: 2.75rem;
+}
+
+.sitio-footer .footer-titulo {
+    color: var(--amarillo);
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 1.35rem;
+}
+
+.sitio-footer .footer-lista li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.sitio-footer .footer-contacto {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.sitio-footer .footer-correo {
+    color: var(--amarillo);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    display: inline-block;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    margin-bottom: 0.85rem;
+}
+
+.sitio-footer .footer-redes {
+    font-size: 1.15rem;
+}
+
+.sitio-footer .footer-linea {
+    border: 0;
+    border-top: 1px solid rgba(245, 239, 230, 0.45);
+    margin: 2.75rem 0 2.75rem;
+}
+
+.sitio-footer .footer-copy {
+    margin: 0;
 }
