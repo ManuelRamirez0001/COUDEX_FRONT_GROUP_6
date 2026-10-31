@@ -277,7 +277,7 @@ h6,
     background: #fff;
 }
 
-.canal>i {
+.canal > i {
     font-size: 1.2rem;
 }
 
@@ -317,3 +317,4 @@ h6,
     border-radius: .6rem;
     background: #fff;
 }
+
