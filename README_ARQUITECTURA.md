@@ -26,14 +26,16 @@ COUDEX_FRONT_GROUP_6/
 ├── README_ARQUITECTURA.md     # Esta guía técnica de arquitectura
 │
 ├── css/
-│   └── styles.css             # 2. Estilos globales centralizados
+│   ├── styles.css             # 2. Estilos globales centralizados y diseño base
+│   └── responsive.css         # Media queries ordenados por breakpoints (móvil, tablet, escritorio)
 │
 ├── components/                # 3. Fragmentos reutilizables
 │   ├── nav.html               # Barra de navegación compartida
 │   └── footer.html            # Pie de página compartido
 │
 ├── pages/                     # 4. Vistas/Páginas internas (solo <section>)
-│   ├── nosotros.html          # Vista de inicio/nosotros/equipo/FAQ
+│   ├── inicio.html            # Vista principal (Home con imagen de biblioteca)
+│   ├── nosotros.html          # Vista de presentación/propuesta/equipo/FAQ
 │   └── contactanos.html       # Vista del formulario y canales de atención
 │
 ├── js/                        # 5. Capa lógica en JavaScript ES Modules
@@ -76,6 +78,7 @@ Archivos HTML parciales (sin `<html>`, `<head>` ni `<body>`):
 
 ### 3. Vistas Parciales (`pages/`)
 Son fragmentos HTML puros que contienen únicamente las secciones que van dentro de `<main>`:
+- **`inicio.html`**: Portada principal (Home) con la imagen de la biblioteca histórica.
 - **`nosotros.html`**: Hero, ¿Quiénes somos?, ¿Qué ofrecemos?, ¿Cómo funciona?, Misión y Visión, FAQ (acordeón Bootstrap) y sección del Equipo Coudex.
 - **`contactanos.html`**: Formulario integrado con Formspree y tarjetas de canales de contacto directo.
 

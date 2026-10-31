@@ -40,7 +40,8 @@ COUDEX_FRONT_GROUP_6/
 ├── readme.md                  # Descripción general del proyecto
 ├── README_ARQUITECTURA.md     # Guía detallada de la nueva arquitectura modular SPA
 ├── css/
-│   └── styles.css             # Estilos globales
+│   ├── styles.css             # Estilos globales y diseño base
+│   └── responsive.css         # Media queries y adaptaciones responsivas (móvil, tablet, escritorio)
 ├── js/
 │   ├── app.js                 # Punto de entrada ES Module — orquesta todo el arranque
 │   ├── loadContent.js         # fetch + inyección de components/ y pages/ en el DOM
@@ -49,6 +50,7 @@ COUDEX_FRONT_GROUP_6/
 │   ├── nav.html               # Navbar reutilizable (sin <html>/<head>)
 │   └── footer.html            # Footer reutilizable (sin <html>/<head>)
 ├── pages/
+│   ├── inicio.html            # Portada principal (Home) con imagen de la biblioteca
 │   ├── nosotros.html          # Hero, ¿Quiénes somos?, FAQ, Equipo (sin nav/footer)
 │   └── contactanos.html       # Formulario y canales de contacto (sin nav/footer)
 └── img/                       # Imágenes, íconos y fotografías
