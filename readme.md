@@ -56,6 +56,12 @@ COUDEX_FRONT_GROUP_6/
 └── img/                       # Imágenes, íconos y fotografías
 ```
 
+## 📖 Documentación técnica
+
+Para conocer en detalle la arquitectura del proyecto, la organización de los módulos, el funcionamiento de la navegación SPA y la carga dinámica de componentes, consulta la siguiente guía:
+
+➡️ [**README_ARQUITECTURA.md – Guía de arquitectura**](README_ARQUITECTURA.md)
+
 ## 🚀 Cómo verlo localmente
 
 1. Descarga o clona este repositorio.
