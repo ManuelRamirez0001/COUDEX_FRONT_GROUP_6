@@ -14,12 +14,12 @@ import { initFormContacto, initNavCollapseOnClick } from './eventos.js';
 
 /** Páginas disponibles → archivo en pages/ */
 const PAGES = {
-  inicio:      'nosotros',   // página principal muestra el contenido de inicio/nosotros
-  nosotros:    'nosotros',
-  contactanos: 'contactanos',
+  inicio:      'inicio',      // página principal de bienvenida con imagen de biblioteca
+  nosotros:    'nosotros',    // propuesta, historia, equipo y preguntas frecuentes
+  contactanos: 'contactanos', // formulario y canales de atención
 };
 
-const DEFAULT_PAGE = 'nosotros';
+const DEFAULT_PAGE = 'inicio';
 
 /**
  * Devuelve el nombre de la página solicitada en la URL.
