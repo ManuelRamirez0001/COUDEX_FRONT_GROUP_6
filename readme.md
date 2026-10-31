@@ -23,9 +23,9 @@ Ratón de Biblioteca es una propuesta de plataforma digital para descubrir y ace
 
 | Tecnología | Uso en el proyecto |
 | --- | --- |
-| HTML5 | Estructura de las páginas |
+| HTML5 | Estructura del shell y fragmentos de página |
 | CSS3 | Estilos, paleta visual y ajustes responsivos |
-| JavaScript | Comportamiento del formulario de contacto |
+| JavaScript (ES Modules) | Navegación SPA, carga dinámica y formulario |
 | Bootstrap 5.3.3 | Sistema de diseño, navegación y componentes |
 | Bootstrap Icons | Iconografía |
 | Formspree | Recepción de mensajes del formulario |
@@ -36,12 +36,22 @@ Bootstrap, Bootstrap Icons y las fuentes tipográficas se cargan desde servicios
 
 ```text
 COUDEX_FRONT_GROUP_6/
-├── index.html          # Presentación, propuesta, preguntas frecuentes y equipo
-├── contactanos.html    # Formulario y canales de contacto
-├── style.css           # Estilos y adaptación visual
-├── scripts.js          # Validación y envío del formulario
-├── readme.md
-└── img/                # Logos, ilustraciones, iconos y fotografías
+├── index.html                 # Shell principal (header, main, footer vacíos + scripts)
+├── readme.md                  # Descripción general del proyecto
+├── README_ARQUITECTURA.md     # Guía detallada de la nueva arquitectura modular SPA
+├── css/
+│   └── styles.css             # Estilos globales
+├── js/
+│   ├── app.js                 # Punto de entrada ES Module — orquesta todo el arranque
+│   ├── loadContent.js         # fetch + inyección de components/ y pages/ en el DOM
+│   └── eventos.js             # Formulario de contacto, cierre del menú móvil, listeners
+├── components/
+│   ├── nav.html               # Navbar reutilizable (sin <html>/<head>)
+│   └── footer.html            # Footer reutilizable (sin <html>/<head>)
+├── pages/
+│   ├── nosotros.html          # Hero, ¿Quiénes somos?, FAQ, Equipo (sin nav/footer)
+│   └── contactanos.html       # Formulario y canales de contacto (sin nav/footer)
+└── img/                       # Imágenes, íconos y fotografías
 ```
 
 ## 🚀 Cómo verlo localmente
