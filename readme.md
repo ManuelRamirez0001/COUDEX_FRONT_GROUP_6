@@ -6,6 +6,8 @@ Ratón de Biblioteca es una propuesta de plataforma digital para descubrir y ace
 
 [🌐 Ver demo en GitHub Pages](https://manuelramirez0001.github.io/COUDEX_FRONT_GROUP_6/) · [🗂️ Tablero del proyecto](https://trello.com/invite/b/6ad28a525dfde1bd84766eec/ATTI06130e6fe041b420939a95eed1fbc315E6FB0ECD/coudex-proyecto)
 
+[🛠️ Abrir panel de administración](https://manuelramirez0001.github.io/COUDEX_FRONT_GROUP_6/admin.html?page=panelAdmin)
+
 ---
 
 ## ✨ ¿Qué encontrarás?
@@ -17,7 +19,7 @@ Ratón de Biblioteca es una propuesta de plataforma digital para descubrir y ace
 - **Una experiencia interactiva:** navegación adaptable, acordeón de preguntas frecuentes y componentes de Bootstrap.
 - **Una mirada al equipo:** presentación de Coudex y del proyecto integrador de Generation.
 
-> **Alcance de esta entrega:** este repositorio contiene el sitio frontend. El catálogo, el carrito, el registro, el inicio de sesión y el panel administrativo aparecen como parte de la propuesta, pero no tienen una implementación funcional en estos archivos.
+> **Alcance de esta entrega:** este repositorio contiene el frontend. El panel administrativo permite capturar los datos de libros y mostrarlos como JSON en la consola del navegador. Los datos se mantienen solo durante la sesión y todavía no se guardan en una base de datos ni se envían a un servidor.
 
 ## 🖥️ Tecnologías
 
@@ -37,22 +39,35 @@ Bootstrap, Bootstrap Icons y las fuentes tipográficas se cargan desde servicios
 ```text
 COUDEX_FRONT_GROUP_6/
 ├── index.html                 # Shell principal (header, main, footer vacíos + scripts)
+├── admin.html                 # Shell independiente del panel administrativo
 ├── readme.md                  # Descripción general del proyecto
 ├── README_ARQUITECTURA.md     # Guía detallada de la nueva arquitectura modular SPA
 ├── css/
-│   ├── styles.css             # Estilos globales y diseño base
-│   └── responsive.css         # Media queries y adaptaciones responsivas (móvil, tablet, escritorio)
+│   ├── styles.css              # Estilos globales y diseño base
+│   ├── responsive.css          # Adaptaciones responsivas del sitio
+│   └── admin/
+│       ├── stylesAdmin.css    # Estilos del panel administrativo
+│       └── responsiveAdmin.css # Adaptaciones responsivas del panel
 ├── js/
 │   ├── app.js                 # Punto de entrada ES Module — orquesta todo el arranque
 │   ├── loadContent.js         # fetch + inyección de components/ y pages/ en el DOM
-│   └── eventos.js             # Formulario de contacto, cierre del menú móvil, listeners
+│   ├── eventos.js             # Formulario de contacto y eventos del sitio
+│   └── admin/
+│       ├── appAdmin.js         # Arranque y navegación del panel
+│       ├── loadContentAdmin.js # Carga de fragmentos y vistas del administrador
+│       └── eventosAdmin.js     # Captura del formulario de libros y salida JSON
 ├── components/
-│   ├── nav.html               # Navbar reutilizable (sin <html>/<head>)
-│   └── footer.html            # Footer reutilizable (sin <html>/<head>)
+│   ├── nav.html               # Navbar del sitio
+│   ├── footer.html            # Footer del sitio
+│   └── admin/
+│       ├── header.html         # Header del panel
+│       └── sidebar.html        # Navegación lateral del panel
 ├── pages/
 │   ├── inicio.html            # Portada principal (Home) con imagen de la biblioteca
 │   ├── nosotros.html          # Hero, ¿Quiénes somos?, FAQ, Equipo (sin nav/footer)
-│   └── contactanos.html       # Formulario y canales de contacto (sin nav/footer)
+│   ├── contactanos.html       # Formulario y canales de contacto (sin nav/footer)
+│   └── admin/
+│       └── panelAdmin.html    # Formulario y tabla de gestión de libros
 └── img/                       # Imágenes, íconos y fotografías
 ```
 
@@ -65,10 +80,11 @@ Para conocer en detalle la arquitectura del proyecto, la organización de los m�
 ## 🚀 Cómo verlo localmente
 
 1. Descarga o clona este repositorio.
-2. Abre `index.html` en un navegador.
-3. Para consultar el formulario, navega a **Contáctanos** o abre `contactanos.html`.
+2. Abre el proyecto con un servidor local, por ejemplo Live Server en VS Code.
+3. Visita `index.html` para el sitio principal o `admin.html?page=panelAdmin` para el panel.
+4. Para consultar el formulario de contacto, navega a **Contáctanos**.
 
-No se requiere instalar dependencias ni ejecutar un proceso de compilación para esta versión estática.
+Se necesita un servidor local porque el proyecto usa módulos JavaScript y `fetch()` para cargar las vistas parciales. No se requiere instalar dependencias ni ejecutar un proceso de compilación.
 
 ## 👥 Equipo Coudex
 

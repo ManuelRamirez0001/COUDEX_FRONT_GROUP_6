@@ -22,36 +22,51 @@ Con la **nueva estructura modular**:
 COUDEX_FRONT_GROUP_6/
 │
 ├── index.html                 # 1. Shell Principal (marco general)
+├── admin.html                 # Shell independiente del panel administrativo
 ├── readme.md                  # Documentación general del repositorio
 ├── README_ARQUITECTURA.md     # Esta guía técnica de arquitectura
 │
 ├── css/
-│   ├── styles.css             # 2. Estilos globales centralizados y diseño base
-│   └── responsive.css         # Media queries ordenados por breakpoints (móvil, tablet, escritorio)
+│   ├── styles.css              # Estilos globales del sitio
+│   ├── responsive.css          # Adaptaciones responsivas del sitio
+│   └── admin/
+│       ├── stylesAdmin.css     # Estilos del panel administrativo
+│       └── responsiveAdmin.css # Adaptaciones responsivas del panel
 │
-├── components/                # 3. Fragmentos reutilizables
-│   ├── nav.html               # Barra de navegación compartida
-│   └── footer.html            # Pie de página compartido
+├── components/                 # Fragmentos reutilizables
+│   ├── nav.html                # Barra de navegación del sitio
+│   ├── footer.html             # Pie de página del sitio
+│   └── admin/
+│       ├── header.html         # Encabezado del panel
+│       └── sidebar.html        # Navegación lateral del panel
 │
-├── pages/                     # 4. Vistas/Páginas internas (solo <section>)
-│   ├── inicio.html            # Vista principal (Home con imagen de biblioteca)
-│   ├── nosotros.html          # Vista de presentación/propuesta/equipo/FAQ
-│   └── contactanos.html       # Vista del formulario y canales de atención
+├── pages/                      # Vistas parciales del sitio y el panel
+│   ├── inicio.html             # Vista principal
+│   ├── nosotros.html           # Presentación, equipo y FAQ
+│   ├── contactanos.html        # Formulario y canales de atención
+│   └── admin/
+│       └── panelAdmin.html     # Formulario y listado de libros
 │
-├── js/                        # 5. Capa lógica en JavaScript ES Modules
-│   ├── app.js                 # Orquestador principal y enrutador SPA
-│   ├── loadContent.js         # Funciones fetch() para inyectar HTML en el DOM
-│   └── eventos.js             # Validaciones (Formspree) y eventos de UI
+├── js/                         # Lógica en JavaScript ES Modules
+│   ├── app.js                  # Arranque y navegación SPA del sitio
+│   ├── loadContent.js          # Carga de fragmentos y páginas del sitio
+│   ├── eventos.js              # Formulario de contacto y eventos del sitio
+│   └── admin/
+│       ├── appAdmin.js         # Arranque y navegación del panel
+│       ├── loadContentAdmin.js # Carga de fragmentos y vistas del panel
+│       └── eventosAdmin.js     # Captura de libros y salida JSON en consola
 │
 └── img/                       # Recursos visuales (imágenes, SVGs, íconos)
 ```
+
+El sitio público y el panel tienen entradas independientes: `index.html` carga `js/app.js`, mientras que `admin.html` carga `js/admin/appAdmin.js`. Los componentes, estilos, eventos y vistas propios del panel están agrupados en sus respectivas carpetas `admin/`.
 
 ---
 
 ## ⚙️ ¿Cómo Funciona Cada Parte?
 
-### 1. El Shell (`index.html`)
-Es el único archivo HTML completo que carga el navegador. Solo contiene:
+### 1. Shells (`index.html` y `admin.html`)
+Son los documentos HTML completos que carga el navegador. El sitio público usa `index.html`; el panel usa `admin.html`. El shell público contiene:
 - Las etiquetas estructurales `<head>` (metadatos, fuentes tipográficas, Bootstrap 5 y estilos locales).
 - Tres contenedores vacíos con identificador:
   ```html
@@ -163,7 +178,25 @@ Si el equipo desea crear una nueva sección (por ejemplo, el **Catálogo** de li
      </li>
      ```
 
-¡Listo! No se requiere tocar ningún otro archivo; la navegación funcionará automáticamente.
+¡Listo! La navegación del sitio público cargará la nueva vista mediante su enrutador SPA.
+
+---
+
+## 🛠️ Panel de administración
+
+El panel se abre desde `admin.html?page=panelAdmin` y tiene su propio shell, carga de vistas y estilos:
+
+- **`admin.html`**: documento HTML principal del panel. Define los contenedores `#admin-header`, `#admin-sidebar` y `#main`.
+- **`components/admin/`**: contiene el header y el sidebar que se inyectan en el shell.
+- **`pages/admin/panelAdmin.html`**: vista con el formulario y el listado de libros.
+- **`js/admin/appAdmin.js`**: carga los componentes, la página inicial y registra navegación e historial.
+- **`js/admin/loadContentAdmin.js`**: carga fragmentos y páginas parciales mediante `fetch()`.
+- **`js/admin/eventosAdmin.js`**: captura los campos al enviar el formulario y muestra la lista como JSON en la consola.
+- **`css/admin/`**: contiene los estilos base y responsivos del panel.
+
+La captura actual es solo de frontend: los registros se guardan en memoria mientras la página está abierta y se imprimen en la consola. No persisten al recargar ni se envían a una base de datos.
+
+Para verlo en local, inicia Live Server desde la raíz del proyecto y abre `admin.html?page=panelAdmin`.
 
 ---
 
