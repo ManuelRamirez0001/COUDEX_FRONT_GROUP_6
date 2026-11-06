@@ -1,10 +1,10 @@
-# 🏗️ Guía de Arquitectura y Nueva Estructuración
+# Guía de Arquitectura y Nueva Estructuración
 
 Este documento explica en detalle el funcionamiento técnico de la nueva arquitectura modular del proyecto **Ratón de Biblioteca / Coudex**.
 
 ---
 
-## 🎯 Objetivo de la Reestructuración
+## Objetivo de la Reestructuración
 
 Anteriormente, el proyecto tenía una **estructura plana y monolítica**, donde cada página (`index.html`, `contactanos.html`) repetía código idéntico del Navbar, Footer, estilos y scripts. 
 
@@ -16,7 +16,7 @@ Con la **nueva estructura modular**:
 
 ---
 
-## 📁 Mapa del Proyecto y Responsabilidades
+## Mapa del Proyecto y Responsabilidades
 
 ```text
 COUDEX_FRONT_GROUP_6/
@@ -63,7 +63,7 @@ El sitio público y el panel tienen entradas independientes: `index.html` carga 
 
 ---
 
-## ⚙️ ¿Cómo Funciona Cada Parte?
+## ¿Cómo Funciona Cada Parte?
 
 ### 1. Shells (`index.html` y `admin.html`)
 Son los documentos HTML completos que carga el navegador. El sitio público usa `index.html`; el panel usa `admin.html`. El shell público contiene:
@@ -97,7 +97,7 @@ Son fragmentos HTML puros que contienen únicamente las secciones que van dentro
 - **`nosotros.html`**: Hero, ¿Quiénes somos?, ¿Qué ofrecemos?, ¿Cómo funciona?, Misión y Visión, FAQ (acordeón Bootstrap) y sección del Equipo Coudex.
 - **`contactanos.html`**: Formulario integrado con Formspree y tarjetas de canales de contacto directo.
 
-> 💡 **Regla clave:** Ningún archivo dentro de `pages/` debe incluir `<head>`, `navbar`, `footer` ni etiquetas `<script>`. Solo contienen las secciones (`<section>`, `<div>`, etc.) de su contenido visual.
+> **Regla clave:** Ningún archivo dentro de `pages/` debe incluir `<head>`, `navbar`, `footer` ni etiquetas `<script>`. Solo contienen las secciones (`<section>`, `<div>`, etc.) de su contenido visual.
 
 ---
 
@@ -124,7 +124,7 @@ Es el punto de entrada que ejecuta el siguiente ciclo de vida:
 
 ---
 
-## 🔄 Diagrama del Flujo de Ejecución
+## Diagrama del Flujo de Ejecución
 
 ```text
 [El usuario abre index.html en Live Server]
@@ -149,7 +149,7 @@ Es el punto de entrada que ejecuta el siguiente ciclo de vida:
 
 ---
 
-## 🛠️ Guía para el Equipo: ¿Cómo Agregar una Nueva Página?
+## Guía para el Equipo: ¿Cómo Agregar una Nueva Página?
 
 Si el equipo desea crear una nueva sección (por ejemplo, el **Catálogo** de libros):
 
@@ -182,7 +182,7 @@ Si el equipo desea crear una nueva sección (por ejemplo, el **Catálogo** de li
 
 ---
 
-## 🛠️ Panel de administración
+## Panel de administración
 
 El panel se abre desde `admin.html?page=panelAdmin` y tiene su propio shell, carga de vistas y estilos:
 
@@ -200,7 +200,7 @@ Para verlo en local, inicia Live Server desde la raíz del proyecto y abre `admi
 
 ---
 
-## ⚠️ ¿Por qué se debe usar Live Server para ver el proyecto?
+## ¿Por qué se debe usar Live Server para ver el proyecto?
 
 Los navegadores modernos aplican una política de seguridad que **bloquea las peticiones `fetch()` locales** y los **módulos de JavaScript (`type="module"`)** si el archivo se abre directamente con doble clic (es decir, bajo el protocolo `file:///C:/...`).
 
