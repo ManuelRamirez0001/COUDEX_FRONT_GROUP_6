@@ -19,6 +19,10 @@ body {
     font-family: 'Merriweather', serif;
 }
 
+body:has(#main .catalogo-hero) {
+    background: #FBF7F6;
+}
+
 h1,
 h2,
 h3,
@@ -698,6 +702,211 @@ h6,
 
 .catalogo-libro-info small {
     color: #8B6D47;
+}
+
+.catalogo-resultados-layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(24px, 3vw, 40px);
+    padding: 18px 0 56px;
+}
+
+.catalogo-filtros {
+    position: sticky;
+    top: 20px;
+}
+
+.catalogo-resultados {
+    min-width: 0;
+}
+
+.catalogo-conteo-libros {
+    margin: 0 0 24px;
+    color: #211003;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.9rem;
+}
+
+.catalogo-libros-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    column-gap: clamp(18px, 3vw, 38px);
+    row-gap: 32px;
+}
+
+.catalogo-producto-card {
+    min-width: 0;
+    color: #211003;
+}
+
+.catalogo-producto-visual {
+    position: relative;
+    display: flex;
+    height: clamp(230px, 27vw, 352px);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid #8B6D47;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #f8f0e2, #eee2cc);
+}
+
+.catalogo-producto-portada-vacia,
+.catalogo-producto-portada {
+    display: block;
+    width: min(68%, 190px);
+    height: 78%;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.catalogo-producto-base {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 10%;
+    background: linear-gradient(#8B6D47, #5B371B);
+}
+
+.catalogo-producto-insignia {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 6%;
+    width: 58px;
+    min-height: 54px;
+    padding: 9px 5px 14px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
+    color: #fff;
+    font-size: 0.58rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.insignia-popular { background: #8b0000; }
+.insignia-clasico { background: #5B371B; color: #FBB853; }
+.insignia-nuevo { background: #FBB853; color: #211003; }
+.insignia-edicion { background: #8B6D47; }
+
+.catalogo-producto-favorito {
+    position: absolute;
+    z-index: 1;
+    top: 12px;
+    right: 12px;
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 1px solid #8B6D47;
+    border-radius: 50%;
+    background: #FBF7F6;
+    color: #5B371B;
+    font-size: 1.15rem;
+}
+
+.catalogo-producto-info h2 {
+    min-height: 2.5em;
+    margin: 12px 0 5px;
+    color: #211003;
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(0.95rem, 1.2vw, 1.2rem);
+    font-weight: 700;
+}
+
+.catalogo-producto-autor {
+    min-height: 1.4em;
+    margin: 0 0 6px;
+    color: #8B6D47;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.82rem;
+    font-style: italic;
+}
+
+.catalogo-producto-valoracion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.catalogo-estrellas { color: #b56b13; letter-spacing: 1px; }
+.catalogo-producto-valoracion small { color: #5B371B; font-size: 0.72rem; }
+
+.catalogo-producto-compra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.catalogo-producto-compra strong {
+    color: #5B371B;
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(1rem, 1.5vw, 1.35rem);
+    white-space: nowrap;
+}
+
+.catalogo-producto-compra button {
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 7px 12px;
+    border: 0;
+    border-radius: 22px;
+    background: #5B371B;
+    color: #FBF7F6;
+    font-size: 0.7rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.catalogo-paginacion {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 28px;
+}
+
+.catalogo-paginas { display: flex; gap: 8px; }
+
+.catalogo-pagina-flecha,
+.catalogo-pagina-numero {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 1px solid #5B371B;
+    border-radius: 50%;
+    background: transparent;
+    color: #5B371B;
+}
+
+.catalogo-pagina-flecha:disabled { opacity: 0.4; cursor: default; }
+.catalogo-pagina-numero.activa { background: #5B371B; color: #FBF7F6; }
+
+.catalogo-pagina-estado {
+    flex-basis: 100%;
+    margin: 0;
+    color: #8B6D47;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.75rem;
+    font-style: italic;
+    text-align: center;
+}
+
+.catalogo-sin-resultados {
+    grid-column: 1 / -1;
+    padding: 30px 12px;
+    color: #5B371B;
+    text-align: center;
 }
 
 .titulo-montana {
