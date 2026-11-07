@@ -19,7 +19,7 @@ Ratón de Biblioteca es una propuesta de plataforma digital para descubrir y ace
 - **Una experiencia interactiva:** navegación adaptable, acordeón de preguntas frecuentes y componentes de Bootstrap.
 - **Una mirada al equipo:** presentación de Coudex y del proyecto integrador de Generation.
 
-> **Alcance de esta entrega:** este repositorio contiene el frontend. El panel administrativo permite capturar los datos de libros y mostrarlos como JSON en la consola del navegador. Los datos se mantienen solo durante la sesión y todavía no se guardan en una base de datos ni se envían a un servidor.
+> **Alcance de esta entrega:** este repositorio contiene el frontend. El panel administrativo permite buscar, agregar, editar y eliminar productos. Los productos creados desde el formulario se guardan en `localStorage` y se muestran como JSON en la consola; la imagen se almacena como Data URL. Los datos permanecen en el navegador y no se envían a un servidor.
 
 ## 🖥️ Tecnologías
 
@@ -52,6 +52,7 @@ COUDEX_FRONT_GROUP_6/
 │   ├── app.js                 # Punto de entrada ES Module — orquesta todo el arranque
 │   ├── loadContent.js         # fetch + inyección de components/ y pages/ en el DOM
 │   ├── eventos.js             # Formulario de contacto y eventos del sitio
+│   ├── productosStorage.js    # Lectura y escritura de productos en localStorage
 │   └── admin/
 │       ├── appAdmin.js         # Arranque y navegación del panel
 │       ├── loadContentAdmin.js # Carga de fragmentos y vistas del administrador

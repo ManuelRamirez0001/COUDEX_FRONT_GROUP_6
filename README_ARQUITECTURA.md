@@ -51,6 +51,7 @@ COUDEX_FRONT_GROUP_6/
 │   ├── app.js                  # Arranque y navegación SPA del sitio
 │   ├── loadContent.js          # Carga de fragmentos y páginas del sitio
 │   ├── eventos.js              # Formulario de contacto y eventos del sitio
+│   ├── productosStorage.js     # Lectura y escritura compartida de productos en localStorage
 │   └── admin/
 │       ├── appAdmin.js         # Arranque y navegación del panel
 │       ├── loadContentAdmin.js # Carga de fragmentos y vistas del panel
@@ -191,10 +192,11 @@ El panel se abre desde `admin.html?page=panelAdmin` y tiene su propio shell, car
 - **`pages/admin/panelAdmin.html`**: vista con el formulario y el listado de libros.
 - **`js/admin/appAdmin.js`**: carga los componentes, la página inicial y registra navegación e historial.
 - **`js/admin/loadContentAdmin.js`**: carga fragmentos y páginas parciales mediante `fetch()`.
-- **`js/admin/eventosAdmin.js`**: captura los campos al enviar el formulario y muestra la lista como JSON en la consola.
+- **`js/admin/eventosAdmin.js`**: recupera productos guardados, captura y persiste envíos, convierte imágenes a Data URL, filtra la tabla y permite editar o eliminar filas.
+- **`js/productosStorage.js`**: comparte la clave y las funciones para leer y guardar productos en `localStorage`; el catálogo podrá importar este módulo.
 - **`css/admin/`**: contiene los estilos base y responsivos del panel.
 
-La captura actual es solo de frontend: los registros se guardan en memoria mientras la página está abierta y se imprimen en la consola. No persisten al recargar ni se envían a una base de datos.
+La captura actual es solo de frontend: el panel muestra diez productos de demostración definidos en `eventosAdmin.js` y los combina visualmente con los productos creados desde el formulario. Solo los productos del formulario persisten en `localStorage` y se comparten con el futuro catálogo; sus imágenes se guardan como Data URL. Los diez productos base requeridos para el catálogo deben estar definidos directamente en el HTML de esa vista. Los cambios o eliminaciones de filas de demostración solo duran la sesión. No se envían productos a una base de datos.
 
 Para verlo en local, inicia Live Server desde la raíz del proyecto y abre `admin.html?page=panelAdmin`.
 
