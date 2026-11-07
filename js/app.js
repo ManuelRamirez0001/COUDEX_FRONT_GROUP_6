@@ -11,10 +11,12 @@
 
 import { loadFragment, loadPage, setActiveNav } from './loadContent.js';
 import { initFormContacto, initNavCollapseOnClick } from './eventos.js';
+import { initCatalogo } from './catalogo.js';
 
 /** Páginas disponibles → archivo en pages/ */
 const PAGES = {
   inicio:      'inicio',      // página principal de bienvenida con imagen de biblioteca
+  catalogo:    'catalogo',    // listado de productos
   nosotros:    'nosotros',    // propuesta, historia, equipo y preguntas frecuentes
   contactanos: 'contactanos', // formulario y canales de atención
 };
@@ -50,7 +52,13 @@ async function navigateTo(page) {
   history.pushState({ page }, '', `?page=${page}`);
 
   // Re-inicializa eventos que requieren elementos del DOM recién inyectado
+  initPageFeatures();
+}
+
+/** Inicializa los eventos de la vista que acaba de insertarse en #main. */
+function initPageFeatures() {
   initFormContacto();
+  initCatalogo();
 }
 
 /** Delegación de eventos en los enlaces de navegación [data-page] */
@@ -70,7 +78,7 @@ window.addEventListener('popstate', async (e) => {
   const page = e.state?.page ?? getRequestedPage();
   const file = PAGES[page] ?? DEFAULT_PAGE;
   await loadPage(file);
-  initFormContacto();
+  initPageFeatures();
 });
 
 /** ── Arranque ── */
@@ -89,6 +97,6 @@ window.addEventListener('popstate', async (e) => {
   // 3. Registrar listeners
   initNavLinks();
   initNavCollapseOnClick();
-  initFormContacto();
+  initPageFeatures();
 })();
 
