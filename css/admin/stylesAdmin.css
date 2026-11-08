@@ -1,11 +1,13 @@
+/* colores principales del panel segun la paleta del sitio */
 :root {
-    --admin-primary: #343a40;
-    --admin-secondary: #6c757d;
-    --admin-background: #f4f5f7;
+    --admin-primary: #5B371B;
+    --admin-secondary: #8B6D47;
+    --admin-background: #FBF7F6;
     --admin-white: #ffffff;
-    --admin-border: #dee2e6;
-    --admin-text: #343a40;
-    --admin-hover: #e9ecef;
+    --admin-border: #dfd2c4;
+    --admin-text: #211003;
+    --admin-hover: #f2e9db;
+    --admin-accent: #FBB853;
 }
 
 body {
@@ -14,6 +16,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* barra superior del panel y controles de perfil */
 .admin-header {
     width: 100%;
     min-height: 65px;
@@ -32,10 +35,20 @@ body {
     border: none;
     color: var(--admin-white);
     background-color: transparent;
+    transition: color 160ms ease, background-color 160ms ease;
 }
 
-.admin-header-user .btn:hover {
-    background-color: var(--admin-hover);
+.admin-header-user .btn:hover,
+.admin-header-user .btn:focus-visible,
+.admin-header-user .btn[aria-expanded="true"] {
+    background-color: rgba(251, 184, 83, 0.16);
+    color: var(--admin-accent);
+    box-shadow: none;
+}
+
+.admin-header-user .btn:focus-visible {
+    outline: 2px solid var(--admin-accent);
+    outline-offset: 2px;
 }
 
 .admin-header-user .btn i {
@@ -51,10 +64,31 @@ body {
 
 .admin-header-user .dropdown-menu {
     min-width: 180px;
-    border: 1px solid var(--admin-border);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    border: 1px solid #d8c5ae;
+    background-color: #FBF7F6;
+    box-shadow: 0 6px 18px rgba(33, 16, 3, 0.16);
 }
 
+.admin-header-user .dropdown-item {
+    color: var(--admin-primary);
+}
+
+.admin-header-user .dropdown-item:hover,
+.admin-header-user .dropdown-item:focus {
+    background-color: var(--admin-hover);
+    color: #452a16;
+}
+
+.admin-header-user .dropdown-item:active {
+    background-color: var(--admin-accent);
+    color: #211003;
+}
+
+.admin-header-user .dropdown-divider {
+    border-color: #dfd2c4;
+}
+
+/* estructura lateral y area de contenido administrativo */
 .admin-layout {
     display: flex;
     min-height: calc(100vh - 65px);
@@ -115,6 +149,7 @@ body {
     color: var(--admin-primary);
 }
 
+/* estilos del formulario y controles para productos */
 .admin-product-form {
     background-color: var(--admin-white);
     border: 1px solid var(--admin-border);
@@ -138,23 +173,64 @@ body {
 
 .admin-product-form .form-control:focus,
 .admin-product-form .form-select:focus {
-    border-color: #868e96;
-    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.15);
+    border-color: var(--admin-secondary);
+    box-shadow: 0 0 0 0.2rem rgba(139, 109, 71, 0.18);
 }
 
 .admin-form-actions .btn {
     min-width: 110px;
 }
 
-.admin-image-preview {
-    width: 100%;
-    min-height: 220px;
-    background-color: #f8f9fa;
-    border: 2px dashed #ced4da;
-    border-radius: 8px;
-    color: #adb5bd;
+.admin-form-actions .btn-primary {
+    border-color: var(--admin-primary);
+    background-color: var(--admin-primary);
+    color: #FBF7F6;
 }
 
+.admin-form-actions .btn-primary:hover,
+.admin-form-actions .btn-primary:focus-visible {
+    border-color: #452a16;
+    background-color: #452a16;
+    color: #FBF7F6;
+}
+
+.admin-form-actions .btn-secondary {
+    border-color: var(--admin-secondary);
+    background-color: #f2e9db;
+    color: var(--admin-primary);
+}
+
+.admin-form-actions .btn-secondary:hover,
+.admin-form-actions .btn-secondary:focus-visible {
+    border-color: var(--admin-secondary);
+    background-color: #e8dbc9;
+    color: #452a16;
+}
+
+/* cuadro de vista previa para la portada seleccionada */
+.admin-image-preview {
+    display: flex;
+    width: 100%;
+    height: 220px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    overflow: hidden;
+    background-color: #f5efe6;
+    border: 2px dashed #bda88f;
+    border-radius: 8px;
+    color: var(--admin-secondary);
+}
+
+.admin-image-preview img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+/* tabla de productos, busqueda y acciones */
 .admin-products-list {
     background-color: var(--admin-white);
     border: 1px solid var(--admin-border);
@@ -212,16 +288,19 @@ body {
     white-space: nowrap;
 }
 
+/* colores de navegacion entre paginas */
 .admin-pagination .page-link {
     color: var(--admin-primary);
+    border-color: var(--admin-border);
+    background-color: #FBF7F6;
 }
 
 .admin-pagination .page-item.active .page-link {
-    background-color: var(--admin-primary);
-    border-color: var(--admin-primary);
-    color: var(--admin-white);
+    background-color: var(--admin-accent);
+    border-color: var(--admin-accent);
+    color: #211003;
 }
 
 .admin-pagination .page-link:focus {
-    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.15);
+    box-shadow: 0 0 0 0.2rem rgba(139, 109, 71, 0.2);
 }

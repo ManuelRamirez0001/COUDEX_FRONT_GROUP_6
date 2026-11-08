@@ -46,6 +46,91 @@
     }
 }
 
+/* catalogo */
+@media (max-width: 991.98px) {
+    .catalogo-parches-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .catalogo-libros-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767.98px) {
+    .catalogo-busqueda-wrap {
+        margin-top: -20px;
+    }
+
+    .catalogo-busqueda {
+        grid-template-columns: minmax(0, 1fr);
+        width: 92%;
+        gap: 6px;
+        padding: 12px;
+    }
+
+    .catalogo-busqueda-texto {
+        border-right: 0;
+        border-bottom: 1px solid #8B6D47;
+        padding: 0 4px 8px;
+    }
+
+    .catalogo-busqueda select {
+        min-height: 40px;
+    }
+
+    .catalogo-contenido {
+        width: 92%;
+    }
+
+    .catalogo-filtros {
+        max-width: 100%;
+    }
+
+    .catalogo-parches-encabezado {
+        display: block;
+    }
+
+    .catalogo-parches-encabezado p {
+        margin-top: 8px;
+    }
+
+    .catalogo-libros-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .catalogo-parches {
+        padding-top: 30px;
+    }
+
+    .catalogo-parches-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .catalogo-libros-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .catalogo-libro-card {
+        display: grid;
+        grid-template-columns: 115px minmax(0, 1fr);
+    }
+
+    .catalogo-libro-portada {
+        height: 100%;
+        min-height: 175px;
+    }
+
+    .catalogo-libro-info {
+        min-height: 175px;
+        padding: 12px;
+    }
+}
+
 
 /* ==========================================================================
    3. TABLETS Y PANTALLAS MEDIANAS (≤ 991px)
@@ -172,5 +257,95 @@
         margin-left: -13vw;
         transform: rotate(10deg) translateY(8px);
     }
+}
+
+@media (max-width: 991.98px) {
+    .catalogo-resultados-layout {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .catalogo-libros-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 18px;
+    }
+
+    .catalogo-producto-compra {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    /* ajusta la cantidad de portadas visibles en el carrusel */
+    .catalogo-mas-pedidos-carrusel {
+        grid-auto-columns: calc((100% - 54px) / 3);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .catalogo-resultados-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .catalogo-filtros {
+        position: static;
+    }
+
+    .catalogo-producto-visual {
+        height: clamp(220px, 48vw, 320px);
+    }
+
+    .catalogo-producto-compra {
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    /* reorganiza carrusel y suscripcion en tabletas */
+    .catalogo-mas-pedidos-contenedor { width: min(100% - 36px, 600px); }
+    .catalogo-mas-pedidos-encabezado { align-items: flex-start; }
+    .catalogo-mas-pedidos-encabezado p { text-align: left; }
+    .catalogo-mas-pedidos-carrusel { grid-auto-columns: calc((100% - 36px) / 2.5); }
+
+    .catalogo-unirse { padding: 32px 24px 40px; }
+    .catalogo-unirse-tarjeta { align-items: stretch; flex-direction: column; gap: 18px; }
+    .catalogo-unirse-formulario { flex-basis: auto; width: 100%; }
+}
+
+@media (max-width: 575.98px) {
+    .catalogo-libros-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .catalogo-producto-card {
+        max-width: 420px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .catalogo-producto-visual {
+        height: min(78vw, 340px);
+    }
+
+    .catalogo-producto-compra {
+        flex-wrap: nowrap;
+    }
+
+    /* compacta carrusel y formulario de suscripcion en moviles */
+    .catalogo-mas-pedidos { border-radius: 24px 24px 0 0; }
+    .catalogo-mas-pedidos-encabezado { gap: 10px; }
+    .catalogo-mas-pedidos-controles { gap: 5px; }
+    .catalogo-mas-pedidos-controles button { width: 36px; height: 36px; }
+    .catalogo-mas-pedidos-carrusel { grid-auto-columns: calc((100% - 18px) / 1.5); }
+
+    .catalogo-unirse { padding: 28px 18px 36px; }
+    .catalogo-unirse-contenedor { min-height: 0; }
+    .catalogo-unirse-tarjeta { min-height: 0; padding: 22px 18px; }
+    .catalogo-unirse-texto h2 { font-size: 1.18rem; }
+    .catalogo-unirse-formulario { align-items: stretch; flex-direction: column; }
+    .catalogo-unirse-formulario button { width: 100%; }
+    .catalogo-unirse-mariposa-abajo { left: -17px; bottom: -24px; width: 48px; height: 48px; }
+    .catalogo-unirse-mariposa-arriba { right: -12px; top: -24px; width: 56px; height: 56px; }
 }
 

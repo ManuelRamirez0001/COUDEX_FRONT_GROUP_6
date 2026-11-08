@@ -16,10 +16,12 @@ Ratón de Biblioteca es una propuesta de plataforma digital para descubrir y ace
 - **Un diseño adaptable:** páginas maquetadas para distintos tamaños de pantalla.
 - **Una identidad visual cálida:** tonos café y crema, tipografías editoriales e ilustraciones propias.
 - **Una página de contacto:** formulario con validación y envío mediante Formspree.
+- **Un catálogo interactivo:** diez libros base con portadas, búsqueda, filtros por categoría, región y precio, paginación y carrusel de más pedidos.
+- **Un panel conectado al catálogo:** permite crear productos, editar y eliminar los libros base del HTML, asignar regiones y ver una vista previa de las portadas.
 - **Una experiencia interactiva:** navegación adaptable, acordeón de preguntas frecuentes y componentes de Bootstrap.
 - **Una mirada al equipo:** presentación de Coudex y del proyecto integrador de Generation.
 
-> **Alcance de esta entrega:** este repositorio contiene el frontend. El panel administrativo permite capturar los datos de libros y mostrarlos como JSON en la consola del navegador. Los datos se mantienen solo durante la sesión y todavía no se guardan en una base de datos ni se envían a un servidor.
+> **Alcance de esta entrega:** este repositorio contiene el frontend. El catálogo mantiene diez productos base en su HTML. El panel los carga al abrirse y permite editar o eliminar sus datos mediante ajustes en `localStorage`, sin reescribir el HTML. Los productos nuevos también se guardan en `localStorage`. El panel imprime en consola el JSON combinado, y las imágenes cargadas desde el formulario se guardan como Data URL. La información persiste solo en ese navegador y no se envía a una base de datos.
 
 ## 🖥️ Tecnologías
 
@@ -30,7 +32,7 @@ Ratón de Biblioteca es una propuesta de plataforma digital para descubrir y ace
 | JavaScript (ES Modules) | Navegación SPA, carga dinámica y formulario |
 | Bootstrap 5.3.3 | Sistema de diseño, navegación y componentes |
 | Bootstrap Icons | Iconografía |
-| Formspree | Recepción de mensajes del formulario |
+| Formspree | Recepción de mensajes de contacto y suscripciones al parche lector |
 
 Bootstrap, Bootstrap Icons y las fuentes tipográficas se cargan desde servicios externos; se requiere conexión a internet para verlos correctamente.
 
@@ -50,12 +52,14 @@ COUDEX_FRONT_GROUP_6/
 │       └── responsiveAdmin.css # Adaptaciones responsivas del panel
 ├── js/
 │   ├── app.js                 # Punto de entrada ES Module — orquesta todo el arranque
+│   ├── catalogo.js            # Filtros, paginación, carrusel y ajustes de productos
 │   ├── loadContent.js         # fetch + inyección de components/ y pages/ en el DOM
 │   ├── eventos.js             # Formulario de contacto y eventos del sitio
+│   ├── productosStorage.js    # Productos nuevos y ajustes del catálogo en localStorage
 │   └── admin/
 │       ├── appAdmin.js         # Arranque y navegación del panel
 │       ├── loadContentAdmin.js # Carga de fragmentos y vistas del administrador
-│       └── eventosAdmin.js     # Captura del formulario de libros y salida JSON
+│       └── eventosAdmin.js     # Alta, edición, baja, vista previa, paginación y JSON
 ├── components/
 │   ├── nav.html               # Navbar del sitio
 │   ├── footer.html            # Footer del sitio
@@ -64,12 +68,22 @@ COUDEX_FRONT_GROUP_6/
 │       └── sidebar.html        # Navegación lateral del panel
 ├── pages/
 │   ├── inicio.html            # Portada principal (Home) con imagen de la biblioteca
+│   ├── catalogo.html          # Catálogo, filtros, diez libros base y suscripción
 │   ├── nosotros.html          # Hero, ¿Quiénes somos?, FAQ, Equipo (sin nav/footer)
 │   ├── contactanos.html       # Formulario y canales de contacto (sin nav/footer)
 │   └── admin/
 │       └── panelAdmin.html    # Formulario y tabla de gestión de libros
-└── img/                       # Imágenes, íconos y fotografías
+└── img/
+    ├── ...                     # Imágenes, íconos y fotografías del sitio
+    └── vistaCatalogo/
+        ├── heroCatalogo.svg    # Hero gráfico del catálogo
+        ├── parche/             # Ilustraciones de categorías
+        ├── libros/             # Portadas SVG del catálogo
+        ├── Mariposa1.svg       # Mariposa inferior de la tarjeta de suscripción
+        └── Mariposa2.svg       # Mariposa superior de la tarjeta de suscripción
 ```
+
+El catálogo muestra nueve libros por página y actualiza los conteos regionales según los productos disponibles. El panel muestra diez libros por página; al agregar un producto abre la página donde queda listado. Los cambios hechos a libros base se guardan en `ratonBiblioteca_ajustesCatalogo`; los productos nuevos se guardan en `ratonBiblioteca_productos`.
 
 ## 📖 Documentación técnica
 

@@ -4,11 +4,13 @@
     <div class="admin-products-header mb-4">
         <h2 class="h4">Gestión de los productos</h2>
     </div>
+    <!-- formulario para crear o editar un libro -->
     <!-- formulario para agregar un nuevo libro -->
     <section class="admin-product-form card p-4 mb-4">
         <h3 class="h5 mb-4">Agregar un nuevo libro</h3>
         <form id="form-libro">
             <div class="row g-4">
+                <!-- datos descriptivos, categoria, region, precio y stock -->
                 <!-- campos del libro -->
                 <div class="col-lg-8">
                     <!-- nombre del libro -->
@@ -16,6 +18,7 @@
                         <label for="nombre-libro" class="form-label">Nombre del libro</label>
                         <input type="text" class="form-control" id="nombre-libro" name="nombreLibro" required>
                     </div>
+                    <!-- categoria y region de clasificacion -->
                     <!-- categoria -->
                     <div class="mb-3">
                         <label for="categoria-libro" class="form-label">Categoría</label>
@@ -27,9 +30,23 @@
                             <option value="historia">Historia</option>
                             <option value="ensayo">Ensayo</option>
                             <option value="infantil">Literatura infantil</option>
+                            <option value="clasica">Clásica colombiana</option>
+                            <option value="contemporanea">Contemporánea</option>
+                            <option value="realismo-magico">Realismo mágico</option>
                             <option value="otros">Otros</option>
                         </select>
                     </div>
+                    <div class="mb-3">
+                        <label for="region-libro" class="form-label">Región</label>
+                        <select class="form-select" id="region-libro" name="region">
+                            <option value="">Sin región</option>
+                            <option value="caribe">Caribe</option>
+                            <option value="andina">Andina</option>
+                            <option value="orinoquia">Orinoquía</option>
+                            <option value="amazonia">Amazonía</option>
+                        </select>
+                    </div>
+                    <!-- descripcion del contenido del libro -->
                     <!-- descripcion -->
                     <div class="mb-3">
                         <label for="descripcion-libro" class="form-label">Descripción (Sinopsis)</label>
@@ -49,6 +66,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- seleccion y vista previa de la portada -->
                 <!-- imagen del libro -->
                 <div class="col-lg-4">
                     <div class="admin-product-image">
@@ -62,6 +80,7 @@
                     </div>
                 </div>
             </div>
+            <!-- acciones para limpiar o guardar el formulario -->
             <!-- botones del formulario -->
             <div class="admin-form-actions d-flex justify-content-end gap-2 mt-4">
                 <button type="reset" class="btn btn-secondary">Limpiar</button>
@@ -69,6 +88,7 @@
             </div>
         </form>
     </section>
+    <!-- tabla de libros registrados con sus acciones -->
     <!-- tabla de libros registrados -->
     <section class="admin-products-list card p-4">
         <div class="admin-products-list-header d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
@@ -89,6 +109,7 @@
                         <th scope="col">Nombre del libro</th>
                         <th scope="col">Precio</th>
                         <th scope="col">Stock</th>
+                        <th scope="col">Región</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
@@ -98,30 +119,10 @@
                 </tbody>
             </table>
         </div>
+        <!-- navegacion dinamica en paginas de diez productos -->
         <!-- paginacion -->
         <nav class="admin-pagination mt-3" aria-label="Paginación de libros">
-            <ul class="pagination pagination-sm justify-content-end mb-0">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Página anterior"><i class="bi bi-chevron-left"></i></a>
-                </li>
-                <li class="page-item active">
-                    <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">4</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">5</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Página siguiente"><i class="bi bi-chevron-right"></i></a>
-                </li>
+            <ul id="admin-paginas" class="pagination pagination-sm justify-content-end mb-0">
             </ul>
         </nav>
     </section>
