@@ -42,6 +42,7 @@ COUDEX_FRONT_GROUP_6/
 │
 ├── pages/                      # Vistas parciales del sitio y el panel
 │   ├── inicio.html             # Vista principal
+│   ├── catalogo.html           # Catálogo, filtros, diez libros base y suscripción
 │   ├── nosotros.html           # Presentación, equipo y FAQ
 │   ├── contactanos.html        # Formulario y canales de atención
 │   └── admin/
@@ -49,18 +50,28 @@ COUDEX_FRONT_GROUP_6/
 │
 ├── js/                         # Lógica en JavaScript ES Modules
 │   ├── app.js                  # Arranque y navegación SPA del sitio
+│   ├── catalogo.js             # Filtros, paginación, carrusel y ajustes del catálogo
 │   ├── loadContent.js          # Carga de fragmentos y páginas del sitio
 │   ├── eventos.js              # Formulario de contacto y eventos del sitio
-│   ├── productosStorage.js     # Lectura y escritura compartida de productos en localStorage
+│   ├── productosStorage.js     # Productos nuevos y ajustes de productos base en localStorage
 │   └── admin/
 │       ├── appAdmin.js         # Arranque y navegación del panel
 │       ├── loadContentAdmin.js # Carga de fragmentos y vistas del panel
-│       └── eventosAdmin.js     # Captura de libros y salida JSON en consola
+│       └── eventosAdmin.js     # Gestión de productos, vista previa y salida JSON
 │
-└── img/                       # Recursos visuales (imágenes, SVGs, íconos)
+└── img/
+    ├── ...                    # Recursos visuales generales
+    └── vistaCatalogo/
+        ├── heroCatalogo.svg   # Hero visual del catálogo
+        ├── parche/            # Imágenes de categorías
+        ├── libros/            # Portadas SVG de los productos base
+        ├── Mariposa1.svg      # Mariposa decorativa inferior de la suscripción
+        └── Mariposa2.svg      # Mariposa decorativa superior de la suscripción
 ```
 
 El sitio público y el panel tienen entradas independientes: `index.html` carga `js/app.js`, mientras que `admin.html` carga `js/admin/appAdmin.js`. Los componentes, estilos, eventos y vistas propios del panel están agrupados en sus respectivas carpetas `admin/`.
+
+La vista `pages/catalogo.html` contiene diez productos base en su HTML, sus portadas SVG, filtros por texto, categoría, región y precio, paginación, carrusel semanal y formulario de suscripción. `js/catalogo.js` aplica los filtros, muestra productos nuevos guardados y aplica los ajustes persistidos para las tarjetas base. El formulario de suscripción envía el correo a Formspree con `fetch()`, mantiene al lector en la página y limpia el campo después de un envío exitoso. El navbar y el footer se cargan desde `components/` en el shell público.
 
 ---
 
@@ -119,8 +130,8 @@ Organizada en tres módulos conectados mediante `import` y `export`:
 Es el punto de entrada que ejecuta el siguiente ciclo de vida:
 
 1. **Carga inicial:** En paralelo, inyecta el `nav.html` en `#navbar` y el `footer.html` en `#footer`.
-2. **Detección de ruta inicial:** Revisa si la URL trae un parámetro `?page=contactanos` o un hash `#contactanos`. Si no hay ninguno, carga la página por defecto (`nosotros`).
-3. **Interceptación de enlaces (Navegación SPA):** Escucha clics en elementos con `[data-page]`. Al hacer clic, cancela la recarga de página tradicional (`e.preventDefault()`), inyecta el nuevo contenido en `#main`, actualiza la URL con `history.pushState()` y vuelve a inicializar los eventos necesarios (`initFormContacto()`).
+2. **Detección de ruta inicial:** Revisa si la URL trae un parámetro `?page=contactanos` o un hash `#contactanos`. Si no hay ninguno, carga la página por defecto (`inicio`).
+3. **Interceptación de enlaces (Navegación SPA):** Escucha clics en elementos con `[data-page]`. Al hacer clic, cancela la recarga de página tradicional (`e.preventDefault()`), inyecta el nuevo contenido en `#main`, actualiza la URL con `history.pushState()` y vuelve a inicializar los eventos necesarios, incluidos `initFormContacto()` e `initCatalogo()`.
 4. **Soporte de botones Atrás/Adelante:** Escucha el evento `window.addEventListener('popstate')` para que el usuario pueda volver o avanzar en el navegador sin perder el estado.
 
 ---
@@ -138,43 +149,44 @@ Es el punto de entrada que ejecuta el siguiente ciclo de vida:
                  │
                  ▼
      ¿Qué página solicita la URL?
-    (ej: ?page=contactanos o por defecto 'nosotros')
+    (ej: ?page=contactanos o por defecto 'inicio')
                  │
                  ▼
      loadPage('pages/nombre.html')
                  │
                  ├──▶ Inyecta contenido HTML ──▶ <main id="main">
                  ├──▶ Actualiza botón .active en el Navbar
-                 └──▶ Ejecuta initFormContacto() / eventos necesarios
+                 └──▶ Ejecuta initFormContacto(), initCatalogo() y otros eventos
 ```
 
 ---
 
 ## Guía para el Equipo: ¿Cómo Agregar una Nueva Página?
 
-Si el equipo desea crear una nueva sección (por ejemplo, el **Catálogo** de libros):
+Si el equipo desea crear una nueva sección:
 
 1. **Crear la vista parcial:**
-   - Crear el archivo `pages/catalogo.html`.
-   - Escribir únicamente las secciones del catálogo (ej. `<section class="container-xxl py-5">...</section>`).
+   - Crear el archivo `pages/nueva.html`.
+   - Escribir únicamente el contenido de la vista (por ejemplo, `<section>...</section>`).
 
 2. **Registrar la página en `js/app.js`:**
-   - Abrir `js/app.js` y agregar el nombre al diccionario `PAGES`:
+   - Abrir `js/app.js` y agregar la ruta al diccionario `PAGES`:
      ```javascript
      const PAGES = {
-       inicio:      'nosotros',
+       inicio:      'inicio',
+       catalogo:    'catalogo',
        nosotros:    'nosotros',
        contactanos: 'contactanos',
-       catalogo:    'catalogo', // 👈 Nueva entrada
+       nueva:       'nueva',
      };
      ```
 
 3. **Vincular el enlace en el Navbar (`components/nav.html`):**
-   - Actualizar el enlace del catálogo para incluir el atributo `data-page="catalogo"`:
+   - Agregar o actualizar un enlace en `components/nav.html` con el atributo `data-page`:
      ```html
      <li class="nav-item">
-         <a class="nav-link" href="index.html" data-page="catalogo">
-             <i class="bi bi-book me-1"></i>Catálogo
+         <a class="nav-link" href="index.html" data-page="nueva">
+             Nueva pagina
          </a>
      </li>
      ```
@@ -192,11 +204,13 @@ El panel se abre desde `admin.html?page=panelAdmin` y tiene su propio shell, car
 - **`pages/admin/panelAdmin.html`**: vista con el formulario y el listado de libros.
 - **`js/admin/appAdmin.js`**: carga los componentes, la página inicial y registra navegación e historial.
 - **`js/admin/loadContentAdmin.js`**: carga fragmentos y páginas parciales mediante `fetch()`.
-- **`js/admin/eventosAdmin.js`**: recupera productos guardados, captura y persiste envíos, convierte imágenes a Data URL, filtra la tabla y permite editar o eliminar filas.
-- **`js/productosStorage.js`**: comparte la clave y las funciones para leer y guardar productos en `localStorage`; el catálogo podrá importar este módulo.
+- **`js/admin/eventosAdmin.js`**: lee los productos base del HTML del catálogo, combina sus ajustes con los productos nuevos, gestiona búsquedas, paginación, regiones, vista previa, altas, ediciones y eliminaciones, y conserva la salida JSON en consola.
+- **`js/productosStorage.js`**: comparte las funciones de lectura y escritura de productos nuevos y de ajustes para productos base.
 - **`css/admin/`**: contiene los estilos base y responsivos del panel.
 
-La captura actual es solo de frontend: el panel muestra diez productos de demostración definidos en `eventosAdmin.js` y los combina visualmente con los productos creados desde el formulario. Solo los productos del formulario persisten en `localStorage` y se comparten con el futuro catálogo; sus imágenes se guardan como Data URL. Los diez productos base requeridos para el catálogo deben estar definidos directamente en el HTML de esa vista. Los cambios o eliminaciones de filas de demostración solo duran la sesión. No se envían productos a una base de datos.
+El HTML del catálogo es la fuente de los diez productos base. Al abrirse, el panel los lee con `fetch()` y `DOMParser`; los cambios y eliminaciones se guardan en `localStorage` como ajustes sin reescribir las tarjetas del HTML. Los productos nuevos se guardan por separado. El catálogo aplica esos ajustes cuando carga, y la consola del navegador muestra el JSON combinado de productos base y guardados. La tabla administra diez productos por página y permite editar categoría, región, descripción, precio, stock e imagen. Las imágenes cargadas desde el panel se almacenan como Data URL. Esta persistencia es local al navegador y no usa una base de datos.
+
+Las claves compartidas son `ratonBiblioteca_productos` para productos creados desde el panel y `ratonBiblioteca_ajustesCatalogo` para cambios y eliminaciones de los productos base.
 
 Para verlo en local, inicia Live Server desde la raíz del proyecto y abre `admin.html?page=panelAdmin`.
 
