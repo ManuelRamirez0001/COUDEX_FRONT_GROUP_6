@@ -7,8 +7,9 @@
         padding: 20px;
     }
 
+    /* reduce el cuadro de portada en pantallas medianas */
     .admin-image-preview {
-        min-height: 180px;
+        height: 180px;
     }
 }
 
