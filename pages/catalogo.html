@@ -1,4 +1,5 @@
 <!-- vista parcial: index.html inyecta el header y el footer compartidos. -->
+<!-- bloque visual de entrada al catalogo -->
 <section class="catalogo-hero" aria-label="Catálogo de Ratón de Biblioteca">
     <img src="img/vistaCatalogo/heroCatalogoFondo.svg" alt="" aria-hidden="true" class="catalogo-hero-fondo">
     <div class="container-xxl catalogo-hero-contenedor">
@@ -6,6 +7,7 @@
     </div>
 </section>
 
+<!-- buscador general y filtro rapido por categoria -->
 <div class="catalogo-busqueda-wrap">
     <div class="catalogo-busqueda" role="search" aria-label="Buscar libros en el catálogo">
         <label class="visually-hidden" for="busqueda-catalogo">Buscar por título o autor</label>
@@ -29,6 +31,7 @@
 </div>
 
 <div class="catalogo-contenido">
+    <!-- tarjetas de acceso a los parches literarios -->
     <section class="catalogo-parches" aria-labelledby="titulo-parches">
         <div class="catalogo-parches-encabezado">
             <h1 id="titulo-parches">ESCOJA SU <span>PARCHE</span></h1>
@@ -63,7 +66,9 @@
         </div>
     </section>
 
+    <!-- filtros laterales y resultados de libros -->
     <section class="catalogo-resultados-layout" aria-label="Libros y filtros del catálogo">
+        <!-- filtros por categoria, region y rango de precio -->
         <aside class="catalogo-filtros">
             <div class="catalogo-filtros-encabezado">
                 <h2>Filtros</h2>
@@ -102,19 +107,19 @@
                 <legend>Regiones</legend>
                 <label class="catalogo-filtro-opcion">
                     <input type="checkbox" name="region" value="caribe">
-                    <span>Caribe</span><small>00</small>
+                    <span>Caribe</span><small>0</small>
                 </label>
                 <label class="catalogo-filtro-opcion">
                     <input type="checkbox" name="region" value="andina">
-                    <span>Andina</span><small>00</small>
+                    <span>Andina</span><small>0</small>
                 </label>
                 <label class="catalogo-filtro-opcion">
                     <input type="checkbox" name="region" value="orinoquia">
-                    <span>Orinoquía</span><small>00</small>
+                    <span>Orinoquía</span><small>0</small>
                 </label>
                 <label class="catalogo-filtro-opcion">
                     <input type="checkbox" name="region" value="amazonia">
-                    <span>Amazonía</span><small>00</small>
+                    <span>Amazonía</span><small>0</small>
                 </label>
             </fieldset>
 
@@ -132,13 +137,14 @@
             </fieldset>
         </aside>
 
+        <!-- tarjetas base del catalogo y productos guardados -->
         <div class="catalogo-resultados">
-            <p id="conteo-libros" class="catalogo-conteo-libros" aria-live="polite">Mostrando 1–9 de 9 libros</p>
+            <p id="conteo-libros" class="catalogo-conteo-libros" aria-live="polite">Mostrando 1–9 de 10 libros</p>
 
             <div id="catalogo-libros-grid" class="catalogo-libros-grid">
                 <article class="catalogo-producto-card" data-id="base-1" data-categorias="realismo-magico" data-region="caribe" data-precio="75000" data-stock="true" data-nombre="Cien años de soledad" data-autor="Gabriel García Márquez">
                     <div class="catalogo-producto-visual">
-                        <div class="catalogo-producto-portada-vacia" aria-label="Espacio reservado para la portada"></div>
+                        <img class="catalogo-producto-portada" src="img/vistaCatalogo/libros/cienañosdesoledad.svg" alt="Portada de Cien años de soledad" loading="lazy">
                         <span class="catalogo-producto-insignia insignia-popular">Más pedido</span>
                         <button type="button" class="catalogo-producto-favorito" aria-label="Guardar Cien años de soledad en favoritos"><i class="bi bi-heart" aria-hidden="true"></i></button>
                         <div class="catalogo-producto-base"></div>
@@ -153,7 +159,7 @@
 
                 <article class="catalogo-producto-card" data-id="base-2" data-categorias="clasica" data-region="amazonia" data-precio="52000" data-stock="true" data-nombre="La vorágine" data-autor="José Eustasio Rivera">
                     <div class="catalogo-producto-visual">
-                        <div class="catalogo-producto-portada-vacia" aria-label="Espacio reservado para la portada"></div>
+                        <img class="catalogo-producto-portada" src="img/vistaCatalogo/libros/lavoragine.svg" alt="Portada de La vorágine" loading="lazy">
                         <span class="catalogo-producto-insignia insignia-clasico">Clásico</span>
                         <button type="button" class="catalogo-producto-favorito" aria-label="Guardar La vorágine en favoritos"><i class="bi bi-heart" aria-hidden="true"></i></button>
                         <div class="catalogo-producto-base"></div>
@@ -168,7 +174,7 @@
 
                 <article class="catalogo-producto-card" data-id="base-3" data-categorias="contemporanea" data-region="andina" data-precio="58000" data-stock="true" data-nombre="Donde mueren los payasos" data-autor="Luis Noriega">
                     <div class="catalogo-producto-visual">
-                        <div class="catalogo-producto-portada-vacia" aria-label="Espacio reservado para la portada"></div>
+                        <img class="catalogo-producto-portada" src="img/vistaCatalogo/libros/dondemuerenlospayasos.svg" alt="Portada de Donde mueren los payasos" loading="lazy">
                         <span class="catalogo-producto-insignia insignia-nuevo">Nuevo</span>
                         <button type="button" class="catalogo-producto-favorito" aria-label="Guardar Donde mueren los payasos en favoritos"><i class="bi bi-heart" aria-hidden="true"></i></button>
                         <div class="catalogo-producto-base"></div>
@@ -183,7 +189,7 @@
 
                 <article class="catalogo-producto-card" data-id="base-4" data-categorias="clasica realismo-magico" data-region="caribe" data-precio="48000" data-stock="true" data-nombre="El coronel no tiene quien le escriba" data-autor="Gabriel García Márquez">
                     <div class="catalogo-producto-visual">
-                        <div class="catalogo-producto-portada-vacia" aria-label="Espacio reservado para la portada"></div>
+                        <img class="catalogo-producto-portada" src="img/vistaCatalogo/libros/notienequienescriba.svg" alt="Portada de El coronel no tiene quien le escriba" loading="lazy">
                         <button type="button" class="catalogo-producto-favorito" aria-label="Guardar El coronel no tiene quien le escriba en favoritos"><i class="bi bi-heart" aria-hidden="true"></i></button>
                         <div class="catalogo-producto-base"></div>
                     </div>
@@ -197,7 +203,7 @@
 
                 <article class="catalogo-producto-card" data-id="base-5" data-categorias="contemporanea" data-region="andina" data-precio="62000" data-stock="true" data-nombre="¡Que viva la música!" data-autor="Andrés Caicedo">
                     <div class="catalogo-producto-visual">
-                        <div class="catalogo-producto-portada-vacia" aria-label="Espacio reservado para la portada"></div>
+                        <img class="catalogo-producto-portada" src="img/vistaCatalogo/libros/quevivalamusica.svg" alt="Portada de ¡Que viva la música!" loading="lazy">
                         <button type="button" class="catalogo-producto-favorito" aria-label="Guardar ¡Que viva la música! en favoritos"><i class="bi bi-heart" aria-hidden="true"></i></button>
                         <div class="catalogo-producto-base"></div>
                     </div>
@@ -211,7 +217,7 @@
 
                 <article class="catalogo-producto-card" data-id="base-6" data-categorias="poesia" data-region="andina" data-precio="39000" data-stock="true" data-nombre="Nocturno" data-autor="José Asunción Silva">
                     <div class="catalogo-producto-visual">
-                        <div class="catalogo-producto-portada-vacia" aria-label="Espacio reservado para la portada"></div>
+                        <img class="catalogo-producto-portada" src="img/vistaCatalogo/libros/nocturno.svg" alt="Portada de Nocturno" loading="lazy">
                         <span class="catalogo-producto-insignia insignia-edicion">Ed. facsímil</span>
                         <button type="button" class="catalogo-producto-favorito" aria-label="Guardar Nocturno en favoritos"><i class="bi bi-heart" aria-hidden="true"></i></button>
                         <div class="catalogo-producto-base"></div>
@@ -226,7 +232,7 @@
 
                 <article class="catalogo-producto-card" data-id="base-7" data-categorias="realismo-magico" data-region="caribe" data-precio="89000" data-stock="true" data-nombre="Cien años de soledad Edición ilustrada" data-autor="Gabriel García Márquez">
                     <div class="catalogo-producto-visual">
-                        <div class="catalogo-producto-portada-vacia" aria-label="Espacio reservado para la portada"></div>
+                        <img class="catalogo-producto-portada" src="img/vistaCatalogo/libros/cienañosedicionlimitada.svg" alt="Portada de Cien años de soledad, edición limitada" loading="lazy">
                         <span class="catalogo-producto-insignia insignia-nuevo">Ed. ilustrada</span>
                         <button type="button" class="catalogo-producto-favorito" aria-label="Guardar Cien años de soledad Edición ilustrada en favoritos"><i class="bi bi-heart" aria-hidden="true"></i></button>
                         <div class="catalogo-producto-base"></div>
@@ -241,7 +247,7 @@
 
                 <article class="catalogo-producto-card" data-id="base-8" data-categorias="clasica" data-region="andina" data-precio="45000" data-stock="true" data-nombre="La María" data-autor="Jorge Isaacs">
                     <div class="catalogo-producto-visual">
-                        <div class="catalogo-producto-portada-vacia" aria-label="Espacio reservado para la portada"></div>
+                        <img class="catalogo-producto-portada" src="img/vistaCatalogo/libros/lamaria.svg" alt="Portada de La María" loading="lazy">
                         <button type="button" class="catalogo-producto-favorito" aria-label="Guardar La María en favoritos"><i class="bi bi-heart" aria-hidden="true"></i></button>
                         <div class="catalogo-producto-base"></div>
                     </div>
@@ -255,7 +261,7 @@
 
                 <article class="catalogo-producto-card" data-id="base-9" data-categorias="contemporanea" data-region="andina" data-precio="59000" data-stock="true" data-nombre="El olvido que seremos" data-autor="Héctor Abad Faciolince">
                     <div class="catalogo-producto-visual">
-                        <div class="catalogo-producto-portada-vacia" aria-label="Espacio reservado para la portada"></div>
+                        <img class="catalogo-producto-portada" src="img/vistaCatalogo/libros/elolvidoqueserermos.svg" alt="Portada de El olvido que seremos" loading="lazy">
                         <span class="catalogo-producto-insignia insignia-popular">Más pedido</span>
                         <button type="button" class="catalogo-producto-favorito" aria-label="Guardar El olvido que seremos en favoritos"><i class="bi bi-heart" aria-hidden="true"></i></button>
                         <div class="catalogo-producto-base"></div>
@@ -267,14 +273,98 @@
                         <div class="catalogo-producto-compra"><strong>$59.000</strong><button type="button"><i class="bi bi-cart3" aria-hidden="true"></i> Añadir al carrito</button></div>
                     </div>
                 </article>
+
+                <article class="catalogo-producto-card" data-id="base-10" data-categorias="contemporanea" data-region="andina" data-precio="32377.59" data-stock="true" data-nombre="Fruto del árbol borracho" data-autor="Ingrid Rojas Contreras" data-descripcion="Novela ambientada en Bogotá durante los años de Pablo Escobar. Chula, de siete años, intenta comprender la vida de Petrona, la joven empleada doméstica de su familia, mientras el conflicto y la violencia transforman sus vidas.">
+                    <div class="catalogo-producto-visual">
+                        <img class="catalogo-producto-portada" src="img/vistaCatalogo/libros/frutodelarbolborracho.svg" alt="Portada de Fruto del árbol borracho, de Ingrid Rojas Contreras" loading="lazy">
+                        <span class="catalogo-producto-insignia insignia-popular">Bestseller</span>
+                        <button type="button" class="catalogo-producto-favorito" aria-label="Guardar Fruto del árbol borracho en favoritos"><i class="bi bi-heart" aria-hidden="true"></i></button>
+                        <div class="catalogo-producto-base"></div>
+                    </div>
+                    <div class="catalogo-producto-info">
+                        <h2>Fruto del árbol<br>borracho</h2>
+                        <p class="catalogo-producto-autor">Ingrid Rojas Contreras</p>
+                        <div class="catalogo-producto-valoracion"><span class="catalogo-estrellas">★★★★★</span><small>4,3 (2.118)</small></div>
+                        <div class="catalogo-producto-compra"><strong>$32.377,59</strong><button type="button"><i class="bi bi-cart3" aria-hidden="true"></i> Añadir al carrito</button></div>
+                    </div>
+                </article>
             </div>
 
+            <!-- controles para recorrer las paginas del catalogo -->
             <nav class="catalogo-paginacion" aria-label="Paginación del catálogo">
                 <button type="button" class="catalogo-pagina-flecha" data-pagina="anterior" aria-label="Página anterior"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>
                 <div id="catalogo-paginas" class="catalogo-paginas"></div>
                 <button type="button" class="catalogo-pagina-flecha" data-pagina="siguiente" aria-label="Página siguiente"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
-                <p id="catalogo-pagina-estado" class="catalogo-pagina-estado">Página 1 de 1</p>
+                <p id="catalogo-pagina-estado" class="catalogo-pagina-estado">Página 1 de 2</p>
             </nav>
         </div>
     </section>
 </div>
+
+<!-- carrusel semanal de los libros mas pedidos -->
+<section class="catalogo-mas-pedidos" aria-labelledby="titulo-mas-pedidos">
+    <div class="catalogo-mas-pedidos-contenedor">
+        <div class="catalogo-mas-pedidos-encabezado">
+            <div>
+                <h2 id="titulo-mas-pedidos">LOS MÁS PEDIDOS</h2>
+                <p>ESTO ES LO QUE SE LLEVA EL PARCHE ESTA SEMANA...</p>
+            </div>
+            <div class="catalogo-mas-pedidos-controles" aria-label="Controles del carrusel">
+                <button type="button" data-carrusel-direccion="anterior" aria-label="Ver libros anteriores"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>
+                <button type="button" data-carrusel-direccion="siguiente" aria-label="Ver más libros"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <div class="catalogo-mas-pedidos-carrusel" id="carrusel-mas-pedidos" tabindex="0" aria-label="Libros más pedidos esta semana">
+            <article class="catalogo-mas-pedidos-libro">
+                <img class="catalogo-mas-pedidos-portada" src="img/vistaCatalogo/libros/cienañosdesoledad.svg" alt="Portada de Cien años de soledad" loading="lazy">
+                <div class="catalogo-mas-pedidos-datos"><h3>Cien años<br>de soledad</h3><strong>$75.000</strong></div>
+                <button type="button" class="catalogo-mas-pedidos-carrito"><i class="bi bi-cart3" aria-hidden="true"></i> Añadir al carrito</button>
+            </article>
+            <article class="catalogo-mas-pedidos-libro">
+                <img class="catalogo-mas-pedidos-portada" src="img/vistaCatalogo/libros/elolvidoqueserermos.svg" alt="Portada de El olvido que seremos" loading="lazy">
+                <div class="catalogo-mas-pedidos-datos"><h3>El olvido<br>que seremos</h3><strong>$59.000</strong></div>
+                <button type="button" class="catalogo-mas-pedidos-carrito"><i class="bi bi-cart3" aria-hidden="true"></i> Añadir al carrito</button>
+            </article>
+            <article class="catalogo-mas-pedidos-libro">
+                <img class="catalogo-mas-pedidos-portada" src="img/vistaCatalogo/libros/lavoragine.svg" alt="Portada de La vorágine" loading="lazy">
+                <div class="catalogo-mas-pedidos-datos"><h3>La vorágine</h3><strong>$52.000</strong></div>
+                <button type="button" class="catalogo-mas-pedidos-carrito"><i class="bi bi-cart3" aria-hidden="true"></i> Añadir al carrito</button>
+            </article>
+            <article class="catalogo-mas-pedidos-libro">
+                <img class="catalogo-mas-pedidos-portada" src="img/vistaCatalogo/libros/quevivalamusica.svg" alt="Portada de ¡Que viva la música!" loading="lazy">
+                <div class="catalogo-mas-pedidos-datos"><h3>¡Que viva<br>la música!</h3><strong>$62.000</strong></div>
+                <button type="button" class="catalogo-mas-pedidos-carrito"><i class="bi bi-cart3" aria-hidden="true"></i> Añadir al carrito</button>
+            </article>
+            <article class="catalogo-mas-pedidos-libro">
+                <img class="catalogo-mas-pedidos-portada" src="img/vistaCatalogo/libros/dondemuerenlospayasos.svg" alt="Portada de Donde mueren los payasos" loading="lazy">
+                <div class="catalogo-mas-pedidos-datos"><h3>Donde mueren<br>los payasos</h3><strong>$58.000</strong></div>
+                <button type="button" class="catalogo-mas-pedidos-carrito"><i class="bi bi-cart3" aria-hidden="true"></i> Añadir al carrito</button>
+            </article>
+            <article class="catalogo-mas-pedidos-libro">
+                <img class="catalogo-mas-pedidos-portada" src="img/vistaCatalogo/libros/notienequienescriba.svg" alt="Portada de El coronel no tiene quien le escriba" loading="lazy">
+                <div class="catalogo-mas-pedidos-datos"><h3>El coronel no tiene<br>quien le escriba</h3><strong>$48.000</strong></div>
+                <button type="button" class="catalogo-mas-pedidos-carrito"><i class="bi bi-cart3" aria-hidden="true"></i> Añadir al carrito</button>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- formulario para unirse al parche lector -->
+<section class="catalogo-unirse" aria-labelledby="titulo-unirse">
+    <div class="catalogo-unirse-contenedor">
+        <img class="catalogo-unirse-mariposa catalogo-unirse-mariposa-abajo" src="img/vistaCatalogo/Mariposa1.svg" alt="foto-mariposa1" aria-hidden="true">
+        <img class="catalogo-unirse-mariposa catalogo-unirse-mariposa-arriba" src="img/vistaCatalogo/Mariposa2.svg" alt="foto-mariposa2" aria-hidden="true">
+        <div class="catalogo-unirse-tarjeta">
+            <div class="catalogo-unirse-texto">
+                <h2 id="titulo-unirse">ÚNASE AL <span>PARCHE LECTOR</span></h2>
+                <p>Reciba novedades, lanzamientos de autores colombianos y<br class="d-none d-lg-block"> ofertas de librerías independientes. Sin spam, de una.</p>
+            </div>
+            <form class="catalogo-unirse-formulario" action="https://formspree.io/f/xjyyypgb" method="POST">
+                <label class="visually-hidden" for="correo-parche">Su correo electrónico</label>
+                <input id="correo-parche" name="email" type="email" inputmode="email" placeholder="Su correo electrónico" autocomplete="email" pattern="(?=.*[A-Za-z])[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}" title="Escriba un correo válido, por ejemplo nombre@correo.com" required>
+                <button type="submit">Quiero unirme</button>
+                <p id="aviso-parche" class="catalogo-unirse-aviso d-none" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+</section>

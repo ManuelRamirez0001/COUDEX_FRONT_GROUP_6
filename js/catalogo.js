@@ -1,11 +1,14 @@
-import { obtenerProductosGuardados } from './productosStorage.js';
+import { obtenerAjustesCatalogo, obtenerProductosGuardados } from './productosStorage.js';
 
+// cantidad de libros que se muestran en cada pagina del catalogo
 const LIBROS_POR_PAGINA = 9;
 
+// prepara texto para comparar busquedas sin distinguir tildes ni mayusculas
 function normalizarTexto(texto = '') {
     return String(texto).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
 }
 
+// asigna una categoria compatible con los filtros del catalogo
 function normalizarCategoria(categoria = '') {
     const valor = normalizarTexto(categoria);
     if (valor.includes('poesia')) return 'poesia';
@@ -16,6 +19,7 @@ function normalizarCategoria(categoria = '') {
     return 'contemporanea';
 }
 
+// construye la tarjeta de un producto guardado desde el administrador
 function crearTarjetaProducto(producto, indice) {
     const tarjeta = document.createElement('article');
     tarjeta.className = 'catalogo-producto-card';
@@ -69,10 +73,112 @@ function crearTarjetaProducto(producto, indice) {
     return tarjeta;
 }
 
+// aplica sobre las tarjetas html los cambios guardados en localstorage
+function aplicarAjustesCatalogo(grid) {
+    const ajustes = obtenerAjustesCatalogo();
+    grid.querySelectorAll('.catalogo-producto-card[data-id]').forEach((tarjeta) => {
+        const ajuste = ajustes[tarjeta.dataset.id];
+        if (!ajuste) return;
+        if (ajuste.eliminado) {
+            tarjeta.remove();
+            return;
+        }
+
+        const nombre = ajuste.nombre ?? tarjeta.dataset.nombre;
+        const precio = Number(ajuste.precio ?? tarjeta.dataset.precio) || 0;
+        const categorias = ajuste.categoria
+            ? normalizarCategoria(ajuste.categoria)
+            : ajuste.categorias ?? tarjeta.dataset.categorias;
+        const stock = ajuste.stock === undefined ? tarjeta.dataset.stock : String(Number(ajuste.stock) > 0);
+        tarjeta.dataset.nombre = nombre;
+        tarjeta.dataset.precio = String(precio);
+        tarjeta.dataset.categorias = categorias;
+        tarjeta.dataset.stock = stock;
+        if (ajuste.region !== undefined) tarjeta.dataset.region = ajuste.region;
+
+        const titulo = tarjeta.querySelector('.catalogo-producto-info h2');
+        if (titulo) titulo.textContent = nombre;
+        if (ajuste.autor !== undefined) {
+            const autor = tarjeta.querySelector('.catalogo-producto-autor');
+            if (autor) autor.textContent = ajuste.autor;
+            tarjeta.dataset.autor = ajuste.autor;
+        }
+        const precioElemento = tarjeta.querySelector('.catalogo-producto-compra strong');
+        if (precioElemento) precioElemento.textContent = `$${precio.toLocaleString('es-CO')}`;
+
+        if (ajuste.imagen) {
+            const visual = tarjeta.querySelector('.catalogo-producto-visual');
+            const portadaActual = visual?.querySelector('.catalogo-producto-portada, .catalogo-producto-portada-vacia');
+            if (visual && portadaActual) {
+                const portada = document.createElement('img');
+                portada.className = 'catalogo-producto-portada';
+                portada.src = ajuste.imagen;
+                portada.alt = `Portada de ${nombre}`;
+                portada.loading = 'lazy';
+                portadaActual.replaceWith(portada);
+            }
+        }
+    });
+}
+
+// conecta carrusel, formulario de suscripcion, filtros y paginacion
 function inicializarCatalogo() {
     const grid = document.querySelector('#catalogo-libros-grid');
     if (!grid) return;
 
+    aplicarAjustesCatalogo(grid);
+
+    // desplaza el carrusel una tarjeta por cada clic en sus flechas
+    const carruselMasPedidos = document.querySelector('#carrusel-mas-pedidos');
+    document.querySelectorAll('[data-carrusel-direccion]').forEach((boton) => {
+        boton.addEventListener('click', () => {
+            if (!carruselMasPedidos) return;
+            const direccion = boton.dataset.carruselDireccion === 'siguiente' ? 1 : -1;
+            const tarjeta = carruselMasPedidos.querySelector('.catalogo-mas-pedidos-libro');
+            const espacio = parseFloat(getComputedStyle(carruselMasPedidos).columnGap) || 0;
+            carruselMasPedidos.scrollBy({ left: direccion * ((tarjeta?.getBoundingClientRect().width || 240) + espacio), behavior: 'smooth' });
+        });
+    });
+
+    // envia el correo de suscripcion sin salir de la pagina
+    const formularioParche = document.querySelector('.catalogo-unirse-formulario');
+    if (formularioParche) {
+        const campoCorreo = formularioParche.querySelector('#correo-parche');
+        const avisoParche = formularioParche.querySelector('#aviso-parche');
+        const botonEnvio = formularioParche.querySelector('[type="submit"]');
+        let temporizadorAviso;
+        formularioParche.addEventListener('submit', async (evento) => {
+            evento.preventDefault();
+            campoCorreo.value = campoCorreo.value.trim();
+            if (!formularioParche.reportValidity()) return;
+
+            botonEnvio.disabled = true;
+            avisoParche.classList.add('d-none');
+            try {
+                const respuesta = await fetch(formularioParche.action, {
+                    method: formularioParche.method || 'POST',
+                    body: new FormData(formularioParche),
+                    headers: { Accept: 'application/json' }
+                });
+                if (!respuesta.ok) throw new Error(`Formspree respondió con el estado ${respuesta.status}`);
+                formularioParche.reset();
+                avisoParche.textContent = '¡Gracias por unirte al parche lector!';
+                avisoParche.classList.remove('d-none', 'text-danger');
+                avisoParche.classList.add('text-success');
+                clearTimeout(temporizadorAviso);
+                temporizadorAviso = setTimeout(() => avisoParche.classList.add('d-none'), 5000);
+            } catch (error) {
+                avisoParche.textContent = 'No se pudo enviar el correo. Inténtalo de nuevo.';
+                avisoParche.classList.remove('d-none', 'text-success');
+                avisoParche.classList.add('text-danger');
+                console.error('Error al enviar la suscripción:', error);
+            } finally {
+                botonEnvio.disabled = false;
+            }
+        });
+    }
+
+    // agrega al listado los productos nuevos guardados por el administrador
     obtenerProductosGuardados().forEach((producto, indice) => {
         grid.appendChild(crearTarjetaProducto(producto, indice));
     });
@@ -92,11 +198,25 @@ function inicializarCatalogo() {
     const maximoTexto = document.querySelector('#precio-maximo-valor');
     let paginaActual = 1;
 
+    // cuenta libros por region para mostrar cantidades reales en los filtros
+    function actualizarConteosRegiones() {
+        panel.querySelectorAll('input[name="region"]').forEach((control) => {
+            const region = control.value;
+            const cantidad = tarjetas.filter((tarjeta) => (
+                tarjeta.dataset.region.split(/\s+/).filter(Boolean).includes(region)
+            )).length;
+            const contador = control.closest('.catalogo-filtro-opcion')?.querySelector('small');
+            if (contador) contador.textContent = String(cantidad);
+        });
+    }
+
+    // refleja los limites actuales del rango de precios
     function actualizarTextoPrecio() {
         minimoTexto.textContent = `$${Number(minimo.value).toLocaleString('es-CO')}`;
         maximoTexto.textContent = `$${Number(maximo.value).toLocaleString('es-CO')}`;
     }
 
+    // combina busqueda, categoria, region y precio para filtrar libros
     function obtenerFiltradas() {
         const consulta = normalizarTexto(buscar.value);
         const categoriasMarcadas = [...panel.querySelectorAll('input[name="categoria"]:checked')].map((input) => input.value);
@@ -118,6 +238,7 @@ function inicializarCatalogo() {
         });
     }
 
+    // crea los botones de navegacion segun el total de paginas
     function dibujarPaginacion(totalPaginas) {
         paginas.replaceChildren();
         for (let numero = 1; numero <= totalPaginas; numero += 1) {
@@ -135,7 +256,9 @@ function inicializarCatalogo() {
         paginacion.classList.remove('d-none');
     }
 
+    // actualiza tarjetas visibles, conteo de resultados y paginacion
     function renderizar() {
+        actualizarConteosRegiones();
         const filtradas = obtenerFiltradas();
         const totalPaginas = Math.max(1, Math.ceil(filtradas.length / LIBROS_POR_PAGINA));
         paginaActual = Math.min(paginaActual, totalPaginas);
@@ -155,6 +278,7 @@ function inicializarCatalogo() {
         dibujarPaginacion(totalPaginas);
     }
 
+    // vuelve a la primera pagina despues de cambiar un filtro
     function aplicarFiltros() {
         paginaActual = 1;
         renderizar();
@@ -195,6 +319,7 @@ function inicializarCatalogo() {
     renderizar();
 }
 
+// inicializa el catalogo despues de cargar su fragmento html
 export function initCatalogo() {
     inicializarCatalogo();
 }
