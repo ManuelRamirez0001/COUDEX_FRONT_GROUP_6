@@ -1,0 +1,372 @@
+/**
+ * responsive.css
+ * Adaptaciones responsivas (Media Queries) para móvil, tablet y escritorio.
+ */
+
+/* ==========================================================================
+   1. PANTALLAS GRANDES Y ESCRITORIO
+   ========================================================================== */
+
+/* Ajuste del logo en escritorio */
+@media (min-width: 768px) {
+    .raton-logo {
+        transform: translate(-6px, 0px);
+    }
+}
+
+/* Banner de inicio: cubre la altura visible sin franjas cortadas */
+@media (min-width: 992px) {
+    .banner-biblioteca {
+        height: calc(100vh - 65px);
+        min-height: 520px;
+        object-fit: cover;
+        object-position: center top;
+    }
+}
+
+
+/* ==========================================================================
+   2. LAPTOPS Y PANTALLAS INTERMEDIAS (≤ 1199px)
+   ========================================================================== */
+
+@media (max-width: 1199.98px) {
+    .libro-izq {
+        width: 310px;
+        margin-right: -90px;
+        transform: rotate(-12deg) translateY(16px);
+    }
+    .libro-centro {
+        width: 330px;
+        transform: translateY(-8px);
+    }
+    .libro-der {
+        width: 310px;
+        margin-left: -90px;
+        transform: rotate(11deg) translateY(16px);
+    }
+}
+
+/* catalogo */
+@media (max-width: 991.98px) {
+    .catalogo-parches-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .catalogo-libros-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767.98px) {
+    .catalogo-busqueda-wrap {
+        margin-top: -20px;
+    }
+
+    .catalogo-busqueda {
+        grid-template-columns: minmax(0, 1fr);
+        width: 92%;
+        gap: 6px;
+        padding: 12px;
+    }
+
+    .catalogo-busqueda-texto {
+        border-right: 0;
+        border-bottom: 1px solid #8B6D47;
+        padding: 0 4px 8px;
+    }
+
+    .catalogo-busqueda select {
+        min-height: 40px;
+    }
+
+    .catalogo-contenido {
+        width: 92%;
+    }
+
+    .catalogo-filtros {
+        max-width: 100%;
+    }
+
+    .catalogo-parches-encabezado {
+        display: block;
+    }
+
+    .catalogo-parches-encabezado p {
+        margin-top: 8px;
+    }
+
+    .catalogo-libros-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .catalogo-parches {
+        padding-top: 30px;
+    }
+
+    .catalogo-parches-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .catalogo-libros-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .catalogo-libro-card {
+        display: grid;
+        grid-template-columns: 115px minmax(0, 1fr);
+    }
+
+    .catalogo-libro-portada {
+        height: 100%;
+        min-height: 175px;
+    }
+
+    .catalogo-libro-info {
+        min-height: 175px;
+        padding: 12px;
+    }
+}
+
+
+/* ==========================================================================
+   3. TABLETS Y PANTALLAS MEDIANAS (≤ 991px)
+   ========================================================================== */
+
+@media (max-width: 991.98px) {
+    .abanico-libros {
+        padding: 1.5rem 0 2.5rem;
+    }
+    .libro-izq {
+        width: clamp(160px, 24vw, 220px);
+        margin-right: -14vw;
+        transform: rotate(-12deg) translateY(12px);
+    }
+    .libro-centro {
+        width: clamp(175px, 26vw, 235px);
+        transform: translateY(-6px);
+    }
+    .libro-der {
+        width: clamp(160px, 24vw, 220px);
+        margin-left: -14vw;
+        transform: rotate(11deg) translateY(12px);
+    }
+}
+
+
+/* ==========================================================================
+   4. MENÚ MÓVIL Y NAVEGACIÓN COLAPSABLE (≤ 767px)
+   ========================================================================== */
+
+@media (max-width: 767.98px) {
+    header {
+        z-index: 1030;
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+    .cart-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 46px;
+        height: 40px;
+        margin-left: auto;
+        margin-right: .5rem;
+        border: 1px solid rgba(245, 239, 230, .2);
+        border-radius: .35rem;
+        color: var(--crema);
+        text-decoration: none;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: .8rem .9rem 1rem;
+        background: #000;
+        z-index: 1030;
+    }
+
+    .navbar-nav {
+        gap: .55rem;
+    }
+
+    .navbar-nav .nav-link,
+    .navbar-nav .btn {
+        display: block;
+        width: 100%;
+        padding: .7rem 1rem;
+        border-radius: 2rem;
+        text-align: center;
+    }
+
+    .navbar-nav .nav-link {
+        background: #050505;
+        color: var(--crema);
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        background: #171717;
+        color: #fff;
+    }
+
+    .navbar-nav .nav-item:has(.bi-cart3) {
+        display: none;
+    }
+
+    .navbar-nav .btn-cafe,
+    .navbar-nav .btn-crema {
+        margin-top: .1rem;
+    }
+
+    .sitio-footer .footer-correo {
+        display: block;
+        font-size: 0.78rem;
+        line-height: 1.4;
+    }
+}
+
+
+/* ==========================================================================
+   5. TELÉFONOS MÓVILES (≤ 576px)
+   ========================================================================== */
+
+@media (max-width: 576px) {
+    .abanico-libros {
+        padding: 1rem 0 2rem;
+    }
+    .libro-izq {
+        width: clamp(105px, 30vw, 135px);
+        margin-right: -13vw;
+        transform: rotate(-10deg) translateY(8px);
+    }
+    .libro-centro {
+        width: clamp(115px, 33vw, 145px);
+        transform: translateY(-3px);
+    }
+    .libro-der {
+        width: clamp(105px, 30vw, 135px);
+        margin-left: -13vw;
+        transform: rotate(10deg) translateY(8px);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .catalogo-resultados-layout {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .catalogo-libros-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 18px;
+    }
+
+    .catalogo-producto-compra {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    /* ajusta la cantidad de portadas visibles en el carrusel */
+    .catalogo-mas-pedidos-carrusel {
+        grid-auto-columns: calc((100% - 54px) / 3);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .catalogo-resultados-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .catalogo-filtros {
+        position: static;
+    }
+
+    .catalogo-producto-visual {
+        height: clamp(220px, 48vw, 320px);
+    }
+
+    .catalogo-producto-compra {
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    /* reorganiza carrusel y suscripcion en tabletas */
+    .catalogo-mas-pedidos-contenedor { width: min(100% - 36px, 600px); }
+    .catalogo-mas-pedidos-encabezado { align-items: flex-start; }
+    .catalogo-mas-pedidos-encabezado p { text-align: left; }
+    .catalogo-mas-pedidos-carrusel { grid-auto-columns: calc((100% - 36px) / 2.5); }
+
+    .catalogo-unirse { padding: 32px 24px 40px; }
+    .catalogo-unirse-tarjeta { align-items: stretch; flex-direction: column; gap: 18px; }
+    .catalogo-unirse-formulario { flex-basis: auto; width: 100%; }
+}
+
+@media (max-width: 575.98px) {
+    .catalogo-libros-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .catalogo-producto-card {
+        max-width: 420px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .catalogo-producto-visual {
+        height: min(78vw, 340px);
+    }
+
+    .catalogo-producto-compra {
+        flex-wrap: nowrap;
+    }
+
+    /* compacta carrusel y formulario de suscripcion en moviles */
+    .catalogo-mas-pedidos { border-radius: 24px 24px 0 0; }
+    .catalogo-mas-pedidos-encabezado { gap: 10px; }
+    .catalogo-mas-pedidos-controles { gap: 5px; }
+    .catalogo-mas-pedidos-controles button { width: 36px; height: 36px; }
+    .catalogo-mas-pedidos-carrusel { grid-auto-columns: calc((100% - 18px) / 1.5); }
+
+    .catalogo-unirse { padding: 28px 18px 36px; }
+    .catalogo-unirse-contenedor { min-height: 0; }
+    .catalogo-unirse-tarjeta { min-height: 0; padding: 22px 18px; }
+    .catalogo-unirse-texto h2 { font-size: 1.18rem; }
+    .catalogo-unirse-formulario { align-items: stretch; flex-direction: column; }
+    .catalogo-unirse-formulario button { width: 100%; }
+    .catalogo-unirse-mariposa-abajo { left: -17px; bottom: -24px; width: 48px; height: 48px; }
+    .catalogo-unirse-mariposa-arriba { right: -12px; top: -24px; width: 56px; height: 56px; }
+}
+
+
+/* ==========================================================================
+   Inicio: secciones inferiores
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    .inicio-populares-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .inicio-cita { gap: 1.5rem; }
+}
+
+@media (max-width: 767.98px) {
+    .inicio-populares-encabezado { flex-direction: column; align-items: flex-start; }
+    .inicio-populares-encabezado p { text-align: left; }
+    .inicio-cita { flex-direction: column; }
+    .inicio-cita-texto p { text-align: left; }
+    .inicio-testimonios-carrusel { grid-auto-columns: 100%; }
+    .inicio-testimonio { padding: 1.5rem; }
+    .inicio-mariposa-testimonios,
+    .inicio-mariposa { display: none; }
+    .inicio-final-fila { flex-direction: column; text-align: center; }
+    .inicio-final-texto p { margin: 0 auto; }
+}

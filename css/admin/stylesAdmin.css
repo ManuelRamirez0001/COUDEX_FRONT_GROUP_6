@@ -1,0 +1,306 @@
+/* colores principales del panel segun la paleta del sitio */
+:root {
+    --admin-primary: #5B371B;
+    --admin-secondary: #8B6D47;
+    --admin-background: #FBF7F6;
+    --admin-white: #ffffff;
+    --admin-border: #dfd2c4;
+    --admin-text: #211003;
+    --admin-hover: #f2e9db;
+    --admin-accent: #FBB853;
+}
+
+body {
+    background-color: var(--admin-background);
+    color: var(--admin-text);
+    font-family: Arial, sans-serif;
+}
+
+/* barra superior del panel y controles de perfil */
+.admin-header {
+    width: 100%;
+    min-height: 65px;
+    background-color: #5B371B;
+    border-bottom: 1px solid #452a16;
+    padding: 0 25px;
+}
+
+.admin-header-title h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--admin-white);
+}
+
+.admin-header-user .btn {
+    border: none;
+    color: var(--admin-white);
+    background-color: transparent;
+    transition: color 160ms ease, background-color 160ms ease;
+}
+
+.admin-header-user .btn:hover,
+.admin-header-user .btn:focus-visible,
+.admin-header-user .btn[aria-expanded="true"] {
+    background-color: rgba(251, 184, 83, 0.16);
+    color: var(--admin-accent);
+    box-shadow: none;
+}
+
+.admin-header-user .btn:focus-visible {
+    outline: 2px solid var(--admin-accent);
+    outline-offset: 2px;
+}
+
+.admin-header-user .btn i {
+    display: inline-block;
+    font-size: 22px;
+    line-height: 1;
+    color: var(--admin-white);
+}
+
+.admin-header-user .btn::after {
+    margin-left: 5px;
+}
+
+.admin-header-user .dropdown-menu {
+    min-width: 180px;
+    border: 1px solid #d8c5ae;
+    background-color: #FBF7F6;
+    box-shadow: 0 6px 18px rgba(33, 16, 3, 0.16);
+}
+
+.admin-header-user .dropdown-item {
+    color: var(--admin-primary);
+}
+
+.admin-header-user .dropdown-item:hover,
+.admin-header-user .dropdown-item:focus {
+    background-color: var(--admin-hover);
+    color: #452a16;
+}
+
+.admin-header-user .dropdown-item:active {
+    background-color: var(--admin-accent);
+    color: #211003;
+}
+
+.admin-header-user .dropdown-divider {
+    border-color: #dfd2c4;
+}
+
+/* estructura lateral y area de contenido administrativo */
+.admin-layout {
+    display: flex;
+    min-height: calc(100vh - 65px);
+    align-items: stretch;
+}
+
+#admin-sidebar {
+    flex-shrink: 0;
+    background-color: #5B371B;
+}
+
+.admin-sidebar {
+    width: 240px;
+    height: 100%;
+    min-height: calc(100vh - 65px);
+    background-color: #5B371B;
+    border-right: 1px solid #452a16;
+    padding: 25px 15px;
+}
+
+.admin-sidebar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    color: var(--admin-white);
+    font-size: 15px;
+    transition: background-color 0.2s ease;
+}
+
+.admin-sidebar-nav .nav-link i {
+    font-size: 18px;
+}
+
+.admin-sidebar-nav .nav-link:hover {
+    background-color: #704a2d;
+    color: var(--admin-white);
+}
+
+.admin-sidebar-nav .nav-link.active {
+    background-color: #f4eee8;
+    color: #5B371B;
+}
+
+#main {
+    flex: 1;
+    min-width: 0;
+}
+
+.admin-products {
+    padding: 30px;
+}
+
+.admin-products-header h2 {
+    font-weight: 600;
+    color: var(--admin-primary);
+}
+
+/* estilos del formulario y controles para productos */
+.admin-product-form {
+    background-color: var(--admin-white);
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+}
+
+.admin-product-form h3 {
+    color: var(--admin-primary);
+    font-weight: 600;
+}
+
+.admin-product-form .form-label {
+    font-weight: 500;
+    color: var(--admin-text);
+}
+
+.admin-product-form .form-control,
+.admin-product-form .form-select {
+    border-color: var(--admin-border);
+}
+
+.admin-product-form .form-control:focus,
+.admin-product-form .form-select:focus {
+    border-color: var(--admin-secondary);
+    box-shadow: 0 0 0 0.2rem rgba(139, 109, 71, 0.18);
+}
+
+.admin-form-actions .btn {
+    min-width: 110px;
+}
+
+.admin-form-actions .btn-primary {
+    border-color: var(--admin-primary);
+    background-color: var(--admin-primary);
+    color: #FBF7F6;
+}
+
+.admin-form-actions .btn-primary:hover,
+.admin-form-actions .btn-primary:focus-visible {
+    border-color: #452a16;
+    background-color: #452a16;
+    color: #FBF7F6;
+}
+
+.admin-form-actions .btn-secondary {
+    border-color: var(--admin-secondary);
+    background-color: #f2e9db;
+    color: var(--admin-primary);
+}
+
+.admin-form-actions .btn-secondary:hover,
+.admin-form-actions .btn-secondary:focus-visible {
+    border-color: var(--admin-secondary);
+    background-color: #e8dbc9;
+    color: #452a16;
+}
+
+/* cuadro de vista previa para la portada seleccionada */
+.admin-image-preview {
+    display: flex;
+    width: 100%;
+    height: 220px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    overflow: hidden;
+    background-color: #f5efe6;
+    border: 2px dashed #bda88f;
+    border-radius: 8px;
+    color: var(--admin-secondary);
+}
+
+.admin-image-preview img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+/* tabla de productos, busqueda y acciones */
+.admin-products-list {
+    background-color: var(--admin-white);
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+}
+
+.admin-products-list-header h3 {
+    font-weight: 600;
+    color: var(--admin-primary);
+}
+
+.admin-products-search {
+    width: 260px;
+}
+
+.admin-table {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.admin-table thead th {
+    background-color: #e9ecef;
+    color: var(--admin-primary);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.admin-table tbody td {
+    padding: 12px;
+}
+
+.admin-table-image {
+    width: 55px;
+    height: 65px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f3f5;
+    border: 1px solid var(--admin-border);
+    border-radius: 4px;
+    color: #adb5bd;
+}
+
+.admin-table-image i {
+    font-size: 24px;
+}
+
+.admin-table-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.admin-table-actions .btn {
+    white-space: nowrap;
+}
+
+/* colores de navegacion entre paginas */
+.admin-pagination .page-link {
+    color: var(--admin-primary);
+    border-color: var(--admin-border);
+    background-color: #FBF7F6;
+}
+
+.admin-pagination .page-item.active .page-link {
+    background-color: var(--admin-accent);
+    border-color: var(--admin-accent);
+    color: #211003;
+}
+
+.admin-pagination .page-link:focus {
+    box-shadow: 0 0 0 0.2rem rgba(139, 109, 71, 0.2);
+}
