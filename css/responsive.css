@@ -349,3 +349,24 @@
     .catalogo-unirse-mariposa-arriba { right: -12px; top: -24px; width: 56px; height: 56px; }
 }
 
+
+/* ==========================================================================
+   Inicio: secciones inferiores
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    .inicio-populares-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .inicio-cita { gap: 1.5rem; }
+}
+
+@media (max-width: 767.98px) {
+    .inicio-populares-encabezado { flex-direction: column; align-items: flex-start; }
+    .inicio-populares-encabezado p { text-align: left; }
+    .inicio-cita { flex-direction: column; }
+    .inicio-cita-texto p { text-align: left; }
+    .inicio-testimonios-carrusel { grid-auto-columns: 100%; }
+    .inicio-testimonio { padding: 1.5rem; }
+    .inicio-mariposa-testimonios,
+    .inicio-mariposa { display: none; }
+    .inicio-final-fila { flex-direction: column; text-align: center; }
+    .inicio-final-texto p { margin: 0 auto; }
+}

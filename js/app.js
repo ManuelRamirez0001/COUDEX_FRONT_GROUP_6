@@ -12,6 +12,7 @@
 import { loadFragment, loadPage, setActiveNav } from './loadContent.js';
 import { initFormContacto, initNavCollapseOnClick } from './eventos.js';
 import { initCatalogo } from './catalogo.js';
+import { initInicio } from './inicio.js';
 
 /** Páginas disponibles → archivo en pages/ */
 const PAGES = {
@@ -59,6 +60,7 @@ async function navigateTo(page) {
 function initPageFeatures() {
   initFormContacto();
   initCatalogo();
+  initInicio();
 }
 
 /** Delegación de eventos en los enlaces de navegación [data-page] */

@@ -1,6 +1,4 @@
-<!-- ============ PÁGINA DE INICIO (HOME) ============ -->
-
-<!-- Banner superior: Biblioteca -->
+ 
 <section class="inicio-hero p-0 overflow-hidden">
     <div class="container-fluid p-0">
         <img src="img/Biblioteca.optimized.svg" alt="Biblioteca clásica - Ratón de Biblioteca" class="img-fluid w-100 banner-biblioteca" width="1437" height="617" fetchpriority="high" decoding="async">
@@ -8,7 +6,9 @@
 </section>
 
 <!-- Sección: De la montaña al Caribe -->
-<section class="container-xxl py-5 my-md-4">
+<section class="container-xxl py-5 my-md-4 inicio-bienvenida">
+    <img src="img/vistaCatalogo/Mariposa1.svg" alt="" aria-hidden="true" class="inicio-mariposa inicio-mariposa-izq" loading="lazy">
+    <img src="img/vistaCatalogo/Mariposa2.svg" alt="" aria-hidden="true" class="inicio-mariposa inicio-mariposa-der" loading="lazy">
     <div class="row justify-content-center">
         <div class="col-12 col-xl-11">
             
@@ -30,6 +30,172 @@
                 <img src="img/payasos.optimized.svg" alt="Donde mueren los payasos - Luis Noriega" class="img-fluid libro-item libro-der" width="417" height="499" loading="lazy" decoding="async">
             </div>
 
+        </div>
+    </div>
+</section>
+
+<!-- Sección: Libros más populares -->
+<section class="inicio-populares" aria-labelledby="titulo-populares">
+    <div class="inicio-populares-contenedor">
+        <div class="inicio-populares-encabezado">
+            <div>
+                <h2 id="titulo-populares">LOS QUE NUNCA FALLAN,</h2>
+                <p>ESTOS SON LOS LIBROS MÁS POPULARES...</p>
+            </div>
+            <a href="index.html" data-page="catalogo" class="inicio-btn-amarillo">Ver mas</a>
+        </div>
+
+        <div class="inicio-populares-grid">
+            <article class="inicio-popular">
+                <img src="img/vistaCatalogo/libros/nocturno.svg" alt="Portada de Nocturno" loading="lazy" decoding="async">
+                <div class="inicio-popular-datos"><h3>Nocturno</h3><strong>$75.000</strong></div>
+                <button type="button" class="inicio-btn-carrito">Añadir al carrito</button>
+            </article>
+            <article class="inicio-popular">
+                <img src="img/vistaCatalogo/libros/notienequienescriba.svg" alt="Portada de El coronel no tiene quien le escriba" loading="lazy" decoding="async">
+                <div class="inicio-popular-datos"><h3>El coronel no tiene quien le escriba</h3><strong>$75.000</strong></div>
+                <button type="button" class="inicio-btn-carrito">Añadir al carrito</button>
+            </article>
+            <article class="inicio-popular">
+                <img src="img/vistaCatalogo/libros/quevivalamusica.svg" alt="Portada de ¡Que viva la música!" loading="lazy" decoding="async">
+                <div class="inicio-popular-datos"><h3>¡Que viva la música!</h3><strong>$75.000</strong></div>
+                <button type="button" class="inicio-btn-carrito">Añadir al carrito</button>
+            </article>
+            <article class="inicio-popular">
+                <img src="img/vistaCatalogo/libros/cienañosdesoledad.svg" alt="Portada de Cien años de soledad" loading="lazy" decoding="async">
+                <div class="inicio-popular-datos"><h3>Cien años de soledad</h3><strong>$75.000</strong></div>
+                <button type="button" class="inicio-btn-carrito">Añadir al carrito</button>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Cita -->
+<section class="container-xxl inicio-cita">
+    <blockquote class="inicio-cita-texto">
+        <p>Échele un <span>ojo</span> a los tesoros literarios que nos parió esta <span>patria</span>...</p>
+    </blockquote>
+    <img src="img/gabo.png" alt="Retrato ilustrado de Gabriel García Márquez" class="inicio-cita-img" loading="lazy" onerror="this.style.display='none'">
+</section>
+
+<!-- Categorías (parches literarios) -->
+<section class="container-xxl inicio-categorias" aria-label="Categorías de literatura colombiana">
+    <div class="row g-3 g-lg-4">
+        <div class="col-12 col-md-6">
+            <a href="index.html" data-page="catalogo" class="inicio-categoria">
+                <img src="img/vistaCatalogo/parche/categoriaClasica.jpg" alt="" loading="lazy">
+                <h3>Literatura clásica colombiana</h3>
+                <span class="inicio-btn-blanco">Explora mas</span>
+            </a>
+        </div>
+        <div class="col-12 col-md-6">
+            <a href="index.html" data-page="catalogo" class="inicio-categoria">
+                <img src="img/vistaCatalogo/parche/categoriaPoesia.jpg" alt="" loading="lazy">
+                <h3>Poesía colombiana</h3>
+                <span class="inicio-btn-blanco">Explora mas</span>
+            </a>
+        </div>
+        <div class="col-12 col-md-6">
+            <a href="index.html" data-page="catalogo" class="inicio-categoria">
+                <img src="img/vistaCatalogo/parche/categoriaHistoria.jpg" alt="" loading="lazy">
+                <h3>Historia y Crónicas de Colombia</h3>
+                <span class="inicio-btn-blanco">Explora mas</span>
+            </a>
+        </div>
+        <div class="col-12 col-md-6">
+            <a href="index.html" data-page="catalogo" class="inicio-categoria">
+                <img src="img/vistaCatalogo/parche/categoriaInfantil.jpg" alt="" loading="lazy">
+                <h3>Literatura infantil y juvenil colombiana</h3>
+                <span class="inicio-btn-blanco">Explora mas</span>
+            </a>
+        </div>
+        <div class="col-12 col-md-6">
+            <a href="index.html" data-page="catalogo" class="inicio-categoria">
+                <img src="img/vistaCatalogo/parche/categoriaContemporanea2.jpg" alt="" loading="lazy">
+                <h3>Literatura contemporánea</h3>
+                <span class="inicio-btn-blanco">Explora mas</span>
+            </a>
+        </div>
+        <div class="col-12 col-md-6">
+            <a href="index.html" data-page="catalogo" class="inicio-categoria">
+                <img src="img/vistaCatalogo/parche/categoriaContemporanea.jpg" alt="" loading="lazy">
+                <h3>Realismo mágico</h3>
+                <span class="inicio-btn-blanco">Explora mas</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Beneficios -->
+<section class="inicio-beneficios" aria-label="Por qué comprar en Ratón de Biblioteca">
+    <div class="container-xxl">
+        <div class="row gy-4">
+            <div class="col-6 col-lg-3 inicio-beneficio">
+                <span class="inicio-beneficio-icono"><i class="bi bi-truck" aria-hidden="true"></i></span>
+                <h3>Envío a todo el país</h3>
+                <p>Te mandamos tus libros hasta la puerta de la casa, bien embalados y protegidos para que lleguen intactos, sin importar si estás en la capital o en un pueblito recóndito.</p>
+            </div>
+            <div class="col-6 col-lg-3 inicio-beneficio">
+                <span class="inicio-beneficio-icono"><i class="bi bi-stopwatch" aria-hidden="true"></i></span>
+                <h3>Atención bien bacana</h3>
+                <p>¿Dudas con un título o buscando recomendación? Escríbenos a cualquier hora y te ayudamos a encontrar el libro perfecto para tu próximo café.</p>
+            </div>
+            <div class="col-6 col-lg-3 inicio-beneficio">
+                <span class="inicio-beneficio-icono"><i class="bi bi-shield-check" aria-hidden="true"></i></span>
+                <h3>Compra 100% Segura</h3>
+                <p>Paga con confianza usando tus métodos favoritos (Nequi, PSE o tarjeta). Si el libro te llega con algún tropiezo, te respondemos de una.</p>
+            </div>
+            <div class="col-6 col-lg-3 inicio-beneficio">
+                <span class="inicio-beneficio-icono"><i class="bi bi-people" aria-hidden="true"></i></span>
+                <h3>Hecho con talento local</h3>
+                <p>Cada compra apoya directamente a librerías independientes, editoriales nacionales y autores de nuestra tierra que están dejando huella.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonios -->
+<section class="container-xxl inicio-testimonios" aria-labelledby="titulo-testimonios">
+    <div class="inicio-testimonios-encabezado">
+        <h2 id="titulo-testimonios">LO QUE DICE LA GENTE DEL <span>PARCHE LECTOR</span></h2>
+        <img src="img/vistaCatalogo/Mariposa2.svg" alt="" aria-hidden="true" class="inicio-mariposa-testimonios" loading="lazy">
+        <div class="inicio-testimonios-controles">
+            <button type="button" class="inicio-flecha inicio-flecha-activa" data-inicio-carrusel="anterior" aria-label="Testimonio anterior"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>
+            <button type="button" class="inicio-flecha" data-inicio-carrusel="siguiente" aria-label="Testimonio siguiente"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+        </div>
+    </div>
+
+    <div class="inicio-testimonios-carrusel" id="carrusel-testimonios" tabindex="0" aria-label="Testimonios de lectores">
+        <article class="inicio-testimonio inicio-testimonio-oscuro">
+            <div class="inicio-estrellas" aria-label="5 de 5 estrellas">★★★★★</div>
+            <p>"¡Qué belleza de servicio! Pedí un par de clásicos de Gabo y una novela contemporánea, y me llegaron a la casa superrápido y en perfecto estado. Se nota el amor con el que empacan cada libro."</p>
+            <div class="inicio-testimonio-autor">
+                <img src="img/user.svg" alt="" width="48" height="48" loading="lazy">
+                <div><strong>Ignacio Fajardo</strong><span>Medellín</span></div>
+            </div>
+        </article>
+        <article class="inicio-testimonio inicio-testimonio-claro">
+            <div class="inicio-estrellas" aria-label="5 de 5 estrellas">★★★★★</div>
+            <p>"Tenía dudas sobre qué regalarle a mi hermana para el cumpleaños y por el chat me recomendaron una joya de poesía colombiana. Le encantó totalmente. ¡Son unos tíos con un servicio de diez!"</p>
+            <div class="inicio-testimonio-autor">
+                <img src="img/user.svg" alt="" width="48" height="48" loading="lazy">
+                <div><strong>Alina Martínez</strong><span>Bogotá</span></div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- Llamado final -->
+<section class="container-xxl inicio-final">
+    <hr>
+    <div class="inicio-final-fila">
+        <div class="inicio-final-texto">
+            <h2>Y entonces... ¿qué hay pa' <span>leer</span>?</h2>
+            <p>Pille pues los <span>recomendados</span> de la semana. Historias que atrapan desde la primera página y que huelen a nuestra tierrita.</p>
+        </div>
+        <div class="inicio-final-accion">
+            <img src="img/libro.svg" alt="" aria-hidden="true" width="110" loading="lazy">
+            <a href="index.html" data-page="catalogo" class="inicio-btn-cafe">Comencemos</a>
         </div>
     </div>
 </section>
