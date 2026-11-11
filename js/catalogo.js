@@ -1,4 +1,5 @@
 import { obtenerAjustesCatalogo, obtenerProductosGuardados } from './productosStorage.js';
+import { agregarAlCarrito } from './carrito.js';
 
 // cantidad de libros que se muestran en cada pagina del catalogo
 const LIBROS_POR_PAGINA = 9;
@@ -120,6 +121,50 @@ function aplicarAjustesCatalogo(grid) {
         }
     });
 }
+//zona de carrito
+
+
+function conectarCarrito(grid) {
+
+    grid.addEventListener('click', (evento) => {
+
+        const boton = evento.target.closest(
+            '.catalogo-producto-compra button'
+        );
+
+        if (!boton || !grid.contains(boton)) return;
+
+        const tarjeta = boton.closest(
+            '.catalogo-producto-card'
+        );
+
+        if (!tarjeta) return;
+
+        const producto = {
+
+            id: tarjeta.dataset.id,
+
+            nombre: tarjeta.dataset.nombre,
+
+            autor: tarjeta.dataset.autor,
+
+            precio: Number(tarjeta.dataset.precio),
+
+            categoria: tarjeta.dataset.categorias,
+
+            region: tarjeta.dataset.region,
+
+            imagen: tarjeta.querySelector('img')
+                ?.getAttribute('src') || ''
+
+        };
+
+        agregarAlCarrito(producto);
+
+        console.log('Agregado al carrito:', producto);
+
+    });
+}
 
 // conecta carrusel, formulario de suscripcion, filtros y paginacion
 function inicializarCatalogo() {
@@ -127,6 +172,7 @@ function inicializarCatalogo() {
     if (!grid) return;
 
     aplicarAjustesCatalogo(grid);
+    conectarCarrito(grid);
 
     // desplaza el carrusel una tarjeta por cada clic en sus flechas
     const carruselMasPedidos = document.querySelector('#carrusel-mas-pedidos');
@@ -323,3 +369,7 @@ function inicializarCatalogo() {
 export function initCatalogo() {
     inicializarCatalogo();
 }
+// const collection = document.getElementsByTagName("li");
+//     collection.addEventListener("click",(e)=>{
+//         console.log(e.textContent);
+//     })
