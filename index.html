@@ -23,6 +23,22 @@
     <!-- Contenido de página: inyectado por loadContent.js -->
     <main id="main"></main>
 
+    <!-- Aside/ esta parte es del modal del carrito -->
+    <aside class="offcanvas offcanvas-end" tabindex="-1" id="panelCarrito"
+        aria-labelledby="tituloCarrito">
+        <div class="offcanvas-header">
+            <h2 class="offcanvas-title h5" id="tituloCarrito">Tu carrito</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                aria-label="Cerrar carrito"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <ul id="lista-carrito" class="list-unstyled mb-4"></ul>
+            <button type="button" id="btn-vaciar" class="btn btn-outline-danger mt-auto">
+                Vaciar carrito
+            </button>
+        </div>
+    </aside>
+
     <!-- Footer: inyectado por loadContent.js -->
     <footer id="footer"></footer>
 
