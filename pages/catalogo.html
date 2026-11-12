@@ -1,36 +1,5 @@
 <!-- vista parcial: index.html inyecta el header y el footer compartidos. -->
-<!-- bloque visual de entrada al catalogo -->
-<section class="catalogo-hero" aria-label="Catálogo de Ratón de Biblioteca">
-    <img src="img/vistaCatalogo/heroCatalogoFondo.jpg" srcset="img/vistaCatalogo/heroCatalogoFondo-800.jpg 800w, img/vistaCatalogo/heroCatalogoFondo.jpg 1195w" sizes="100vw" width="1195" height="512" alt="" aria-hidden="true" class="catalogo-hero-fondo" fetchpriority="high" decoding="async">
-    <div class="container-xxl catalogo-hero-contenedor">
-        <img src="img/vistaCatalogo/heroCatalogoContenido.svg" alt="El catálogo completo: encuentra tu próxima lectura" class="catalogo-hero-imagen" decoding="async">
-    </div>
-</section>
-
-<!-- buscador general y filtro rapido por categoria -->
-<div class="catalogo-busqueda-wrap">
-    <div class="catalogo-busqueda" role="search" aria-label="Buscar libros en el catálogo">
-        <label class="visually-hidden" for="busqueda-catalogo">Buscar por título o autor</label>
-        <div class="catalogo-busqueda-texto">
-            <i class="bi bi-search" aria-hidden="true"></i>
-            <input id="busqueda-catalogo" type="search" placeholder="Busque por título o autor...">
-        </div>
-
-        <label class="visually-hidden" for="categoria-catalogo">Filtrar por categoría</label>
-        <select id="categoria-catalogo" aria-label="Todas las categorías">
-            <option value="">Todas las categorías</option>
-            <option value="clasica">Clásica colombiana</option>
-            <option value="contemporanea">Contemporánea</option>
-            <option value="historia">Historia</option>
-            <option value="infantil">Infantil</option>
-            <option value="poesia">Poesía</option>
-        </select>
-
-        <button type="button" class="catalogo-busqueda-boton">Buscar libros</button>
-    </div>
-</div>
-
-<div class="catalogo-contenido">
+<div class="catalogo-contenido container-xxl">
     <!-- tarjetas de acceso a los parches literarios -->
     <section class="catalogo-parches" aria-labelledby="titulo-parches">
         <div class="catalogo-parches-encabezado">
@@ -66,80 +35,49 @@
         </div>
     </section>
 
-    <!-- filtros laterales y resultados de libros -->
-    <section class="catalogo-resultados-layout" aria-label="Libros y filtros del catálogo">
-        <!-- filtros por categoria, region y rango de precio -->
-        <aside class="catalogo-filtros">
-            <div class="catalogo-filtros-encabezado">
-                <h2>Filtros</h2>
-                <button type="button" id="limpiar-filtros">Limpiar</button>
+    <!-- buscador del catalogo -->
+    <div class="catalogo-busqueda-wrap">
+        <div class="catalogo-busqueda" role="search" aria-label="Buscar libros en el catálogo">
+            <label class="visually-hidden" for="busqueda-catalogo">Buscar por título o autor</label>
+            <div class="catalogo-busqueda-texto">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input id="busqueda-catalogo" type="search" placeholder="Busque por título o autor...">
             </div>
 
-            <fieldset class="catalogo-filtros-grupo">
-                <legend>Categoría</legend>
-                <label class="catalogo-filtro-opcion">
-                    <input type="checkbox" name="categoria" value="clasica">
-                    <span>Literatura clásica</span><small>12</small>
-                </label>
-                <label class="catalogo-filtro-opcion">
-                    <input type="checkbox" name="categoria" value="poesia">
-                    <span>Poesía</span><small>7</small>
-                </label>
-                <label class="catalogo-filtro-opcion">
-                    <input type="checkbox" name="categoria" value="historia">
-                    <span>Historia y crónicas</span><small>22</small>
-                </label>
-                <label class="catalogo-filtro-opcion">
-                    <input type="checkbox" name="categoria" value="infantil">
-                    <span>Infantil y juvenil</span><small>10</small>
-                </label>
-                <label class="catalogo-filtro-opcion">
-                    <input type="checkbox" name="categoria" value="contemporanea">
-                    <span>Contemporánea</span><small>4</small>
-                </label>
-                <label class="catalogo-filtro-opcion">
-                    <input type="checkbox" name="categoria" value="realismo-magico">
-                    <span>Realismo mágico</span><small>9</small>
-                </label>
-            </fieldset>
+            <label class="visually-hidden" for="categoria-catalogo">Filtrar por categoría</label>
+            <select id="categoria-catalogo" aria-label="Todas las categorías">
+                <option value="">Todas las categorías</option>
+                <option value="clasica">Clásica colombiana</option>
+                <option value="contemporanea">Contemporánea</option>
+                <option value="historia">Historia</option>
+                <option value="infantil">Infantil</option>
+                <option value="poesia">Poesía</option>
+            </select>
 
-            <fieldset class="catalogo-filtros-grupo">
-                <legend>Regiones</legend>
-                <label class="catalogo-filtro-opcion">
-                    <input type="checkbox" name="region" value="caribe">
-                    <span>Caribe</span><small>0</small>
-                </label>
-                <label class="catalogo-filtro-opcion">
-                    <input type="checkbox" name="region" value="andina">
-                    <span>Andina</span><small>0</small>
-                </label>
-                <label class="catalogo-filtro-opcion">
-                    <input type="checkbox" name="region" value="orinoquia">
-                    <span>Orinoquía</span><small>0</small>
-                </label>
-                <label class="catalogo-filtro-opcion">
-                    <input type="checkbox" name="region" value="amazonia">
-                    <span>Amazonía</span><small>0</small>
-                </label>
-            </fieldset>
+            <button type="button" class="catalogo-busqueda-boton">Buscar libros</button>
+        </div>
+    </div>
 
-            <fieldset class="catalogo-filtros-grupo catalogo-filtros-precio">
-                <legend>Precio</legend>
-                <div class="catalogo-rango-precio">
-                    <div class="catalogo-rango-pista"></div>
-                    <input id="precio-minimo" type="range" min="20000" max="90000" step="1000" value="20000" aria-label="Precio mínimo">
-                    <input id="precio-maximo" type="range" min="20000" max="90000" step="1000" value="90000" aria-label="Precio máximo">
-                </div>
-                <div class="catalogo-precio-valores">
-                    <output id="precio-minimo-valor" for="precio-minimo">$20.000</output>
-                    <output id="precio-maximo-valor" for="precio-maximo">$90.000</output>
-                </div>
-            </fieldset>
-        </aside>
-
+    <!-- resultados de libros -->
+    <section class="catalogo-resultados-layout" aria-label="Libros del catálogo">
         <!-- tarjetas base del catalogo y productos guardados -->
         <div class="catalogo-resultados">
-            <p id="conteo-libros" class="catalogo-conteo-libros" aria-live="polite">Mostrando 1–9 de 10 libros</p>
+            <div class="catalogo-resultados-toolbar">
+                <p id="conteo-libros" class="catalogo-conteo-libros" aria-live="polite">Mostrando 1–9 de 10 libros</p>
+                <img class="catalogo-mariposas" src="img/vistaCatalogo/mariposa-1.png" alt="" aria-hidden="true">
+                <div class="catalogo-precio-filtro">
+                    <p class="catalogo-precio-titulo">Precio</p>
+                    <div class="catalogo-rango-precio">
+                        <div class="catalogo-rango-pista"></div>
+                        <input id="precio-minimo" type="range" min="20000" max="90000" step="1000" value="20000" aria-label="Precio mínimo">
+                        <input id="precio-maximo" type="range" min="20000" max="90000" step="1000" value="90000" aria-label="Precio máximo">
+                    </div>
+                    <div class="catalogo-precio-valores">
+                        <output id="precio-minimo-valor" for="precio-minimo">$20.000</output>
+                        <output id="precio-maximo-valor" for="precio-maximo">$90.000</output>
+                    </div>
+                </div>
+            </div>
 
             <div id="catalogo-libros-grid" class="catalogo-libros-grid">
                 <article class="catalogo-producto-card" data-id="base-1" data-categorias="realismo-magico" data-region="caribe" data-precio="75000" data-stock="true" data-nombre="Cien años de soledad" data-autor="Gabriel García Márquez">
@@ -303,7 +241,7 @@
 
 <!-- carrusel semanal de los libros mas pedidos -->
 <section class="catalogo-mas-pedidos" aria-labelledby="titulo-mas-pedidos">
-    <div class="catalogo-mas-pedidos-contenedor">
+    <div class="catalogo-mas-pedidos-contenedor container-xxl">
         <div class="catalogo-mas-pedidos-encabezado">
             <div>
                 <h2 id="titulo-mas-pedidos">LOS MÁS PEDIDOS</h2>
@@ -351,7 +289,7 @@
 
 <!-- formulario para unirse al parche lector -->
 <section class="catalogo-unirse" aria-labelledby="titulo-unirse">
-    <div class="catalogo-unirse-contenedor">
+    <div class="catalogo-unirse-contenedor container-xxl">
         <img class="catalogo-unirse-mariposa catalogo-unirse-mariposa-abajo" src="img/vistaCatalogo/Mariposa1.svg" alt="foto-mariposa1" aria-hidden="true">
         <img class="catalogo-unirse-mariposa catalogo-unirse-mariposa-arriba" src="img/vistaCatalogo/Mariposa2.svg" alt="foto-mariposa2" aria-hidden="true">
         <div class="catalogo-unirse-tarjeta">

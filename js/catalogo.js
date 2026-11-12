@@ -1,7 +1,7 @@
 import { obtenerAjustesCatalogo, obtenerProductosGuardados } from './productosStorage.js';
 
 // cantidad de libros que se muestran en cada pagina del catalogo
-const LIBROS_POR_PAGINA = 9;
+const LIBROS_POR_PAGINA = 8;
 
 // prepara texto para comparar busquedas sin distinguir tildes ni mayusculas
 function normalizarTexto(texto = '') {
@@ -180,10 +180,23 @@ function inicializarCatalogo() {
 
     // agrega al listado los productos nuevos guardados por el administrador
     obtenerProductosGuardados().forEach((producto, indice) => {
-        grid.appendChild(crearTarjetaProducto(producto, indice));
+        const tarjeta = crearTarjetaProducto(producto, indice);
+        tarjeta.dataset.productoGuardado = 'true';
+        grid.appendChild(tarjeta);
     });
 
-    const tarjetas = [...grid.querySelectorAll('.catalogo-producto-card')];
+    function actualizarProductosGuardados() {
+        grid.querySelectorAll('[data-producto-guardado="true"]').forEach((tarjeta) => tarjeta.remove());
+        obtenerProductosGuardados().forEach((producto, indice) => {
+            const tarjeta = crearTarjetaProducto(producto, indice);
+            tarjeta.dataset.productoGuardado = 'true';
+            grid.appendChild(tarjeta);
+        });
+        tarjetas = [...grid.querySelectorAll('.catalogo-producto-card')];
+        renderizar();
+    }
+
+    let tarjetas = [...grid.querySelectorAll('.catalogo-producto-card')];
     const conteo = document.querySelector('#conteo-libros');
     const paginas = document.querySelector('#catalogo-paginas');
     const estadoPagina = document.querySelector('#catalogo-pagina-estado');
@@ -191,51 +204,33 @@ function inicializarCatalogo() {
     const buscar = document.querySelector('#busqueda-catalogo');
     const categoriaSelect = document.querySelector('#categoria-catalogo');
     const botonBuscar = document.querySelector('.catalogo-busqueda-boton');
-    const panel = document.querySelector('.catalogo-filtros');
     const minimo = document.querySelector('#precio-minimo');
     const maximo = document.querySelector('#precio-maximo');
     const minimoTexto = document.querySelector('#precio-minimo-valor');
     const maximoTexto = document.querySelector('#precio-maximo-valor');
     let paginaActual = 1;
 
-    // cuenta libros por region para mostrar cantidades reales en los filtros
-    function actualizarConteosRegiones() {
-        panel.querySelectorAll('input[name="region"]').forEach((control) => {
-            const region = control.value;
-            const cantidad = tarjetas.filter((tarjeta) => (
-                tarjeta.dataset.region.split(/\s+/).filter(Boolean).includes(region)
-            )).length;
-            const contador = control.closest('.catalogo-filtro-opcion')?.querySelector('small');
-            if (contador) contador.textContent = String(cantidad);
-        });
-    }
-
-    // refleja los limites actuales del rango de precios
-    function actualizarTextoPrecio() {
-        minimoTexto.textContent = `$${Number(minimo.value).toLocaleString('es-CO')}`;
-        maximoTexto.textContent = `$${Number(maximo.value).toLocaleString('es-CO')}`;
-    }
-
-    // combina busqueda, categoria, region y precio para filtrar libros
+    // filtra libros por titulo, autor y precio
     function obtenerFiltradas() {
         const consulta = normalizarTexto(buscar.value);
-        const categoriasMarcadas = [...panel.querySelectorAll('input[name="categoria"]:checked')].map((input) => input.value);
-        const categoriaSuperior = categoriaSelect.value;
-        const categorias = categoriaSuperior ? [categoriaSuperior] : categoriasMarcadas;
-        const regiones = [...panel.querySelectorAll('input[name="region"]:checked')].map((input) => input.value);
+        const categoriaSeleccionada = categoriaSelect.value;
         const precioMinimo = Number(minimo.value);
         const precioMaximo = Number(maximo.value);
 
         return tarjetas.filter((tarjeta) => {
             const texto = normalizarTexto(`${tarjeta.dataset.nombre} ${tarjeta.dataset.autor}`);
             const categoriasLibro = tarjeta.dataset.categorias.split(/\s+/).filter(Boolean);
-            const regionesLibro = tarjeta.dataset.region.split(/\s+/).filter(Boolean);
             const precio = Number(tarjeta.dataset.precio);
             return (!consulta || texto.includes(consulta))
-                && (!categorias.length || categorias.some((categoria) => categoriasLibro.includes(categoria)))
-                && (!regiones.length || regiones.some((region) => regionesLibro.includes(region)))
+                && (!categoriaSeleccionada || categoriasLibro.includes(categoriaSeleccionada))
                 && precio >= precioMinimo && precio <= precioMaximo;
         });
+    }
+
+    // actualiza los valores visibles del rango de precio
+    function actualizarTextoPrecio() {
+        minimoTexto.textContent = `$${Number(minimo.value).toLocaleString('es-CO')}`;
+        maximoTexto.textContent = `$${Number(maximo.value).toLocaleString('es-CO')}`;
     }
 
     // crea los botones de navegacion segun el total de paginas
@@ -258,7 +253,6 @@ function inicializarCatalogo() {
 
     // actualiza tarjetas visibles, conteo de resultados y paginacion
     function renderizar() {
-        actualizarConteosRegiones();
         const filtradas = obtenerFiltradas();
         const totalPaginas = Math.max(1, Math.ceil(filtradas.length / LIBROS_POR_PAGINA));
         paginaActual = Math.min(paginaActual, totalPaginas);
@@ -284,6 +278,9 @@ function inicializarCatalogo() {
         renderizar();
     }
 
+    buscar.addEventListener('input', aplicarFiltros);
+    categoriaSelect.addEventListener('change', aplicarFiltros);
+    botonBuscar.addEventListener('click', aplicarFiltros);
     [minimo, maximo].forEach((control) => control.addEventListener('input', () => {
         if (Number(minimo.value) >= Number(maximo.value)) {
             if (control === minimo) minimo.value = Number(maximo.value) - Number(minimo.step);
@@ -292,19 +289,6 @@ function inicializarCatalogo() {
         actualizarTextoPrecio();
         aplicarFiltros();
     }));
-    panel.addEventListener('change', aplicarFiltros);
-    categoriaSelect.addEventListener('change', aplicarFiltros);
-    buscar.addEventListener('input', aplicarFiltros);
-    botonBuscar.addEventListener('click', aplicarFiltros);
-    document.querySelector('#limpiar-filtros').addEventListener('click', () => {
-        panel.querySelectorAll('input[type="checkbox"]').forEach((input) => { input.checked = false; });
-        minimo.value = minimo.min;
-        maximo.value = maximo.max;
-        buscar.value = '';
-        categoriaSelect.value = '';
-        actualizarTextoPrecio();
-        aplicarFiltros();
-    });
     paginacion.addEventListener('click', (evento) => {
         const numero = evento.target.closest('[data-numero-pagina]');
         if (numero) paginaActual = Number(numero.dataset.numeroPagina);
@@ -314,6 +298,17 @@ function inicializarCatalogo() {
         renderizar();
         document.querySelector('.catalogo-resultados').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
+
+    // sincroniza los productos cuando otra pestana los guarda en localstorage
+    const sincronizarProductosGuardados = (evento) => {
+        if (!grid.isConnected) {
+            window.removeEventListener('storage', sincronizarProductosGuardados);
+            return;
+        }
+        if (evento.key !== 'ratonBiblioteca_productos') return;
+        actualizarProductosGuardados();
+    };
+    window.addEventListener('storage', sincronizarProductosGuardados);
 
     actualizarTextoPrecio();
     renderizar();

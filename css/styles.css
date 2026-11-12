@@ -14,13 +14,9 @@ html, body {
 }
 
 body {
-    background: var(--crema);
+    background: #FBF7F6;
     color: var(--cafe);
     font-family: 'Merriweather', serif;
-}
-
-body:has(#main .catalogo-hero) {
-    background: #FBF7F6;
 }
 
 h1,
@@ -82,8 +78,8 @@ h6,
 .cinta {
     position: absolute;
     left: -10px;
-    top: -16px;
-    height: 90px;
+    top: -9px;
+    height: 118px;
 }
 
 /* ---------- Cajas con borde café y círculos ---------- */
@@ -272,42 +268,10 @@ h6,
 }
 
 /* estilos del catalogo */
-.catalogo-hero {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1440 / 320;
-    overflow: hidden;
-    line-height: 0;
-    background: #211003;
-}
-
-.catalogo-hero-fondo {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.catalogo-hero-contenedor {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    padding-right: 0;
-    padding-left: 0;
-}
-
-.catalogo-hero-imagen {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
 .catalogo-busqueda-wrap {
     position: relative;
     z-index: 1;
-    margin-top: -29px;
+    margin: 0 0 50px;
 }
 
 .catalogo-busqueda {
@@ -315,8 +279,7 @@ h6,
     grid-template-columns: minmax(0, 1fr) minmax(190px, 250px) 142px;
     align-items: center;
     gap: 10px;
-    width: 85%;
-    max-width: 1220px;
+    width: 100%;
     min-height: 62px;
     margin: 0 auto;
     padding: 7px 10px 7px 17px;
@@ -334,15 +297,13 @@ h6,
     align-items: center;
     gap: 12px;
     padding-right: 14px;
-    border-right: 1px solid #8B6D47;
 }
 
 .catalogo-busqueda-texto i {
     font-size: 20px;
 }
 
-.catalogo-busqueda-texto input,
-.catalogo-busqueda select {
+.catalogo-busqueda-texto input {
     width: 100%;
     min-width: 0;
     border: 0;
@@ -352,15 +313,23 @@ h6,
     font: inherit;
 }
 
+.catalogo-busqueda select {
+    width: 100%;
+    min-width: 0;
+    padding: 8px 10px;
+    border: 0;
+    border-left: 1px solid #8B6D47;
+    outline: 0;
+    background: transparent;
+    color: #5B371B;
+    font: inherit;
+    font-size: 0.9rem;
+}
+
 .catalogo-busqueda-texto input::placeholder {
     color: #8B6D47;
     font-style: italic;
     opacity: 1;
-}
-
-.catalogo-busqueda select {
-    padding: 8px 10px;
-    font-size: 0.9rem;
 }
 
 .catalogo-busqueda-boton {
@@ -378,8 +347,6 @@ h6,
 }
 
 .catalogo-contenido {
-    width: 85%;
-    max-width: 1220px;
     margin: 0 auto;
 }
 
@@ -456,165 +423,6 @@ h6,
     line-height: 1.2;
     text-align: center;
     text-shadow: 0 1px 3px #211003;
-}
-
-.catalogo-filtros-seccion {
-    padding: 0 0 48px;
-}
-
-.catalogo-filtros {
-    width: 100%;
-    max-width: 260px;
-    padding: 18px 20px;
-    border-radius: 12px;
-    background: #5B371B;
-    color: #FBF7F6;
-}
-
-.catalogo-filtros-encabezado {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid #FBF7F6;
-}
-
-.catalogo-filtros-encabezado h2 {
-    margin: 0;
-    font-size: 1.15rem;
-}
-
-.catalogo-filtros-encabezado button {
-    padding: 5px 12px;
-    border: 0;
-    border-radius: 8px;
-    background: #FBB853;
-    color: #5B371B;
-    font-size: 0.8rem;
-    font-weight: 700;
-}
-
-.catalogo-filtros-grupo {
-    min-width: 0;
-    margin: 0;
-    padding: 14px 0;
-    border: 0;
-    border-bottom: 1px solid rgba(251, 247, 246, 0.75);
-}
-
-.catalogo-filtros-grupo legend {
-    float: none;
-    width: auto;
-    margin: 0 0 9px;
-    color: #FBF7F6;
-    font-size: 0.85rem;
-    font-weight: 700;
-}
-
-.catalogo-filtro-opcion {
-    display: grid;
-    grid-template-columns: 16px minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 7px;
-    margin: 8px 0;
-    color: #FBF7F6;
-    font-size: 0.8rem;
-    line-height: 1.25;
-}
-
-.catalogo-filtro-opcion input {
-    width: 15px;
-    height: 15px;
-    margin: 0;
-    appearance: none;
-    border: 2px solid #FBB853;
-    border-radius: 4px;
-    background: #FBF7F6;
-    cursor: pointer;
-}
-
-.catalogo-filtro-opcion input:checked {
-    background: #FBB853;
-    box-shadow: inset 0 0 0 3px #5B371B;
-}
-
-.catalogo-filtro-opcion small {
-    color: #FBB853;
-    font-size: 0.65rem;
-}
-
-.catalogo-filtros-precio {
-    padding-bottom: 4px;
-    border-bottom: 0;
-}
-
-.catalogo-rango-precio {
-    position: relative;
-    height: 25px;
-    margin: 8px 0 4px;
-}
-
-.catalogo-rango-pista {
-    position: absolute;
-    top: 11px;
-    right: 0;
-    left: 0;
-    height: 4px;
-    border-radius: 4px;
-    background: #FBF7F6;
-}
-
-.catalogo-rango-precio input[type="range"] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 25px;
-    margin: 0;
-    appearance: none;
-    background: transparent;
-    pointer-events: none;
-}
-
-.catalogo-rango-precio input[type="range"]::-webkit-slider-runnable-track {
-    height: 4px;
-    background: transparent;
-}
-
-.catalogo-rango-precio input[type="range"]::-webkit-slider-thumb {
-    width: 16px;
-    height: 16px;
-    margin-top: -6px;
-    appearance: none;
-    border: 2px solid #FBB853;
-    border-radius: 50%;
-    background: #FBF7F6;
-    cursor: pointer;
-    pointer-events: auto;
-}
-
-.catalogo-rango-precio input[type="range"]::-moz-range-track {
-    height: 4px;
-    background: transparent;
-}
-
-.catalogo-rango-precio input[type="range"]::-moz-range-thumb {
-    width: 12px;
-    height: 12px;
-    border: 2px solid #FBB853;
-    border-radius: 50%;
-    background: #FBF7F6;
-    cursor: pointer;
-    pointer-events: auto;
-}
-
-.catalogo-precio-valores {
-    display: flex;
-    justify-content: space-between;
-    color: #FBF7F6;
-    font-size: 0.7rem;
-    font-weight: 700;
 }
 
 .catalogo-libros {
@@ -706,19 +514,128 @@ h6,
 
 .catalogo-resultados-layout {
     display: grid;
-    grid-template-columns: 260px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     align-items: start;
     gap: clamp(24px, 3vw, 40px);
     padding: 18px 0 56px;
 }
 
-.catalogo-filtros {
-    position: sticky;
-    top: 20px;
-}
-
 .catalogo-resultados {
     min-width: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+.catalogo-resultados-toolbar {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    min-height: 108px;
+    margin-bottom: 18px;
+}
+
+.catalogo-resultados-toolbar .catalogo-conteo-libros {
+    flex: 0 0 auto;
+    margin: 0 0 6px;
+}
+
+.catalogo-mariposas {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    display: block;
+    width: 172px;
+    height: auto;
+    transform: translateX(-50%);
+}
+
+.catalogo-precio-filtro {
+    flex: 0 0 190px;
+    margin: 0;
+    padding: 10px 14px 8px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--cafe);
+    color: var(--crema);
+}
+
+.catalogo-precio-titulo {
+    margin: 0 0 4px;
+    color: var(--crema);
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.catalogo-rango-precio {
+    position: relative;
+    height: 22px;
+    margin: 2px 0 4px;
+}
+
+.catalogo-rango-pista {
+    position: absolute;
+    top: 9px;
+    right: 0;
+    left: 0;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--crema);
+}
+
+.catalogo-rango-precio input[type="range"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 22px;
+    margin: 0;
+    appearance: none;
+    background: transparent;
+    pointer-events: none;
+}
+
+.catalogo-rango-precio input[type="range"]::-webkit-slider-runnable-track {
+    height: 4px;
+    background: transparent;
+}
+
+.catalogo-rango-precio input[type="range"]::-webkit-slider-thumb {
+    width: 15px;
+    height: 15px;
+    margin-top: -5px;
+    appearance: none;
+    border: 2px solid var(--amarillo);
+    border-radius: 50%;
+    background: var(--crema);
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.catalogo-rango-precio input[type="range"]::-moz-range-track {
+    height: 4px;
+    background: transparent;
+}
+
+.catalogo-rango-precio input[type="range"]::-moz-range-thumb {
+    width: 11px;
+    height: 11px;
+    border: 2px solid var(--amarillo);
+    border-radius: 50%;
+    background: var(--crema);
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.catalogo-precio-valores {
+    display: flex;
+    justify-content: space-between;
+    color: var(--crema);
+    font-size: 0.62rem;
+    font-weight: 700;
 }
 
 .catalogo-conteo-libros {
@@ -730,7 +647,7 @@ h6,
 
 .catalogo-libros-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     align-items: start;
     column-gap: clamp(18px, 3vw, 38px);
     row-gap: 32px;
@@ -744,7 +661,7 @@ h6,
 .catalogo-producto-visual {
     position: relative;
     display: flex;
-    height: clamp(230px, 27vw, 352px);
+    height: clamp(210px, 22vw, 300px);
     align-items: center;
     justify-content: center;
     overflow: hidden;
@@ -919,7 +836,6 @@ h6,
 }
 
 .catalogo-mas-pedidos-contenedor {
-    width: min(100% - 48px, 1140px);
     margin: 0 auto;
 }
 
@@ -1038,14 +954,13 @@ h6,
 
 /* tarjeta de suscripcion con decoracion de mariposas */
 .catalogo-unirse {
-    padding: 36px 24px 48px;
+    padding: 36px 0 48px;
     background: #FBF7F6;
 }
 
 .catalogo-unirse-contenedor {
     position: relative;
     display: flex;
-    width: min(100%, 1140px);
     min-height: 180px;
     align-items: center;
     margin: 0 auto;
