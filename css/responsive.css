@@ -24,7 +24,32 @@
     }
 }
 
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050;
+    background-color: #fff;
+}
 
+/* Evitar que el contenido quede debajo del navbar */
+#main {
+    padding-top: 90px;
+}
+@media (max-width: 768px) {
+
+    #navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    #main {
+        padding-top: 75px;
+    }
+}
 /* ==========================================================================
    2. LAPTOPS Y PANTALLAS INTERMEDIAS (≤ 1199px)
    ========================================================================== */

@@ -14,7 +14,7 @@
   import { initCatalogo } from './catalogo.js';
   import { initInicio } from './inicio.js';
   import { mostrarModal,
-    actualizarVistaCarrito} from './carrito.js';
+    actualizarVistaCarrito,initCarrito} from './carrito.js';
 
   /** Páginas disponibles → archivo en pages/ */
   const PAGES = {
@@ -105,5 +105,6 @@
     initNavCollapseOnClick();
     initPageFeatures();
     mostrarModal();
+    initCarrito();
   })();
 

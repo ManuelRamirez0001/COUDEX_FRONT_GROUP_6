@@ -75,6 +75,18 @@ h6,
 }
 
 /* ---------- Panel del carrito ---------- */
+.resumen-carrito {
+    transition: color 2s ease;
+}
+
+.pintar {
+    color: red !important;
+}
+
+.despintar {
+    color: inherit;
+}
+
 .offcanvas#panelCarrito {
     background: #fff;
     color: #33271f;
