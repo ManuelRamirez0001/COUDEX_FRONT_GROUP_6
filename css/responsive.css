@@ -47,6 +47,136 @@
 }
 
 /* catalogo */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+    .catalogo-parches {
+        padding: 24px 0 32px;
+    }
+
+    .catalogo-parches-encabezado h1 {
+        font-size: clamp(1.3rem, 2.1vw, 1.7rem);
+    }
+
+    .catalogo-parches-encabezado p {
+        font-size: 0.82rem;
+    }
+
+    .catalogo-parches-grid {
+        gap: 8px;
+    }
+
+    .catalogo-parche img {
+        height: clamp(100px, 8.5vw, 118px);
+        object-fit: cover;
+    }
+
+    .catalogo-parche-titulo {
+        font-size: clamp(0.6rem, 0.85vw, 0.78rem);
+    }
+
+    .catalogo-busqueda {
+        min-height: 54px;
+    }
+
+    .catalogo-busqueda-boton {
+        min-height: 34px;
+    }
+
+    .catalogo-resultados-toolbar {
+        min-height: 90px;
+        gap: 12px;
+    }
+
+    .catalogo-mariposas {
+        width: 145px;
+    }
+
+    .catalogo-precio-filtro {
+        flex-basis: 165px;
+    }
+
+    .catalogo-producto-visual {
+        height: clamp(190px, 19vw, 250px);
+    }
+
+    .catalogo-libros-grid {
+        column-gap: clamp(14px, 2vw, 26px);
+        row-gap: 24px;
+    }
+
+    .catalogo-mas-pedidos {
+        padding: 24px 0 30px;
+    }
+
+    .catalogo-mas-pedidos-encabezado {
+        margin-bottom: 18px;
+    }
+
+    .catalogo-mas-pedidos-encabezado h2 {
+        font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+    }
+
+    .catalogo-mas-pedidos-controles button {
+        width: 38px;
+        height: 38px;
+    }
+
+    .catalogo-mas-pedidos-carrusel {
+        gap: clamp(14px, 2.2vw, 24px);
+    }
+
+    .catalogo-unirse {
+        padding: 28px 0 36px;
+    }
+
+    .catalogo-unirse-contenedor {
+        min-height: 155px;
+    }
+
+    .catalogo-unirse-tarjeta {
+        gap: 20px;
+        padding: 20px 22px;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .catalogo-parches {
+        padding: 30px 0 36px;
+    }
+
+    .catalogo-parches-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .catalogo-parches-encabezado h1 {
+        font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+    }
+
+    .catalogo-parches-encabezado p {
+        font-size: 0.85rem;
+    }
+
+    .catalogo-busqueda {
+        min-height: 56px;
+    }
+
+    .catalogo-busqueda-boton {
+        min-height: 36px;
+    }
+
+    .catalogo-producto-visual {
+        height: clamp(190px, 21vw, 260px);
+    }
+
+    .catalogo-resultados-toolbar {
+        gap: 12px;
+    }
+
+    .catalogo-precio-filtro {
+        flex-basis: 170px;
+    }
+}
+
 @media (max-width: 991.98px) {
     .catalogo-parches-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -55,11 +185,13 @@
     .catalogo-libros-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+
+    .catalogo-mariposas { width: 145px; }
 }
 
 @media (max-width: 767.98px) {
     .catalogo-busqueda-wrap {
-        margin-top: -20px;
+        margin-top: 16px;
     }
 
     .catalogo-busqueda {
@@ -77,15 +209,17 @@
 
     .catalogo-busqueda select {
         min-height: 40px;
+        border-left: 0;
+        border-bottom: 1px solid #8B6D47;
     }
 
-    .catalogo-contenido {
-        width: 92%;
+    .catalogo-resultados-toolbar {
+        min-height: 92px;
+        gap: 10px;
     }
 
-    .catalogo-filtros {
-        max-width: 100%;
-    }
+    .catalogo-mariposas { width: 110px; }
+    .catalogo-precio-filtro { flex-basis: 150px; padding: 8px 10px 6px; }
 
     .catalogo-parches-encabezado {
         display: block;
@@ -158,10 +292,19 @@
 
 
 /* ==========================================================================
-   4. MENÚ MÓVIL Y NAVEGACIÓN COLAPSABLE (≤ 767px)
+   4. MENÚ COMPACTO Y NAVEGACIÓN COLAPSABLE (≤ 1199px)
    ========================================================================== */
 
-@media (max-width: 767.98px) {
+@media (max-width: 1199.98px) {
+    /* activa el menu compacto solo en pantallas menores al escritorio */
+    header .navbar .navbar-toggler {
+        display: block !important;
+    }
+
+    header .navbar .cart-header {
+        display: flex !important;
+    }
+
     header {
         z-index: 1030;
     }
@@ -227,6 +370,121 @@
         margin-top: .1rem;
     }
 
+}
+
+@media (min-width: 1200px) and (max-width: 1440px) {
+    header .navbar.container-xxl,
+    .sitio-footer > .container-xxl,
+    .catalogo-contenido,
+    .catalogo-mas-pedidos-contenedor,
+    .catalogo-unirse-contenedor {
+        max-width: 1240px;
+    }
+
+    .catalogo-parches {
+        padding: 30px 0 36px;
+    }
+
+    .catalogo-parches-encabezado {
+        gap: 16px;
+        margin-bottom: 12px;
+    }
+
+    .catalogo-parches-encabezado h1 {
+        font-size: clamp(1.45rem, 2vw, 1.8rem);
+    }
+
+    .catalogo-parches-encabezado p {
+        font-size: 0.85rem;
+    }
+
+    .catalogo-parches-grid {
+        gap: 10px;
+    }
+
+    .catalogo-parche img {
+        height: clamp(108px, 9vw, 122px);
+        object-fit: cover;
+    }
+
+    .catalogo-parche-titulo {
+        font-size: clamp(0.65rem, 0.82vw, 0.78rem);
+    }
+
+    .catalogo-busqueda {
+        min-height: 54px;
+        grid-template-columns: minmax(0, 1fr) minmax(150px, 215px) 130px;
+        gap: 8px;
+        padding: 6px 9px 6px 14px;
+    }
+
+    .catalogo-busqueda-boton {
+        min-height: 36px;
+    }
+
+    .catalogo-resultados-layout {
+        padding-top: 12px;
+    }
+
+    .catalogo-resultados-toolbar {
+        min-height: 88px;
+        margin-bottom: 14px;
+    }
+
+    .catalogo-mariposas {
+        width: 145px;
+    }
+
+    .catalogo-precio-filtro {
+        flex-basis: 170px;
+        padding: 9px 12px 7px;
+    }
+
+    .catalogo-producto-visual {
+        height: clamp(200px, 17vw, 238px);
+    }
+
+    .catalogo-libros-grid {
+        column-gap: clamp(18px, 2vw, 28px);
+        row-gap: 26px;
+    }
+
+    .catalogo-mas-pedidos {
+        padding: 26px 0 32px;
+    }
+
+    .catalogo-mas-pedidos-encabezado {
+        margin-bottom: 20px;
+    }
+
+    .catalogo-mas-pedidos-encabezado h2 {
+        font-size: clamp(1.75rem, 3.3vw, 2.35rem);
+    }
+
+    .catalogo-mas-pedidos-controles button {
+        width: 38px;
+        height: 38px;
+    }
+
+    .catalogo-mas-pedidos-carrusel {
+        gap: clamp(16px, 2vw, 26px);
+    }
+
+    .catalogo-unirse {
+        padding: 30px 0 38px;
+    }
+
+    .catalogo-unirse-contenedor {
+        min-height: 160px;
+    }
+
+    .catalogo-unirse-tarjeta {
+        gap: 22px;
+        padding: 22px 24px;
+    }
+}
+
+@media (max-width: 767.98px) {
     .sitio-footer .footer-correo {
         display: block;
         font-size: 0.78rem;
@@ -260,13 +518,8 @@
 }
 
 @media (max-width: 991.98px) {
-    .catalogo-resultados-layout {
-        grid-template-columns: 220px minmax(0, 1fr);
-        gap: 20px;
-    }
-
     .catalogo-libros-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 24px 18px;
     }
 
@@ -282,17 +535,13 @@
 }
 
 @media (max-width: 767.98px) {
-    .catalogo-resultados-layout {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 24px;
-    }
-
-    .catalogo-filtros {
-        position: static;
-    }
-
     .catalogo-producto-visual {
         height: clamp(220px, 48vw, 320px);
+    }
+
+    .catalogo-libros-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
     }
 
     .catalogo-producto-compra {
@@ -302,17 +551,45 @@
     }
 
     /* reorganiza carrusel y suscripcion en tabletas */
-    .catalogo-mas-pedidos-contenedor { width: min(100% - 36px, 600px); }
     .catalogo-mas-pedidos-encabezado { align-items: flex-start; }
     .catalogo-mas-pedidos-encabezado p { text-align: left; }
     .catalogo-mas-pedidos-carrusel { grid-auto-columns: calc((100% - 36px) / 2.5); }
 
-    .catalogo-unirse { padding: 32px 24px 40px; }
+    .catalogo-unirse { padding: 32px 0 40px; }
     .catalogo-unirse-tarjeta { align-items: stretch; flex-direction: column; gap: 18px; }
     .catalogo-unirse-formulario { flex-basis: auto; width: 100%; }
 }
 
 @media (max-width: 575.98px) {
+    .catalogo-resultados-toolbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 145px;
+        min-height: 0;
+        gap: 10px;
+    }
+
+    .catalogo-resultados-toolbar .catalogo-conteo-libros {
+        grid-column: 1 / -1;
+    }
+
+    .catalogo-mariposas {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        width: 88px;
+        height: auto;
+        justify-self: center;
+        transform: none;
+    }
+
+    .catalogo-precio-filtro {
+        grid-column: 2;
+        grid-row: 2;
+        width: 145px;
+        max-width: 100%;
+        justify-self: end;
+    }
+
     .catalogo-libros-grid {
         grid-template-columns: minmax(0, 1fr);
         gap: 24px;
@@ -339,7 +616,7 @@
     .catalogo-mas-pedidos-controles button { width: 36px; height: 36px; }
     .catalogo-mas-pedidos-carrusel { grid-auto-columns: calc((100% - 18px) / 1.5); }
 
-    .catalogo-unirse { padding: 28px 18px 36px; }
+    .catalogo-unirse { padding: 28px 0 36px; }
     .catalogo-unirse-contenedor { min-height: 0; }
     .catalogo-unirse-tarjeta { min-height: 0; padding: 22px 18px; }
     .catalogo-unirse-texto h2 { font-size: 1.18rem; }
