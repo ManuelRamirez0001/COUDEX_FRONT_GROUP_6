@@ -22,6 +22,8 @@
     catalogo:    'catalogo',    // listado de productos
     nosotros:    'nosotros',    // propuesta, historia, equipo y preguntas frecuentes
     contactanos: 'contactanos', // formulario y canales de atención
+    registro:    'registro',    // vista de creación de cuenta
+    login:       'login',       // vista de inicio de sesión
   };
 
   const DEFAULT_PAGE = 'inicio';

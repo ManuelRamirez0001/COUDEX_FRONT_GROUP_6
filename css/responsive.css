@@ -672,3 +672,20 @@
     .inicio-final-fila { flex-direction: column; text-align: center; }
     .inicio-final-texto p { margin: 0 auto; }
 }
+
+@media (max-width: 600px) {
+    .registro-pagina { padding: 24px 16px; }
+    .registro-contenido { margin-bottom: 28px; }
+    .registro-tarjeta { padding: 26px 20px 22px; }
+    .registro-marca { right: 28px; }
+    .registro-tarjeta h1 { font-size: 23px; }
+    .registro-campos-dos { grid-template-columns: 1fr; gap: 0; }
+    .registro-beneficios { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 600px) {
+    .login-pagina { padding: 24px 16px 40px; }
+    .login-tarjeta { padding: 30px 20px 26px; }
+    .login-marca { right: 28px; }
+    .login-tarjeta h1 { font-size: 24px; }
+}
