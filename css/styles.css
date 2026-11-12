@@ -55,6 +55,11 @@ h6,
     color: #fff;
 }
 
+.btn-cafe.active {
+    background: var(--cafe-claro);
+    color: #fff;
+}
+
 .btn-crema {
     background: var(--crema);
     color: var(--cafe-claro);
@@ -64,6 +69,11 @@ h6,
 .btn-crema:hover {
     background: #fff;
     color: var(--cafe);
+}
+
+.btn-crema.active {
+    background: var(--crema);
+    color: var(--cafe-claro);
 }
 
 .text-crema .btn-crema {
@@ -1618,3 +1628,346 @@ body:has(#main .inicio-hero) {
 }
 
 .inicio-btn-cafe:hover { background: var(--cafe-claro); color: #fff; }
+
+/* ---------- registro ---------- */
+.registro-pagina {
+    padding: 32px 20px;
+    background: #FBF7F6;
+}
+
+.registro-contenido {
+    max-width: 650px;
+    margin: 0 auto 48px;
+}
+
+.registro-migas {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: var(--cafe);
+    font-size: 13px;
+}
+
+.registro-migas a,
+.registro-login a {
+    color: #8B0000;
+}
+
+.registro-tarjeta {
+    position: relative;
+    padding: 30px 36px 24px;
+    border: 1px solid var(--cafe);
+    border-radius: 16px;
+    background: var(--crema);
+}
+
+.registro-marca {
+    position: absolute;
+    top: 0;
+    right: 48px;
+    width: 24px;
+    height: auto;
+}
+
+.registro-tarjeta h1 {
+    margin: 0;
+    color: #211003;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+.registro-tarjeta h1 span { color: #8B0000; }
+
+.registro-subtitulo {
+    margin: 4px 0 20px;
+    color: var(--cafe-claro);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.registro-seccion-titulo {
+    margin: 0 0 12px;
+    padding-top: 14px;
+    border-top: 1px solid #dfd1c0;
+    color: var(--cafe-claro);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.registro-campos-dos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.registro-campo { margin-bottom: 14px; }
+
+.registro-campo label {
+    display: block;
+    margin-bottom: 5px;
+    color: #211003;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.registro-campo input {
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid var(--cafe);
+    border-radius: 9px;
+    background: #fff;
+    color: #33271f;
+    font-family: 'Merriweather', serif;
+    font-size: 12px;
+}
+
+.registro-campo input::placeholder { color: #a99b8c; }
+.registro-campo input:focus { outline: 2px solid var(--amarillo); }
+
+.registro-telefono {
+    display: flex;
+    height: 40px;
+    overflow: hidden;
+    border: 1px solid var(--cafe);
+    border-radius: 9px;
+    background: #fff;
+}
+
+.registro-telefono span {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    background: var(--cafe);
+    color: #fff;
+    font-size: 12px;
+}
+
+.registro-telefono input { height: 38px; border: 0; border-radius: 0; }
+.registro-telefono input:focus { outline: none; }
+.registro-seguridad-titulo { margin-top: 10px; }
+
+.registro-boton {
+    display: flex;
+    width: 100%;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+    border: 0;
+    border-radius: 9px;
+    background: var(--cafe);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.registro-boton:hover { background: var(--cafe-claro); }
+
+.registro-login {
+    margin: 16px 0 0;
+    color: var(--cafe);
+    font-size: 12px;
+    text-align: center;
+}
+
+.registro-beneficios {
+    display: flex;
+    max-width: 1100px;
+    justify-content: space-around;
+    gap: 20px;
+    margin: 0 auto;
+    padding: 16px;
+    border: 1px solid var(--cafe);
+    border-radius: 16px;
+    background: var(--crema);
+}
+
+.registro-beneficio {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.registro-beneficio > i {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--cafe);
+}
+
+.registro-beneficio p { margin: 0; color: var(--cafe); font-size: 12px; }
+.registro-beneficio strong, .registro-beneficio span { display: block; }
+.registro-beneficio span { margin-top: 4px; font-size: 10px; }
+
+
+/* ---------- inicio de sesión ---------- */
+.login-pagina {
+    padding: 32px 20px 70px;
+    background: #FBF7F6;
+}
+
+.login-contenido { max-width: 650px; margin: 0 auto; }
+
+.login-migas {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: var(--cafe);
+    font-size: 13px;
+}
+
+.login-migas a,
+.login-registro { color: #8B0000; }
+
+.login-tarjeta {
+    position: relative;
+    padding: 38px 36px 32px;
+    border: 1px solid var(--cafe);
+    border-radius: 20px;
+    background: var(--crema);
+}
+
+.login-marca {
+    position: absolute;
+    top: 0;
+    right: 48px;
+    width: 30px;
+    height: auto;
+}
+
+.login-tarjeta h1 {
+    margin: 0;
+    color: #211003;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+.login-tarjeta h1 span { color: #8B0000; }
+
+.login-subtitulo {
+    margin: 4px 0 24px;
+    color: var(--cafe-claro);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.login-seccion-titulo {
+    margin: 0 0 24px;
+    padding-top: 14px;
+    border-top: 1px solid #dfd1c0;
+    color: var(--cafe-claro);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.login-campo { margin-bottom: 16px; }
+
+.login-campo label {
+    display: block;
+    margin-bottom: 6px;
+    color: #211003;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.login-campo input {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid var(--cafe);
+    border-radius: 11px;
+    background: #fff;
+    color: #33271f;
+    font-family: 'Merriweather', serif;
+    font-size: 13px;
+}
+
+.login-campo input::placeholder { color: #a99b8c; }
+.login-campo input:focus { outline: 2px solid var(--amarillo); }
+
+.login-boton {
+    display: flex;
+    width: 100%;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+    border: 0;
+    border-radius: 11px;
+    background: var(--cafe);
+    color: #fff;
+    font-size: 14px;
+}
+
+.login-boton:hover { background: var(--cafe-claro); }
+
+.login-separador {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+    color: var(--cafe-claro);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+}
+
+.login-separador::before,
+.login-separador::after {
+    height: 1px;
+    flex: 1;
+    background: #dfd1c0;
+    content: "";
+}
+
+.login-registro {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.estado-validacion,
+.estado-ayuda {
+    display: none;
+    margin-top: 4px;
+    font-size: 11px;
+}
+
+.estado-ayuda { display: block; color: var(--cafe-claro); }
+
+input[type="password"]::-ms-reveal { display: block; }
+
+.registro-campo input:valid:not(:placeholder-shown),
+.login-campo input:valid:not(:placeholder-shown) { border-color: #198754; }
+
+.registro-campo input:invalid:not(:placeholder-shown),
+.login-campo input:invalid:not(:placeholder-shown) { border-color: #dc3545; }
+
+.registro-campo input:valid:not(:placeholder-shown) ~ .estado-correcto,
+.login-campo input:valid:not(:placeholder-shown) ~ .estado-correcto {
+    display: block;
+    color: #198754;
+}
+
+.registro-campo input:invalid:not(:placeholder-shown) ~ .estado-error,
+.login-campo input:invalid:not(:placeholder-shown) ~ .estado-error {
+    display: block;
+    color: #dc3545;
+}
+
+#registro-celular:valid:not(:placeholder-shown) { border-bottom: 2px solid #198754; }
+#registro-celular:invalid:not(:placeholder-shown) { border-bottom: 2px solid #dc3545; }

@@ -1,0 +1,84 @@
+<section class="registro-pagina">
+    <div class="registro-contenido">
+        <nav class="registro-migas" aria-label="Ruta de navegación">
+            <a href="index.html" data-page="inicio">Inicio</a>
+            <span aria-hidden="true">›</span>
+            <span>Registro</span>
+        </nav>
+
+        <div class="registro-tarjeta">
+            <img class="registro-marca" src="img/registro/cinta-registro.svg" alt="" aria-hidden="true">
+            <h1>Cree su <span>cuenta</span></h1>
+            <p class="registro-subtitulo">Regístrate en un minuto y únete al parche lector.</p>
+
+            <form class="registro-formulario">
+                <p class="registro-seccion-titulo">Datos personales</p>
+
+                <div class="registro-campos-dos">
+                    <div class="registro-campo">
+                        <label for="registro-nombre">Nombre</label>
+                        <input class="form-control" id="registro-nombre" name="nombre" type="text" placeholder="Su nombre" autocomplete="given-name" minlength="2" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ' ]{2,}" title="Escribe al menos 2 letras y no uses números." required>
+                        <small class="estado-validacion estado-correcto">Nombre válido.</small>
+                        <small class="estado-validacion estado-error">Escribe al menos 2 letras y no uses números.</small>
+                    </div>
+                    <div class="registro-campo">
+                        <label for="registro-apellido">Apellido</label>
+                        <input class="form-control" id="registro-apellido" name="apellido" type="text" placeholder="Su apellido" autocomplete="family-name" minlength="2" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ' ]{2,}" title="Escribe al menos 2 letras y no uses números." required>
+                        <small class="estado-validacion estado-correcto">Apellido válido.</small>
+                        <small class="estado-validacion estado-error">Escribe al menos 2 letras y no uses números.</small>
+                    </div>
+                </div>
+
+                <div class="registro-campo">
+                    <label for="registro-correo">Correo electrónico</label>
+                    <input class="form-control" id="registro-correo" name="correo" type="email" placeholder="nombre@correo.com" autocomplete="email" pattern="(?!.*(?:1234|abcdefg)).+" title="Escribe un correo válido y no uses 1234 o abcdefg." required>
+                    <small class="estado-validacion estado-correcto">Correo válido.</small>
+                    <small class="estado-validacion estado-error">Escribe un correo válido y no uses 1234 o abcdefg.</small>
+                </div>
+
+                <div class="registro-campo">
+                    <label for="registro-celular">Celular</label>
+                    <div class="registro-telefono">
+                        <span aria-label="Colombia, código +57">🇨🇴 &nbsp; +57</span>
+                        <input class="form-control" id="registro-celular" name="celular" type="tel" placeholder="0000000000" autocomplete="tel-national" inputmode="numeric" pattern="[0-9]{10}" title="Escribe los 10 números de tu celular." maxlength="10" required>
+                    </div>
+                </div>
+
+                <p class="registro-seccion-titulo registro-seguridad-titulo">Seguridad</p>
+
+                <div class="registro-campos-dos">
+                    <div class="registro-campo">
+                        <label for="registro-contrasena">Contraseña</label>
+                        <input class="form-control" id="registro-contrasena" name="contrasena" type="password" placeholder="Mínimo 8 caracteres" autocomplete="new-password" minlength="8" pattern="(?=.*[A-Za-z])(?=.*[0-9])(?!.*(?:1234|abcdefg)).{8,}" title="Usa 8 caracteres o más, con letras y números. No uses 1234 o abcdefg." required>
+                        <small class="estado-validacion estado-correcto">Contraseña válida.</small>
+                        <small class="estado-validacion estado-error">Usa 8 caracteres o más, con letras y números. No uses 1234 o abcdefg.</small>
+                    </div>
+                    <div class="registro-campo">
+                        <label for="registro-confirmar">Confirmar contraseña</label>
+                        <input class="form-control" id="registro-confirmar" name="confirmar" type="password" placeholder="Repita su contraseña" autocomplete="new-password" minlength="8" required>
+                        <small class="estado-ayuda">Debe coincidir con la contraseña anterior.</small>
+                    </div>
+                </div>
+
+                <button class="registro-boton" type="submit">Crear cuenta <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
+            </form>
+
+            <p class="registro-login">¿Ya tiene cuenta? <a href="index.html" data-page="login">Inicie sesión</a></p>
+        </div>
+    </div>
+
+    <div class="registro-beneficios">
+        <div class="registro-beneficio">
+            <i class="bi bi-shield-check" aria-hidden="true"></i>
+            <p><strong>Sus datos, bien cuidados</strong><span>Protegemos su información, de una.</span></p>
+        </div>
+        <div class="registro-beneficio">
+            <i class="bi bi-envelope" aria-hidden="true"></i>
+            <p><strong>Sin spam, de una</strong><span>Solo le escribimos lo que le interesa.</span></p>
+        </div>
+        <div class="registro-beneficio">
+            <i class="bi bi-box-arrow-in-right" aria-hidden="true"></i>
+            <p><strong>Cierre su cuenta cuando quiera</strong><span>Sin trámites ni letra menuda.</span></p>
+        </div>
+    </div>
+</section>

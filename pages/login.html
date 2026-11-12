@@ -1,0 +1,36 @@
+<section class="login-pagina">
+    <div class="login-contenido">
+        <nav class="login-migas" aria-label="Ruta de navegación">
+            <a href="index.html" data-page="inicio">Inicio</a>
+            <span aria-hidden="true">›</span>
+            <span>Iniciar sesión</span>
+        </nav>
+
+        <div class="login-tarjeta">
+            <img class="login-marca" src="img/registro/cinta-registro.svg" alt="" aria-hidden="true">
+            <h1>Inicie <span>sesión</span></h1>
+            <p class="login-subtitulo">Qué bueno tenerle de vuelta en el parche lector.</p>
+
+            <form class="login-formulario">
+                <p class="login-seccion-titulo">Datos de su cuenta</p>
+
+                <div class="login-campo">
+                    <label for="login-correo">Correo electrónico</label>
+                    <input class="form-control" id="login-correo" name="correo" type="email" placeholder="Ingrese su correo" autocomplete="email" required>
+                    <small class="estado-validacion estado-correcto">Correo válido.</small>
+                    <small class="estado-validacion estado-error">Escribe un correo válido.</small>
+                </div>
+
+                <div class="login-campo">
+                    <label for="login-contrasena">Contraseña</label>
+                    <input class="form-control" id="login-contrasena" name="contrasena" type="password" placeholder="Ingrese su contraseña" autocomplete="current-password" required>
+                </div>
+
+                <button class="login-boton" type="submit">Iniciar sesión <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
+            </form>
+
+            <div class="login-separador"><span>¿Aún no tiene cuenta?</span></div>
+            <a class="login-registro" href="index.html" data-page="registro">Regístrese aquí</a>
+        </div>
+    </div>
+</section>
