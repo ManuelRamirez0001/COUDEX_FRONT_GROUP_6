@@ -77,6 +77,12 @@
       if (!page) return;
       e.preventDefault();
       await navigateTo(page);
+      const scrollTarget = link.dataset.scrollTarget;
+      if (scrollTarget) {
+        requestAnimationFrame(() => {
+          document.getElementById(scrollTarget)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
     });
   }
 
