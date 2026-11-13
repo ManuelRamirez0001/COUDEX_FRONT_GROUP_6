@@ -98,8 +98,13 @@ h6,
 }
 
 .offcanvas#panelCarrito {
+    z-index: 1060;
     background: #fff;
     color: #33271f;
+}
+
+.offcanvas-backdrop {
+    z-index: 1055;
 }
 
 #tituloCarrito i {
@@ -329,10 +334,110 @@ h6,
 
 /* ---------- Página de Inicio (Home) ---------- */
 .inicio-hero {
+    position: relative;
     background-color: var(--cafe);
     width: 100%;
     overflow: hidden;
     line-height: 0;
+}
+
+.inicio-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+        rgba(33, 16, 3, 0.70) 0%,
+        rgba(33, 16, 3, 0.45) 55%,
+        rgba(33, 16, 3, 0.45) 100%);
+    pointer-events: none;
+}
+
+.inicio-hero-contenido {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    color: #fffaf6;
+    text-align: center;
+    line-height: 1.35;
+}
+
+.inicio-hero-etiqueta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 12px;
+    color: #ead2a5;
+    font: 700 .72rem/1.2 'Merriweather', serif;
+    letter-spacing: .22em;
+}
+
+.inicio-hero-etiqueta span {
+    width: 48px;
+    height: 1px;
+    background: #ead2a5;
+}
+
+.inicio-hero-contenido h1,
+.inicio-hero-subtitulo {
+    margin: 0;
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-weight: 700;
+}
+
+.inicio-hero-contenido h1 {
+    font-size: clamp(1.8rem, 5vw, 4rem);
+    letter-spacing: -.045em;
+}
+
+.inicio-hero-subtitulo {
+    margin-top: 8px;
+    color: #ead2a5;
+    font-size: clamp(1.25rem, 3.3vw, 2.75rem);
+    font-weight: 400;
+}
+
+.inicio-hero-descripcion {
+    margin: 24px 0 20px;
+    font: 400 clamp(.85rem, 1.35vw, 1.05rem)/1.55 'Merriweather', Georgia, serif;
+}
+
+.inicio-hero-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.inicio-hero-boton {
+    display: inline-flex;
+    min-width: 194px;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    border: 2px solid #fffaf6;
+    border-radius: 13px;
+    color: #fffaf6;
+    font: 600 .92rem/1.2 Arial, sans-serif;
+    text-decoration: none;
+    transition: background-color .18s ease, color .18s ease;
+}
+
+.inicio-hero-boton-principal {
+    background: #fffaf6;
+    color: #5b371b;
+}
+
+.inicio-hero-boton:hover,
+.inicio-hero-boton:focus-visible {
+    background: #ead2a5;
+    border-color: #ead2a5;
+    color: #211003;
 }
 
 .banner-biblioteca {
@@ -903,6 +1008,7 @@ h6,
 
 /* presentacion del carrusel semanal de libros mas pedidos */
 .catalogo-mas-pedidos {
+    scroll-margin-top: 96px;
     overflow: hidden;
     padding: 30px 0 38px;
     border-radius: 32px 32px 0 0;
@@ -1262,14 +1368,28 @@ body:has(#main .inicio-hero) {
     position: relative;
 }
 
+.inicio-viaje-titulo {
+    margin: 0 auto 1.5rem;
+    color: #090706;
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(1.55rem, 4.2vw, 2.85rem);
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: center;
+}
+
+.inicio-viaje-titulo span {
+    color: #980b0b;
+}
+
 .inicio-mariposa {
     position: absolute;
-    width: 90px;
+    width: 170px;
     pointer-events: none;
 }
 
-.inicio-mariposa-izq { top: 18%; left: 2%; }
-.inicio-mariposa-der { bottom: 2%; right: 2%; width: 70px; }
+.inicio-mariposa-izq { top: 12%; left: 1%; }
+.inicio-mariposa-der { bottom: 0; right: 1%; width: 170px; }
 
 /* ---------- Más populares ---------- */
 .inicio-populares {
@@ -1395,9 +1515,23 @@ body:has(#main .inicio-hero) {
 
 .inicio-cita-texto span { color: #8B0000; }
 
+.inicio-cita-retrato {
+    flex: 0 0 auto;
+    text-align: center;
+}
+
 .inicio-cita-img {
+    display: block;
     width: clamp(180px, 28vw, 320px);
     height: auto;
+}
+
+.inicio-cita-autor {
+    margin: .35rem 0 0;
+    color: #5B371B;
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: .95rem;
+    font-weight: 700;
 }
 
 /* ---------- Categorías ---------- */

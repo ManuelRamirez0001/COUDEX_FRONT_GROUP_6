@@ -1,5 +1,6 @@
     const CLAVE_CARRITO = 'carritoBiblioteca';
     let carrito = cargarCarrito();
+    let manejadorBotonesCarritoConectado = false;
 
     function cargarCarrito() {
         try {
@@ -326,6 +327,30 @@
     }
 
     export function initCarrito() {
+        if (!manejadorBotonesCarritoConectado) {
+            document.addEventListener('click', (evento) => {
+                const boton = evento.target.closest(
+                    '.catalogo-producto-compra button, .inicio-btn-carrito'
+                );
+                if (!boton) return;
+
+                const tarjeta = boton.closest(
+                    '.catalogo-producto-card[data-id], .inicio-popular[data-id]'
+                );
+                if (!tarjeta) return;
+
+                agregarAlCarrito({
+                    id: tarjeta.dataset.id,
+                    nombre: tarjeta.dataset.nombre,
+                    autor: tarjeta.dataset.autor,
+                    precio: Number(tarjeta.dataset.precio),
+                    categoria: tarjeta.dataset.categorias,
+                    region: tarjeta.dataset.region,
+                    imagen: tarjeta.querySelector('img')?.getAttribute('src') || ''
+                });
+            });
+            manejadorBotonesCarritoConectado = true;
+        }
 
         const botonVaciar = document.getElementById("btn-vaciar");
 

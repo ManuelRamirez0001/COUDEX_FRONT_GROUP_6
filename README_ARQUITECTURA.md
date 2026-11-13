@@ -51,6 +51,8 @@ COUDEX_FRONT_GROUP_6/
 ├── js/                         # Lógica en JavaScript ES Modules
 │   ├── app.js                  # Arranque y navegación SPA del sitio
 │   ├── catalogo.js             # Filtros, paginación, carrusel y ajustes del catálogo
+│   ├── carrito.js              # Carrito persistente y conexión de botones de compra
+│   ├── inicio.js               # Interacción del carrusel de testimonios de Inicio
 │   ├── loadContent.js          # Carga de fragmentos y páginas del sitio
 │   ├── eventos.js              # Formulario de contacto y eventos del sitio
 │   ├── productosStorage.js     # Productos nuevos y ajustes de productos base en localStorage
@@ -70,6 +72,8 @@ COUDEX_FRONT_GROUP_6/
 ```
 
 El sitio público y el panel tienen entradas independientes: `index.html` carga `js/app.js`, mientras que `admin.html` carga `js/admin/appAdmin.js`. Los componentes, estilos, eventos y vistas propios del panel están agrupados en sus respectivas carpetas `admin/`.
+
+La vista `pages/inicio.html` presenta el hero de la biblioteca con texto y botones superpuestos. “Explorar catálogo” navega al catálogo; “Ver los más vendidos” navega al catálogo y desplaza la vista hasta `#catalogo-mas-pedidos`. La sección de portadas conserva sus grupos decorativos de mariposas y la cita incluye el nombre de Gabriel García Márquez bajo su retrato.
 
 La vista `pages/catalogo.html` contiene diez productos base en su HTML, sus portadas SVG, filtros por texto, categoría, región y precio, paginación, carrusel semanal y formulario de suscripción. `js/catalogo.js` aplica los filtros, muestra productos nuevos guardados y aplica los ajustes persistidos para las tarjetas base. El formulario de suscripción envía el correo a Formspree con `fetch()`, mantiene al lector en la página y limpia el campo después de un envío exitoso. El navbar y el footer se cargan desde `components/` en el shell público.
 
@@ -133,6 +137,17 @@ Es el punto de entrada que ejecuta el siguiente ciclo de vida:
 2. **Detección de ruta inicial:** Revisa si la URL trae un parámetro `?page=contactanos` o un hash `#contactanos`. Si no hay ninguno, carga la página por defecto (`inicio`).
 3. **Interceptación de enlaces (Navegación SPA):** Escucha clics en elementos con `[data-page]`. Al hacer clic, cancela la recarga de página tradicional (`e.preventDefault()`), inyecta el nuevo contenido en `#main`, actualiza la URL con `history.pushState()` y vuelve a inicializar los eventos necesarios, incluidos `initFormContacto()` e `initCatalogo()`.
 4. **Soporte de botones Atrás/Adelante:** Escucha el evento `window.addEventListener('popstate')` para que el usuario pueda volver o avanzar en el navegador sin perder el estado.
+
+#### D. `carrito.js` y conexión de productos
+- `agregarAlCarrito(producto)`: agrega un producto o aumenta su cantidad, guarda el estado en `localStorage` y actualiza el panel.
+- `initCarrito()`: registra una sola delegación de clics en el documento para los botones del catálogo (`.catalogo-producto-compra button`) y de Inicio (`.inicio-btn-carrito`). Así los botones siguen conectados aunque la vista cambie mediante navegación SPA.
+- Las tarjetas de Inicio declaran los mismos identificadores y metadatos de producto que el catálogo. Un libro agregado desde cualquiera de las dos vistas se reconoce como el mismo producto.
+- `catalogo.js` se ocupa de los filtros, la paginación y los carruseles del catálogo; la lógica compartida para añadir al carrito reside en `carrito.js`.
+
+#### E. `inicio.js` y estilos responsivos
+- `inicio.js` conecta las flechas del carrusel de testimonios cuando existe en la vista actual.
+- `styles.css` define el hero, sus controles, las secciones de Inicio y el panel lateral del carrito.
+- `responsive.css` adapta el hero a una altura suficiente en móvil y reserva espacio para los encabezados de Inicio y Catálogo bajo la navegación fija.
 
 ---
 

@@ -13,6 +13,9 @@ Ratón de Biblioteca es una propuesta de plataforma digital para descubrir y ace
 ## ✨ ¿Qué encontrarás?
 
 - **Una presentación del proyecto:** propósito, historia, misión y visión.
+- **Una portada para Inicio:** imagen de biblioteca con el título, descripción y botones para explorar el catálogo o ir directamente a los libros más pedidos.
+- **Libros destacados conectados al carrito:** los productos de Inicio comparten los identificadores del catálogo y se agregan al mismo carrito.
+- **Detalles editoriales en Inicio:** sección “Un viaje a través de la historia”, grupos decorativos de mariposas y una cita ilustrada de Gabriel García Márquez.
 - **Un diseño adaptable:** páginas maquetadas para distintos tamaños de pantalla.
 - **Una identidad visual cálida:** tonos café y crema, tipografías editoriales e ilustraciones propias.
 - **Una página de contacto:** formulario con validación y envío mediante Formspree.
@@ -53,6 +56,8 @@ COUDEX_FRONT_GROUP_6/
 ├── js/
 │   ├── app.js                 # Punto de entrada ES Module — orquesta todo el arranque
 │   ├── catalogo.js            # Filtros, paginación, carrusel y ajustes de productos
+│   ├── carrito.js             # Carrito persistente y conexión de botones de compra
+│   ├── inicio.js              # Carrusel de testimonios de Inicio
 │   ├── loadContent.js         # fetch + inyección de components/ y pages/ en el DOM
 │   ├── eventos.js             # Formulario de contacto y eventos del sitio
 │   ├── productosStorage.js    # Productos nuevos y ajustes del catálogo en localStorage
@@ -75,6 +80,8 @@ COUDEX_FRONT_GROUP_6/
 │       └── panelAdmin.html    # Formulario y tabla de gestión de libros
 └── img/
     ├── ...                     # Imágenes, íconos y fotografías del sitio
+    ├── grupo_mariposas1.png    # Grupo decorativo de Inicio
+    ├── grupo_mariposas2.png    # Segundo grupo decorativo de Inicio
     └── vistaCatalogo/
         ├── heroCatalogo.svg    # Hero gráfico del catálogo
         ├── parche/             # Ilustraciones de categorías
@@ -84,6 +91,8 @@ COUDEX_FRONT_GROUP_6/
 ```
 
 El catálogo muestra nueve libros por página y actualiza los conteos regionales según los productos disponibles. El panel muestra diez libros por página; al agregar un producto abre la página donde queda listado. Los cambios hechos a libros base se guardan en `ratonBiblioteca_ajustesCatalogo`; los productos nuevos se guardan en `ratonBiblioteca_productos`.
+
+El hero de Inicio usa los botones “Explorar catálogo” y “Ver los más vendidos”; el segundo abre la sección de más pedidos dentro del catálogo. Los libros destacados de Inicio comparten los IDs y metadatos del catálogo para que se agreguen al mismo carrito. `js/carrito.js` centraliza la conexión de botones de ambas vistas y conserva los productos en `localStorage`. El hero, los grupos de mariposas y las tarjetas se adaptan a pantallas móviles.
 
 ## 📖 Documentación técnica
 

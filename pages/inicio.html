@@ -3,25 +3,26 @@
     <div class="container-fluid p-0">
         <img src="img/Biblioteca.optimized.svg" alt="Biblioteca clásica - Ratón de Biblioteca" class="img-fluid w-100 banner-biblioteca" width="1437" height="617" fetchpriority="high" decoding="async">
     </div>
+    <div class="inicio-hero-contenido">
+        <p class="inicio-hero-etiqueta"><span></span>LITERATURA COLOMBIANA<span></span></p>
+        <h1>DE LA MONTAÑA AL CARIBE,</h1>
+        <p class="inicio-hero-subtitulo">CADA LIBRO FORMA UN PAÍS</p>
+        <p class="inicio-hero-descripcion">Recorre Colombia a través de sus historias: novelas, cuentos y poesía<br class="d-none d-md-block"> de autores colombianos y librerías independientes.</p>
+        <div class="inicio-hero-acciones">
+            <a href="index.html?page=catalogo" data-page="catalogo" class="inicio-hero-boton inicio-hero-boton-principal">Explorar catálogo</a>
+            <a href="index.html?page=catalogo#catalogo-mas-pedidos" data-page="catalogo" data-scroll-target="catalogo-mas-pedidos" class="inicio-hero-boton inicio-hero-boton-secundario">Ver los más vendidos</a>
+        </div>
+    </div>
 </section>
 
 <!-- Sección: De la montaña al Caribe -->
 <section class="container-xxl py-5 my-md-4 inicio-bienvenida">
-    <img src="img/vistaCatalogo/Mariposa1.svg" alt="" aria-hidden="true" class="inicio-mariposa inicio-mariposa-izq" loading="lazy">
-    <img src="img/vistaCatalogo/Mariposa2.svg" alt="" aria-hidden="true" class="inicio-mariposa inicio-mariposa-der" loading="lazy">
+    <img src="img/grupo_mariposas1.png" alt="" aria-hidden="true" class="inicio-mariposa inicio-mariposa-izq" loading="lazy">
+    <img src="img/grupo_mariposas2.png" alt="" aria-hidden="true" class="inicio-mariposa inicio-mariposa-der" loading="lazy">
     <div class="row justify-content-center">
         <div class="col-12 col-xl-11">
             
-            <!-- Encabezados -->
-            <div class="mb-3 col-lg-10 col-xl-9 mx-auto">
-                <h2 class="titulo-montana text-start mb-1">DE LA MONTAÑA AL CARIBE,</h2>
-                <h3 class="subtitulo-pais text-end mb-0">CADA LIBRO FORMA UN PAÍS...</h3>
-            </div>
-
-            <!-- Descripción central -->
-            <p class="text-center texto-descripcion-inicio">
-                Recorre Colombia a través de sus historias. Descubre novelas, cuentos y poesía de autores colombianos, de librerías y vendedores independientes, y llévate a casa tu próxima lectura.
-            </p>
+            <h2 class="inicio-viaje-titulo">UN VIAJE A TRAVÉS DE LA <span>HISTORIA</span></h2>
 
             <!-- Trilogía de portadas en abanico -->
             <div class="abanico-libros">
@@ -46,22 +47,22 @@
         </div>
 
         <div class="inicio-populares-grid">
-            <article class="inicio-popular">
+            <article class="inicio-popular" data-id="base-6" data-nombre="Nocturno" data-autor="José Asunción Silva" data-precio="39000" data-categorias="poesia" data-region="andina">
                 <img src="img/vistaCatalogo/libros/nocturno.svg" alt="Portada de Nocturno" loading="lazy" decoding="async">
-                <div class="inicio-popular-datos"><h3>Nocturno</h3><strong>$75.000</strong></div>
+                <div class="inicio-popular-datos"><h3>Nocturno</h3><strong>$39.000</strong></div>
                 <button type="button" class="inicio-btn-carrito">Añadir al carrito</button>
             </article>
-            <article class="inicio-popular">
+            <article class="inicio-popular" data-id="base-4" data-nombre="El coronel no tiene quien le escriba" data-autor="Gabriel García Márquez" data-precio="48000" data-categorias="clasica realismo-magico" data-region="caribe">
                 <img src="img/vistaCatalogo/libros/notienequienescriba.svg" alt="Portada de El coronel no tiene quien le escriba" loading="lazy" decoding="async">
-                <div class="inicio-popular-datos"><h3>El coronel no tiene quien le escriba</h3><strong>$75.000</strong></div>
+                <div class="inicio-popular-datos"><h3>El coronel no tiene quien le escriba</h3><strong>$48.000</strong></div>
                 <button type="button" class="inicio-btn-carrito">Añadir al carrito</button>
             </article>
-            <article class="inicio-popular">
+            <article class="inicio-popular" data-id="base-5" data-nombre="¡Que viva la música!" data-autor="Andrés Caicedo" data-precio="62000" data-categorias="contemporanea" data-region="andina">
                 <img src="img/vistaCatalogo/libros/quevivalamusica.svg" alt="Portada de ¡Que viva la música!" loading="lazy" decoding="async">
-                <div class="inicio-popular-datos"><h3>¡Que viva la música!</h3><strong>$75.000</strong></div>
+                <div class="inicio-popular-datos"><h3>¡Que viva la música!</h3><strong>$62.000</strong></div>
                 <button type="button" class="inicio-btn-carrito">Añadir al carrito</button>
             </article>
-            <article class="inicio-popular">
+            <article class="inicio-popular" data-id="base-1" data-nombre="Cien años de soledad" data-autor="Gabriel García Márquez" data-precio="75000" data-categorias="realismo-magico" data-region="caribe">
                 <img src="img/vistaCatalogo/libros/cienañosdesoledad.svg" alt="Portada de Cien años de soledad" loading="lazy" decoding="async">
                 <div class="inicio-popular-datos"><h3>Cien años de soledad</h3><strong>$75.000</strong></div>
                 <button type="button" class="inicio-btn-carrito">Añadir al carrito</button>
@@ -75,7 +76,10 @@
     <blockquote class="inicio-cita-texto">
         <p>Échele un <span>ojo</span> a los tesoros literarios que nos parió esta <span>patria</span>...</p>
     </blockquote>
-    <img src="img/gabo.png" alt="Retrato ilustrado de Gabriel García Márquez" class="inicio-cita-img" loading="lazy" onerror="this.style.display='none'">
+    <div class="inicio-cita-retrato">
+        <img src="img/gabo.png" alt="Retrato ilustrado de Gabriel García Márquez" class="inicio-cita-img" loading="lazy" onerror="this.style.display='none'">
+        <p class="inicio-cita-autor">Gabriel García Márquez</p>
+    </div>
 </section>
 
 <!-- Categorías (parches literarios) -->

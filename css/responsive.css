@@ -33,9 +33,77 @@
     background-color: #fff;
 }
 
+/* Hero de Inicio: reserva altura para que la imagen y su contenido quepan en móvil. */
+@media (max-width: 767.98px) {
+    .inicio-hero {
+        height: clamp(350px, 60svh, 430px);
+    }
+
+    .inicio-hero > .container-fluid {
+        position: absolute;
+        inset: 0;
+    }
+
+    .inicio-hero .banner-biblioteca {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .inicio-hero-contenido {
+        padding: 14px;
+    }
+
+    .inicio-hero-etiqueta {
+        gap: 8px;
+        margin-bottom: 8px;
+        font-size: .58rem;
+        letter-spacing: .12em;
+    }
+
+    .inicio-hero-etiqueta span {
+        width: 24px;
+    }
+
+    .inicio-hero-contenido h1 {
+        font-size: clamp(1.05rem, 5vw, 1.45rem);
+        letter-spacing: -.03em;
+    }
+
+    .inicio-hero-subtitulo {
+        margin-top: 4px;
+        font-size: clamp(1rem, 4.6vw, 1.3rem);
+    }
+
+    .inicio-hero-descripcion {
+        max-width: 34rem;
+        margin: 12px 0;
+        font-size: .76rem;
+        line-height: 1.45;
+    }
+
+    .inicio-hero-acciones {
+        gap: 8px;
+    }
+
+    .inicio-hero-boton {
+        min-width: 138px;
+        min-height: 40px;
+        padding: 8px 10px;
+        border-radius: 10px;
+        font-size: .76rem;
+    }
+}
+
 /* Evitar que el contenido quede debajo del navbar */
 #main {
     padding-top: 90px;
+}
+
+/* alinea el hero justo debajo del navbar quitando franja blanca */
+body:has(#main .inicio-hero) #main {
+    padding-top: 76px;
 }
 @media (max-width: 768px) {
 
@@ -262,7 +330,7 @@
 
 @media (max-width: 575.98px) {
     .catalogo-parches {
-        padding-top: 30px;
+        padding-top: 50px;
     }
 
     .catalogo-parches-grid {
